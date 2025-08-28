@@ -1,3 +1,4 @@
+import mysql.connector
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from dotenv import load_dotenv
@@ -26,11 +27,17 @@ SessionLocal = sessionmaker(autocommit=False,autoflush=False,bind=engine)
 
 def connect_to_db():
     try:
-        db = SessionLocal()
+        connection = mysql.connector.connect(
+            user=os.getenv("MYSQL_USER"),
+            password=os.getenv("MYSQL_PASSWORD"),
+            host=os.getenv("MYSQL_HOST"),
+            port=os.getenv("MYSQL_PORT"),
+            database=os.getenv("MYSQL_DATABASE")
+        )
+        return connection
     except Exception as e:
         print(f"Error en la conexión a la base de datos: {e}")
-    finally:
-        db.close()
+        return None
 
 
 # Test de conexión

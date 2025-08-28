@@ -82,7 +82,9 @@ with_message_history = RunnableWithMessageHistory(
 def get_product_info(product_name):
     connection = connect_to_db()
     if not connection:
-        return None
+        return print("no se conecto a la bd")
+    else:
+        print("se conecto a la bd")
 
     cursor = connection.cursor(dictionary=True)
     # Consulta para productos que COMIENZAN con el nombre dado
@@ -153,8 +155,9 @@ def get_product_info(product_name):
 # ================================
 
 def detect_product_with_ai(user_input):
-    with open("prompts/prompt_input.txt", "r", encoding="utf-8") as file:
+    with open("prompts//prompt_input.txt", "r", encoding="utf-8") as file:
         prompt = file.read()
+        print("se cargo el archivo .txt")
     
     prompt += f"""
 
@@ -248,8 +251,9 @@ def get_response(user_input):
         return products
 
     # 4. Respuesta predeterminada
-    with open("prompts/prompt_output.txt", "r", encoding="utf-8") as fileOut:
+    with open("prompts//prompt_output.txt", "r", encoding="utf-8") as fileOut:
         promptOutput = fileOut.read()
+        print("se cargo el archivo .txt")
     
     default_context = config.get("prompt", {}).get("message", promptOutput)
     prompt = f"{default_context}\nPregunta del usuario: {user_input}\nRespuesta:"
