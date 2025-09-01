@@ -42,6 +42,7 @@ config = load_config()
 if not config:
     exit("No se pudo cargar la configuración. Terminando el programa.")
 
+
 # ================================
 # Modelo de IA
 # ================================
@@ -157,7 +158,7 @@ def get_product_info(product_name):
 def detect_product_with_ai(user_input):
     with open("prompts//prompt_input.txt", "r", encoding="utf-8") as file:
         prompt = file.read()
-        print("se cargo el archivo .txt")
+        print("Se cargó correctamente el archivo.txt")
     
     prompt += f"""
 

@@ -39,6 +39,7 @@ def send_whatsapp(request_data: SendMessageRequest, token: str = Depends(verify_
     )
     return {"status": "success", "sid": message.sid}
 
+# Recibir mensajes entrantes de WhatsApp
 @router.post("/webhook")
 async def webhook(request: Request):
     try:
