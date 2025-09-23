@@ -75,50 +75,35 @@ with_message_history = RunnableWithMessageHistory(
     history_messages_key="history"
 )
 
-def log_historial_archivo(session_id:str)-> list:
-    ruta_archivo = os.path.join("conversaciones",f"{session_id}.txt")
-    if not os.path.exists(ruta_archivo):
-        return []
+def cargar_historial_para_ia(session_id: str) -> str:
+    ruta = os.path.join("conversaciones", f"{session_id}.txt")
+    print(ruta)
+    if not os.path.exists(ruta):
+        return "No hay historial disponible."
+
     try:
-        with open(ruta_archivo,'r',encoding='utf-8')as file:
-            lineas = file.readlines()
-        
-        historial = []
+        with open(ruta, "r", encoding="utf-8") as f:
+            lineas = f.readlines()
+
+        conversacion = []
         for linea in lineas:
-            linea = linea.strip()
             if " - De " in linea:
-                # Formato: "2025-08-27 19:51:29 - De whatsapp:+54911...: Mensaje"
                 try:
-                    timestamp_str = linea[:19]  # "2025-08-27 19:51:29"
-                    resto = linea[20:]  
-
-                    if "De " in resto and ": " in resto:
-                        contenido = resto.split(": ", 1)[1]  # mensaje después del número
-                        historial.append({
-                            "timestamp": timestamp_str,
-                            "role": "user",
-                            "content": contenido
-                        })
+                    contenido = linea.split(" - De ")[1].split(": ", 1)[1].strip()
+                    conversacion.append(f"Usuario: {contenido}")
                 except:
                     continue
-
             elif " - Bot: " in linea:
-                # Formato: "2025-08-27 19:51:30 - Bot: Tienen 15 unidades"
                 try:
-                    timestamp_str = linea[:19]
-                    contenido = linea.split(" - Bot: ", 1)[1]
-                    historial.append({
-                        "timestamp": timestamp_str,
-                        "role": "bot",
-                        "content": contenido
-                    })
+                    contenido = linea.split(" - Bot: ", 1)[1].strip()
+                    conversacion.append(f"Bot: {contenido}")
                 except:
                     continue
         
-        return historial
+        return "\n".join(conversacion)
+    
     except Exception as e:
-        print(f"❌ Error leyendo historial del archivo: {e}")
-        return []
+        return "Error al leer el historial."
 
 # ================================
 # Buscar productos
@@ -252,7 +237,33 @@ Producto mencionado:
 
 def get_response(user_input: str, session_id: str) -> str:
     user_input_lower = user_input.lower().strip()
+# Detectar si pregunta sobre el pasado
+    palabras_memoria = ["antes", "después", "anterior", "siguiente", "primero", "último", "empezamos", "pedí", "pregunté", "mencioné", "hace", "atrás", "otra vez", "previo"]
 
+    if any(word in user_input_lower for word in palabras_memoria):
+        historial_texto = cargar_historial_para_ia(session_id)
+        
+        prompt_memoria = f"""
+        Eres un asistente que tiene acceso completo al historial de conversación.
+        Tu tarea es responder con precisión basándote SOLO en los mensajes reales.
+
+        Historial completo:
+        {historial_texto}
+
+        Pregunta del usuario: "{user_input}"
+        Respuesta clara, directa y sin inventar nada. Si no está en el historial, di: "No encuentro esa referencia en nuestra conversación".
+        """
+        print(prompt_memoria)
+        try:
+            result = with_message_history.invoke(
+                {"input": prompt_memoria},
+                config={"configurable": {"session_id": session_id + "_mem"}}  # Sesión separada
+            )
+            response = result.content if hasattr(result, "content") else str(result)
+            return response.strip()
+        except Exception as e:
+            print(f"❌ Error usando IA para memoria: {e}")
+            return "Tengo problemas para recordar ese detalle."
     
     # 1. Verificar coincidencias en config.json
     for category, data in config.items():
