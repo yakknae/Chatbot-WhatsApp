@@ -30,6 +30,4 @@ uvicorn app.main:app --reload --port 8000
 pause
 
 
-rem start "C:\Users\valen\AppData\Local\Programs\Ollama\ollama app.exe'
-:: Cambiar C:\Users\valen por %appdata%
 

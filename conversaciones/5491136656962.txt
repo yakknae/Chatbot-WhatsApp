@@ -213,3 +213,37 @@ Respuesta:'
 ¿Te gustaría saber más sobre alguna de estas opciones, o quizás tienes alguna otra pregunta?
 2025-09-22 22:22:07 - De whatsapp:+5491136656962: hola
 2025-09-22 22:22:08 - Bot: AI: ¡Hola! Bienvenido/a a nuestro servicio de atención al cliente. ¿En qué puedo ayudarte hoy? ¿Tienes alguna pregunta sobre nuestros productos, precios o disponibilidad? Estoy aquí para asistirte.
+2025-09-28 14:32:48 - De whatsapp:+5491136656962: hola
+2025-09-28 14:33:00 - Bot: ¡Hola! Bienvenido/a a nuestro servicio de atención al cliente. ¿En qué puedo ayudarte hoy? ¿Tienes alguna pregunta sobre algún producto, precios, disponibilidad o necesitas ayuda para encontrar algo en particular?
+2025-09-28 14:33:22 - De whatsapp:+5491136656962: de que productos esta compuesta una ensalada
+2025-09-28 14:33:22 - Bot: Por favor, especifique el nombre del producto que desea buscar.
+2025-09-28 14:33:30 - De whatsapp:+5491136656962: ensalada
+2025-09-28 14:33:34 - Bot: ¡Hola! Para preparar tu ensalada, tenemos los siguientes ingredientes disponibles:
+
+*   **Tomates Cherry Transgénicos Larga Duración** (Marca: Arcor (Frutas)) - Precio: $90.00, Stock: 160 unidades (Disponible)
+*   **Tomates Enlatados 400g** (Marca: Noel) - Precio: $60.00, Stock: 120 unidades (Disponible)
+*   **Zanahorias 1kg** (Marca: Arcor (Verduras)) - Precio: $75.00, Stock: 160 unidades (Disponible)
+*   **Zanahorias de Proximidad 1kg** (Marca: Arcor (Verduras)) - Precio: $90.00, Stock: 150 unidades (Disponible)
+*   **Aceitunas Verdes 300g** (Marca: Coto) - Precio: $100.00, Stock: 160 unidades (Disponible)
+
+¿Hay algo más en lo que pueda ayudarte a preparar tu ensalada? ¿Quizás necesitas alguna vinagreta o aderezo?
+2025-09-28 14:33:57 - De whatsapp:+5491136656962: y para preparar una chocotorta?
+2025-09-28 14:34:01 - Bot: AI: ¡Hola! Para preparar tu chocotorta, tenemos los siguientes ingredientes disponibles:
+
+*   **Chocolate 70% Cacao Sin Azúcar** (Marca: Cabaña Las Lilas) - Precio: $120.00, Stock: 130 unidades (Disponible)
+*   **Mermelada de Frambuesa Sin Azúcar** (Marca: Molinos Cañuelas) - Precio: $110.00, Stock: 120 unidades (Disponible)
+*   **Yogur Probiótico Natural Sin Azúcar** (Marca: Yogurísimo) - Precio: $150.00, Stock: 90 unidades (Disponible)
+*   **Cacao en Polvo 200g** (Marca: Disco) - Precio: $90.00, Stock: 190 unidades (Disponible)
+
+¿Necesitas alguna otra cosa para hacer tu chocotorta, como harina o azúcar? ¡Estoy aquí para ayudarte!
+2025-09-28 14:34:18 - De whatsapp:+5491136656962: y para preparar un tiramisu?
+2025-09-28 14:34:23 - Bot: AI: ¡Hola! Para preparar tu tiramisú, tenemos los siguientes ingredientes disponibles:
+
+*   **Café de Comercio Justo Colombia 500g** (Marca: Cabrales) - Precio: $180.00, Stock: 90 unidades (Disponible)
+*   **Cafe Molido 250g** (Marca: Cabrales) - Precio: $180.00, Stock: 110 unidades (Disponible)
+*   **Cacao en Polvo 200g** (Marca: Disco) - Precio: $90.00, Stock: 190 unidades (Disponible)
+*   **Chocolate 70% Cacao Sin Azúcar** (Marca: Cabaña Las Lilas) - Precio: $120.00, Stock: 130 unidades (Disponible)
+*   **Mermelada de Frambuesa Sin Azúcar** (Marca: Molinos Cañuelas) - Precio: $110.00, Stock: 120 unidades (Disponible)
+*   **Yogur Probiótico Natural Sin Azúcar** (Marca: Yogurísimo) - Precio: $150.00, Stock: 90 unidades (Disponible)
+
+¿Necesitas algo más para tu tiramisú, tal vez algún licor o esencia de vainilla? ¡Estoy aquí para ayudarte a completar tu receta!

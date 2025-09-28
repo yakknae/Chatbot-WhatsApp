@@ -237,7 +237,8 @@ Producto mencionado:
 
 def get_response(user_input: str, session_id: str) -> str:
     user_input_lower = user_input.lower().strip()
-# Detectar si pregunta sobre el pasado
+
+    # 1. Detectar palabras sobre el pasado  
     palabras_memoria = ["antes", "después", "anterior", "siguiente", "primero", "último", "empezamos", "pedí", "pregunté", "mencioné", "hace", "atrás", "otra vez", "previo"]
 
     if any(word in user_input_lower for word in palabras_memoria):
@@ -265,7 +266,7 @@ def get_response(user_input: str, session_id: str) -> str:
             print(f"❌ Error usando IA para memoria: {e}")
             return "Tengo problemas para recordar ese detalle."
     
-    # 1. Verificar coincidencias en config.json
+    # 2. Verificar coincidencias en config.json
     for category, data in config.items():
         if category == "prompt":
             continue
@@ -273,7 +274,7 @@ def get_response(user_input: str, session_id: str) -> str:
         if any(keyword in user_input_lower for keyword in keywords):
             return data.get("message", "Sin información disponible.")
 
-    # 2. Detectar producto con IA
+    # 3. Detectar producto con IA
     detected_product = detect_product_with_ai(user_input)
     if detected_product:
         print(f"Producto detectado por IA: {detected_product}")
@@ -286,8 +287,9 @@ def get_response(user_input: str, session_id: str) -> str:
     else:
         print("Ningún producto detectado por IA.")
         products = None
+    
 
-    # 3. Si hay productos encontrados
+    # 4. Si hay productos encontrados
     if products and isinstance(products, list):
         context = "Tenemos estos tipos de productos disponibles:\n"
         for product in products:
@@ -324,10 +326,85 @@ def get_response(user_input: str, session_id: str) -> str:
             print(f"❌ Error al generar respuesta (productos): {e}")
             return "No pude procesar esa consulta. Intenta más tarde."
 
-    elif isinstance(products, str):
-        return products
+    # 5. Si NO se encontró ningún producto → analizar si es una comida compuesta
+    else:
+        prompt_ingredientes = f"""
+Analiza si '{user_input}' es un plato o comida compuesta (como ensalada, torta, sándwich, etc.).
+Si lo es, responde SOLO con los nombres de los ingredientes principales separados por comas.
+Si no, responde exactamente: "ninguno"
 
-    # 4. Respuesta predeterminada
+Ejemplos:
+- Entrada: "ensalada"
+  Salida: lechuga, tomate, pepino, zanahoria, aceitunas
+
+- Entrada: "torta de chocolate"
+  Salida: harina, azúcar, huevos, cacao en polvo, manteca
+
+- Entrada: "leche"
+  Salida: ninguno
+
+- Entrada: "hamburguesa"
+  Salida: pan, carne molida, lechuga, tomate, queso
+
+Entrada: "{user_input}"
+Salida: 
+"""
+
+        try:
+            raw_response = model.invoke(prompt_ingredientes).strip()
+            print(f"🔍 Respuesta cruda de IA (ingredientes): {raw_response}")
+
+            # Limpiar respuesta
+            if "ninguno" in raw_response.lower():
+                # No es un plato compuesto
+                pass  # Continúa al siguiente paso
+            else:
+                ingredientes = [item.strip() for item in raw_response.split(",") if item.strip()]
+                
+                if ingredientes:
+                    print(f"🍳 Ingredientes detectados: {ingredientes}")
+                    
+                    # Buscar cada ingrediente en la BD
+                    productos_encontrados = []
+                    for ingrediente in ingredientes:
+                        resultado = get_product_info(ingrediente)
+                        if isinstance(resultado, list):
+                            productos_encontrados.extend(resultado)
+
+                    if productos_encontrados:
+                        context = f"Para preparar '{user_input}', tenemos estos ingredientes disponibles:\n"
+                        for product in productos_encontrados:
+                            stock_status = "Disponible" if product.get("stock", 0) > 0 else "Agotado"
+                            name = product.get('producto', 'Producto sin nombre')
+                            brand = product.get('marca', 'Marca desconocida')
+                            price = product.get('precio_venta', 'Precio no disponible')
+
+                            context += (
+                                f"- **{name}** (Marca: {brand}) - Precio: ${price}, Stock: {product.get('stock', 0)} unidades ({stock_status})\n"
+                            )
+
+                        full_prompt = f"""
+                        {context}
+                        El usuario quiere preparar: "{user_input}"
+                        Respuesta clara y amigable:
+                        """
+                        try:
+                            result = with_message_history.invoke(
+                                {"input": full_prompt},
+                                config={"configurable": {"session_id": session_id}}
+                            )
+                            bot_response = result.content if hasattr(result, "content") else str(result)
+                            return bot_response.strip()
+                        except Exception as e:
+                            print(f"❌ Error generando respuesta para comida compuesta: {e}")
+                            return "Encontré algunos ingredientes, pero tuve problemas para responder."
+                    else:
+                        return f"No tenemos disponibles los ingredientes típicos para '{user_input}'."
+        
+        except Exception as e:
+            print(f"❌ Error al descomponer comida compuesta: {e}")
+
+    # 6. Respuesta predeterminada
     try:
         # Leer el contexto base del sistema desde archivo
         with open("prompts/prompt_output.txt", "r", encoding="utf-8") as fileOut:
