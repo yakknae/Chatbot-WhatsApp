@@ -8,6 +8,9 @@ from langchain_core.messages import HumanMessage, AIMessage
 from langchain_core.chat_history import InMemoryChatMessageHistory
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from app.database import connect_to_db
+from datetime import datetime
+from .twilio_client import client, twilio_whatsapp_number
+from collections import defaultdict
 
 # ================================
 # Verificar Token
@@ -18,6 +21,7 @@ def verify_token(token: str):
         raise HTTPException(status_code=401, detail="Token inválido")
     return True
 
+carritos = defaultdict(list)
 
 
 # ================================
@@ -41,6 +45,49 @@ def load_config():
 config = load_config()
 if not config:
     exit("No se pudo cargar la configuración. Terminando el programa.")
+
+
+# ================================
+# Enviar mensaje al gerente una vez hecho el pedido
+# ================================
+
+# Enviar mensaje manualmente
+from datetime import datetime
+
+def send_order_summary_to_manager(order_data: dict, manager_number: str):
+    try:
+        lines = ["🛒 *¡Nuevo pedido recibido!*", ""]
+        lines.append(f"*Cliente:* {order_data.get('cliente', 'WhatsApp')}")
+        lines.append(f"*Teléfono:* {order_data.get('telefono', 'Desconocido')}")
+        lines.append(f"*Fecha:* {order_data.get('fecha', datetime.now().strftime('%Y-%m-%d %H:%M'))}")
+        lines.append("")
+        lines.append("*Productos:*")
+        
+        total = 0
+        for p in order_data.get("productos", []):
+            nombre = p.get("nombre", "Producto")
+            cantidad = p.get("cantidad", 1)
+            precio = p.get("precio", 0)
+            subtotal = cantidad * precio
+            total += subtotal
+            lines.append(f"  • {cantidad}x {nombre} - ${subtotal}")
+        
+        lines.append("")
+        lines.append(f"*TOTAL: ${total}*")
+        
+        message_body = "\n".join(lines)
+        
+        message = client.messages.create(
+            from_=twilio_whatsapp_number,
+            body=message_body,
+            to=f"whatsapp:{manager_number}"
+        )
+        print(f"✅ Pedido enviado al gerente. SID: {message.sid}")
+        return True
+    except Exception as e:
+        print(f"❌ Error al enviar pedido: {e}")
+        return False
+
 
 
 # ================================
@@ -208,8 +255,6 @@ Producto mencionado:
         else:
             products_text = cleaned  # por si el modelo responde directamente
 
-        # Dividir por comas, saltos de línea o "y"
-
         # Divide por coma, " y ", o saltos de línea
         product_list = re.split(r',|\s+y\s+|\n', products_text, flags=re.IGNORECASE)
         
@@ -237,60 +282,78 @@ Producto mencionado:
 
 def get_response(user_input: str, session_id: str) -> str:
     user_input_lower = user_input.lower().strip()
-
-    # 1. Detectar palabras sobre el pasado  
-    palabras_memoria = ["antes", "después", "anterior", "siguiente", "primero", "último", "empezamos", "pedí", "pregunté", "mencioné", "hace", "atrás", "otra vez", "previo"]
-
-    if any(word in user_input_lower for word in palabras_memoria):
-        historial_texto = cargar_historial_para_ia(session_id)
-        
-        prompt_memoria = f"""
-        Eres un asistente que tiene acceso completo al historial de conversación.
-        Tu tarea es responder con precisión basándote SOLO en los mensajes reales.
-
-        Historial completo:
-        {historial_texto}
-
-        Pregunta del usuario: "{user_input}"
-        Respuesta clara, directa y sin inventar nada. Si no está en el historial, di: "No encuentro esa referencia en nuestra conversación".
-        """
-        print(prompt_memoria)
-        try:
-            result = with_message_history.invoke(
-                {"input": prompt_memoria},
-                config={"configurable": {"session_id": session_id + "_mem"}}  # Sesión separada
-            )
-            response = result.content if hasattr(result, "content") else str(result)
-            return response.strip()
-        except Exception as e:
-            print(f"❌ Error usando IA para memoria: {e}")
-            return "Tengo problemas para recordar ese detalle."
     
-    # 2. Verificar coincidencias en config.json
-    for category, data in config.items():
-        if category == "prompt":
-            continue
-        keywords = data.get("keywords", [])
-        if any(keyword in user_input_lower for keyword in keywords):
-            return data.get("message", "Sin información disponible.")
-
-    # 3. Detectar producto con IA
+    # 1. Detectar producto con IA
     detected_product = detect_product_with_ai(user_input)
+    all_products = []
     if detected_product:
-        print(f"Producto detectado por IA: {detected_product}")
-        all_products = []
+        print(f"Producto detectado (caso 1 ): {detected_product}")
         for product_name in detected_product:
             products = get_product_info(product_name)
             if isinstance(products,list):
                 all_products.extend(products)
-        products = all_products if all_products else "No se encontraron productos relacionados."
+        products = all_products
     else:
-        print("Ningún producto detectado por IA.")
-        products = None
-    
+        print("Ningún producto detectado.")
+        products = []
 
-    # 4. Si hay productos encontrados
-    if products and isinstance(products, list):
+    # === NUEVO: Si el usuario quiere agregar productos al carrito ===
+    palabras_agregar = ["agregar", "agregá", "añadir", "poner", "incluir", "sumar"]
+    if any(palabra in user_input_lower for palabra in palabras_agregar) and products:
+        # Guardar productos en el carrito de esta sesión
+        carritos[session_id].extend(products)
+        return f"✅ Productos agregados al carrito. Tienes {len(carritos[session_id])} producto(s)."
+    
+    # === NUEVO: Si el usuario pide ver el carrito ===
+    palabras_carrito = ["carrito", "pedido", "comprar", "ordenar", "quiero comprar", "hacer pedido", "ver carrito", "mostrar carrito"]
+    if any(palabra in user_input_lower for palabra in palabras_carrito):
+        if carritos[session_id]:
+            # Mostrar resumen del carrito
+            resumen = "🛒 Tu carrito:\n"
+            total = 0
+            for p in carritos[session_id]:
+                name = p.get('producto', 'Producto')
+                price = p.get('precio_venta', 0)
+                resumen += f"- {name} - ${price}\n"
+                total += price
+            resumen += f"\nTotal: ${total}\n\n¿Deseas confirmar este pedido? Responde *sí* para finalizar."
+            return resumen
+        else:
+            return "No tienes productos en el carrito. ¿Qué te gustaría comprar?"
+
+    # === NUEVO: Confirmar pedido ===
+    palabras_confirmar = ["sí", "si", "confirmo", "acepto", "quiero", "comprar", "finalizar", "ordenar"]
+    if (
+        any(palabra in user_input_lower for palabra in palabras_confirmar) 
+        and len(user_input_lower.split()) <= 5
+        and carritos[session_id]  # ← ahora usamos el carrito, no products
+    ):
+        # Construir datos del pedido
+        order_data = {
+            "cliente": "Cliente WhatsApp",
+            "telefono": session_id.replace("whatsapp:", ""),
+            "productos": [
+                {
+                    "nombre": p.get("producto", "Producto"),
+                    "cantidad": 1,
+                    "precio": p.get("precio_venta", 0)
+                }
+                for p in carritos[session_id]
+            ],
+            "fecha": datetime.now().strftime("%Y-%m-%d %H:%M")
+        }
+
+        # Enviar al gerente
+        MANAGER_NUMBER = "+5491112345678"
+        send_order_summary_to_manager(order_data, MANAGER_NUMBER)
+
+        # Limpiar carrito después de enviar
+        carritos[session_id].clear()
+
+        return "¡Pedido confirmado! 🎉 El gerente ha sido notificado y se comunicará contigo pronto."
+
+    # 1,5 . Si hay productos encontrados
+    if products:
         context = "Tenemos estos tipos de productos disponibles:\n"
         for product in products:
             stock_status = "Disponible" if product.get("stock", 0) > 0 else "Agotado"
@@ -319,14 +382,16 @@ def get_response(user_input: str, session_id: str) -> str:
                 {"input": full_prompt},
                 config={"configurable": {"session_id": session_id}}
             )
-            # ✅ Aseguramos que sea string, sin depender de .content
+            #  Aseguramos que sea string, sin depender de .content
             bot_response = result.content if hasattr(result, "content") else str(result)
             return bot_response.strip()
         except Exception as e:
             print(f"❌ Error al generar respuesta (productos): {e}")
             return "No pude procesar esa consulta. Intenta más tarde."
 
-    # 5. Si NO se encontró ningún producto → analizar si es una comida compuesta
+
+    
+    # 2. Si NO se encontró ningún producto → analizar si es una comida compuesta
     else:
         prompt_ingredientes = f"""
 Analiza si '{user_input}' es un plato o comida compuesta (como ensalada, torta, sándwich, etc.).
@@ -404,21 +469,22 @@ Salida:
         except Exception as e:
             print(f"❌ Error al descomponer comida compuesta: {e}")
 
-    # 6. Respuesta predeterminada
+    # 3. Respuesta predeterminada
     try:
         # Leer el contexto base del sistema desde archivo
         with open("prompts/prompt_output.txt", "r", encoding="utf-8") as fileOut:
             promptOutput = fileOut.read().strip()
+            
     except Exception as e:
         print(f"❌ No se pudo leer prompt_output.txt: {e}")
         promptOutput = "Eres un asistente útil. Responde de forma amable y clara."
+    print(promptOutput)
 
-    # Usa el contexto de config.json si existe
-    system_context = config.get("prompt", {}).get("message", promptOutput)
+    system_context = promptOutput
 
     # Construye el input limpio → solo lo que dice el usuario
     final_input = f"{system_context}\n\nPregunta del usuario: {user_input}"
-
+    print("variable final_input:", final_input)
     try:
         result = with_message_history.invoke(
             {"input": final_input},

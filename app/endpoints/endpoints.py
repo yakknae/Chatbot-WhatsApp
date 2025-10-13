@@ -6,14 +6,11 @@ from twilio.rest import Client
 from twilio.base.exceptions import TwilioRestException
 from ..schemas import SendMessageRequest
 from ..crud import get_response
+from ..twilio_client import client, twilio_whatsapp_number
 
 # Crear el router
 router = APIRouter()
 
-# Credenciales
-twilio_whatsapp_number = os.getenv("TWILIO_WHATSAPP_NUMBER")
-account_sid = os.getenv("TWILIO_ACCOUNT_SID")
-auth_token = os.getenv("TWILIO_AUTH_TOKEN")
 
 # Carpeta para conversaciones
 CARPETA_CONVERSACIONES = "conversaciones"
@@ -22,8 +19,6 @@ os.makedirs(CARPETA_CONVERSACIONES, exist_ok=True)
 # Lista para guardar mensajes recibidos en memoria
 mensajes_recibidos = []
 
-# Cliente de Twilio
-client = Client(account_sid, auth_token)
 
 @router.get("/test")
 def test():
@@ -38,6 +33,9 @@ def send_whatsapp(request_data: SendMessageRequest, token: str = Depends(verify_
         to=f"whatsapp:{request_data.to}"
     )
     return {"status": "success", "sid": message.sid}
+
+
+
 
 # Recibir mensajes entrantes de WhatsApp
 @router.post("/webhook")

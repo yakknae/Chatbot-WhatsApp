@@ -247,3 +247,230 @@ Respuesta:'
 *   **Yogur Probiótico Natural Sin Azúcar** (Marca: Yogurísimo) - Precio: $150.00, Stock: 90 unidades (Disponible)
 
 ¿Necesitas algo más para tu tiramisú, tal vez algún licor o esencia de vainilla? ¡Estoy aquí para ayudarte a completar tu receta!
+2025-10-06 17:02:03 - De whatsapp:+5491136656962: tenes productos arcor?
+2025-10-06 17:02:03 - Bot: Por favor, especifique el nombre del producto que desea buscar.
+2025-10-06 17:02:13 - De whatsapp:+5491136656962: arcor
+2025-10-06 17:02:27 - Bot: ¡Claro! Tenemos varios productos de Arcor disponibles. Aquí te los presento:
+
+*   **Arroz Largo Fino 1kg:** Arroz de grano largo fino. Precio: $130.00, Stock: 250 unidades.
+*   **Fresas de Temporada 1kg:** Fresas frescas de cosecha local. Precio: $110.00, Stock: 140 unidades.
+*   **Manzanas Orgánicas Granny Smith 1kg:** Manzanas cultivadas sin químicos. Precio: $100.00, Stock: 150 unidades.
+*   **Manzanas Rojas 1kg:** Manzanas rojas frescas. Precio: $90.00, Stock: 180 unidades.
+*   **Tomates Cherry Transgénicos Larga Duración:** Tomates modificados para mayor vida útil. Precio: $90.00, Stock: 160 unidades.
+*   **Zanahorias 1kg:** Zanahorias frescas. Precio: $75.00, Stock: 160 unidades.
+*   **Zanahorias de Proximidad 1kg:** Zanahorias de cultivo regional. Precio: $90.00, Stock: 150 unidades.
+
+¿Hay algo específico que te interese de estos productos?
+2025-10-06 17:04:07 - De whatsapp:+5491136656962: que galletitas tenes?
+2025-10-06 17:04:09 - Bot: AI: ¡Claro! Tenemos una galletita disponible:
+
+*   **Galletitas de Agua 300g:** Galletitas saladas. Precio: $85.00, Stock: 150 unidades.
+
+¿Hay algo más que te interese saber sobre estas galletitas o alguna otra cosa que puedas comprar?
+2025-10-06 17:04:31 - De whatsapp:+5491136656962: que fideos tenes
+2025-10-06 17:04:33 - Bot: AI: ¡Claro! Tenemos tres tipos de fideos disponibles:
+
+*   **Fideos Spaghetti 500g:** Fideos de sémola de trigo. Precio: $120.50, Stock: 200 unidades.
+*   **Fideos Tirabuzón 500g:** Fideos tirabuzón de colores. Precio: $130.00, Stock: 200 unidades.
+*   **Fideos Tirabuzón Sin Gluten 500g:** Fideos de maíz y arroz, sin TACC. Precio: $150.00, Stock: 180 unidades.
+
+¿Hay algo más que te interese saber sobre estos fideos o alguna otra cosa que puedas comprar?
+2025-10-06 17:05:08 - De whatsapp:+5491136656962: quiero hacer una chocotorta
+2025-10-06 17:05:09 - Bot: AI: No encuentro esa referencia en nuestra conversación.
+2025-10-06 17:06:56 - De whatsapp:+5491136656962: quiero hacer una chocotorta
+2025-10-06 17:07:01 - Bot: ¡Claro que sí! Para preparar una deliciosa chocotorta, te sugiero usar los siguientes ingredientes que tenemos disponibles:
+
+*   **Chocolate 70% Cacao Sin Azúcar (Cabaña Las Lilas):** Necesitarás aproximadamente 100g (o una parte significativa del stock) para darle el sabor característico a la chocotorta.
+*   **Cacao en Polvo 200g (Disco):**  También necesitaremos un poco para intensificar el sabor, alrededor de 50-70g.
+*   **Yogur Probiótico Natural Sin Azúcar (Yogurísimo):**  Puedes agregar 150g de yogur para darle una textura suave y un toque de humedad a tu torta.
+*   **Mermelada de Frambuesa Sin Azúcar (Molinos Cañuelas):**  Para un topping delicioso, usa aproximadamente 75g de mermelada.
+
+¡Con estos ingredientes, tu chocotorta será un éxito! ¿Necesitas alguna otra cosa o quieres que te ayude a calcular las cantidades exactas según el tamaño que quieras que tenga tu torta?
+2025-10-06 17:07:24 - De whatsapp:+5491136656962: quiero hacer una ensalada
+2025-10-06 17:07:27 - Bot: AI: ¡Por supuesto! Para preparar una deliciosa ensalada, tienes muchas opciones con los ingredientes que tenemos disponibles. Aquí te propongo algunas combinaciones:
+
+*   **Tomates Cherry Transgénicos Larga Duración (Arcor):** Puedes usar aproximadamente 80 unidades para un sabor fresco y jugoso.
+*   **Tomates Enlatados 400g (Noel):** Complementa los tomates frescos con 600 gramos para una textura más consistente.
+
+¡Con estos ingredientes, puedes crear una ensalada muy sabrosa! ¿Te gustaría añadir algún otro ingrediente, como lechuga, pepino, o alguna vinagreta para el aderezo? ¿O quizás necesitas ayuda para combinar los ingredientes de forma más creativa?
+2025-10-06 17:07:57 - De whatsapp:+5491136656962: que yogures tienen?
+2025-10-06 17:07:59 - Bot: AI: ¡Claro que sí! Tenemos los siguientes yogures disponibles:
+
+*   **Yogur Probiótico Natural Sin Azúcar (Yogurísimo):** Precio: $150.00, Stock: 90 unidades (Disponible).
+2025-10-06 17:27:52 - De whatsapp:+5491136656962: que tipo de aguas tenes?
+2025-10-06 17:28:03 - Bot: ¡Hola! Tenemos varias opciones de aguas saborizadas. Actualmente, tenemos **Agua Saborizada Manzana 500ml** de la marca Rosamonte, que es agua con saborizante natural de manzana. ¡La tenemos disponible con un stock de 150 unidades! ¿Te gustaría saber más sobre ella? 😊
+2025-10-06 17:28:42 - De whatsapp:+5491136656962: y que tipos de refrigeracion liquida
+2025-10-06 17:28:44 - Bot: ¡Hola! Tenemos dos opciones de refrigeración líquida AIO disponibles:
+
+*   **Sancor Romanito AIO 240mm:** Un enfriador de agua para CPU con un precio de $40000.00 y 10 unidades disponibles.
+*   **Levité Refrigeración Líquida Pc:** Un enfriador de agua para CPU con un precio de $30000.00 y 11 unidades disponibles.
+
+¿Hay algo más en lo que pueda ayudarte?
+2025-10-06 17:29:52 - De whatsapp:+5491136656962: que lleva una selva negra
+2025-10-06 17:29:53 - Bot: Lo siento, no tenemos selva negra en este momento.
+2025-10-06 17:30:14 - De whatsapp:+5491136656962: que ingredientes lleva una torta selva negra
+2025-10-06 17:30:14 - Bot: Lo siento, no tenemos torta selva negra en este momento.
+2025-10-06 17:34:09 - De whatsapp:+5491136656962: que ingredientes lleva una torta selva negra
+2025-10-06 17:34:12 - Bot: ¡Hola! Para preparar una Torta Selva Negra, necesitarás los siguientes ingredientes disponibles:
+
+*   **Chocolate 70% Cacao Sin Azúcar** (Cabaña Las Lilas) - 1 unidad
+*   **Mermelada de Frambuesa Sin Azúcar** (Molinos Cañuelas) - Cantidad a gusto (¡necesitarás un buen aporte de frambuesa!)
+*   **Yogur Probiótico Natural Sin Azúcar** (Yogurísimo) - Cantidad a gusto (¡Para darle cremosidad!)
+*   **Cacao en Polvo 200g** (Disco) - Cantidad a gusto (Si quieres intensificar el sabor del chocolate)
+
+¡Espero que disfrutes preparando tu Torta Selva Negra!
+2025-10-06 17:34:27 - De whatsapp:+5491136656962: que lleva un tiramisu
+2025-10-06 17:34:30 - Bot: ¡Hola! Para preparar un delicioso Tiramisú, necesitarás los siguientes ingredientes disponibles:
+
+*   **Café de Comercio Justo Colombia 500g** (Cabrales) - 1 unidad
+*   **Cafe Molido 250g** (Cabrales) - Cantidad a gusto (¡Para preparar el café!)
+*   **Cacao en Polvo 200g** (Disco) - Cantidad a gusto (Para darle un toque especial al final)
+
+¡Disfruta preparando tu Tiramisú!
+2025-10-06 17:35:01 - De whatsapp:+5491136656962: tienen chocolate?
+2025-10-06 17:35:03 - Bot: ¡Hola! Sí, tenemos varios tipos de chocolate disponibles:
+
+*   **Chocolate 70% Cacao Sin Azúcar** (Cabaña Las Lilas) - Precio: $120.00, Stock: 130 unidades (Disponible)
+*   **Chocolate con Leche 100g** (Bon o Bon) - Precio: $110.00, Stock: 140 unidades (Disponible)
+
+¿Te gustaría saber más sobre alguno de ellos?
+2025-10-08 20:05:49 - De whatsapp:+5491136656962: Tenes leche y galletitas
+2025-10-08 20:06:00 - Bot: ¡Sí, por supuesto! Tenemos tanto leche como galletitas disponibles. ¿Qué tipo de leche te gustaría (bovina o de almendras) y cuántas galletitas te interesan?
+2025-10-08 20:07:18 - De whatsapp:+5491136656962: Hola como estas
+2025-10-08 20:07:19 - Bot: AI: ¡Hola! Estoy muy bien, gracias por preguntar. ¿En qué puedo ayudarte hoy? ¿Buscas algún producto en particular o necesitas información sobre alguno de nuestros artículos?
+2025-10-08 20:09:37 - De whatsapp:+5491136656962: Todo bien y vos?
+2025-10-08 20:09:39 - Bot: AI: ¡Hola! Estoy muy bien, gracias por preguntar. ¿En qué puedo ayudarte hoy? ¿Buscas algún producto en particular o necesitas información sobre alguno de nuestros artículos?
+2025-10-08 20:09:53 - De whatsapp:+5491136656962: Como estas?
+2025-10-08 20:09:54 - Bot: ¡Hola! Estoy muy bien, gracias por preguntar. ¿En qué puedo ayudarte hoy con nuestros productos de supermercado? ¿Tienes alguna pregunta específica o necesitas buscar algún artículo en particular?
+2025-10-08 20:11:36 - De whatsapp:+5491136656962: Me podes ayudar?
+2025-10-08 20:11:37 - Bot: ¡Por supuesto que sí! Con gusto te ayudaré. ¿En qué puedo asistirte hoy? ¿Tienes alguna pregunta sobre algún producto en particular, necesitas saber si tenemos algo en stock, o tal vez quieres saber el precio de algo? 
+
+Dime qué necesitas y haré lo posible por ayudarte. 😊
+2025-10-08 20:13:07 - De whatsapp:+5491136656962: Gracias por la ayuda
+2025-10-08 20:13:09 - Bot: ¡Hola! Con gusto te ayudo. ¿En qué puedo servirte hoy?
+2025-10-12 20:29:55 - De whatsapp:+5491136656962: hi
+2025-10-12 20:30:06 - Bot: ¡Hola! Bienvenido al Supermercado Global. ¿En qué puedo ayudarte hoy? ¿Tienes alguna pregunta sobre nuestros productos o necesitas saber si tenemos algo en particular?
+2025-10-12 20:30:27 - De whatsapp:+5491136656962: cual es el horario de atencion?
+2025-10-12 20:30:28 - Bot: Lunes a Sábado de 8:00 a 21:00, Domingo de 9:00 a 13:00.
+2025-10-12 20:30:50 - De whatsapp:+5491136656962: tienen galletitas?
+2025-10-12 20:30:52 - Bot: Sí, tenemos galletitas. Específicamente, tenemos **Galletitas de Agua 300g** de la marca Bagley. El precio es $85.00 y tenemos 150 unidades disponibles. ¿Te gustaría saber más sobre ellas?
+2025-10-12 20:31:07 - De whatsapp:+5491136656962: quiero iniciar un carrito
+2025-10-12 20:31:07 - Bot: No tienes productos seleccionados. ¿Qué te gustaría comprar?
+2025-10-12 20:31:35 - De whatsapp:+5491136656962: me gustaria que agregues las galletitas mencionadas
+2025-10-12 20:31:37 - Bot: ¡Claro que sí! Ya agregué las **Galletitas de Agua 300g** de Bagley a tu carrito. El precio sigue siendo $85.00 y tenemos 150 unidades disponibles. ¿Te gustaría que te diga algo más sobre ellas o quizá buscar otro producto?
+2025-10-12 20:31:53 - De whatsapp:+5491136656962: mostrarme el carrito
+2025-10-12 20:31:54 - Bot: No tienes productos seleccionados. ¿Qué te gustaría comprar?
+2025-10-12 20:32:06 - De whatsapp:+5491136656962: las galletitas
+2025-10-12 20:32:08 - Bot: Sí, tenemos **Galletitas de Agua 300g** de Bagley. El precio es $85.00 y tenemos 150 unidades disponibles. ¿Te gustaría saber más sobre ellas?
+2025-10-12 20:32:18 - De whatsapp:+5491136656962: agregalas al carrito
+2025-10-12 20:32:18 - Bot: No tienes productos seleccionados. ¿Qué te gustaría comprar?
+2025-10-12 20:40:58 - De whatsapp:+5491136656962: hola
+2025-10-12 20:41:01 - Bot: ¡Hola! ¡Bienvenido al Supermercado Global! ¿En qué puedo ayudarte hoy? ¿Tienes alguna pregunta sobre nuestros productos o necesitas saber algo en particular?
+2025-10-12 20:41:11 - De whatsapp:+5491136656962: quiero hacer un pedido
+2025-10-12 20:41:11 - Bot: No tienes productos en el carrito. ¿Qué te gustaría comprar?
+2025-10-12 20:41:22 - De whatsapp:+5491136656962: *Galletitas de Agua 300g*
+2025-10-12 20:41:24 - Bot: ¡Hola! Tenemos dos tipos de Galletitas de Agua 300g disponibles:
+
+- **Galletitas de Agua 300g**
+  - Descripción: Galletitas saladas
+  - Marca: Bagley
+  - Categoría: Alimentos Horneados
+  - Precio: $85.00
+  - Stock: 150 unidades (Disponible)
+
+¿Te interesa alguna en particular?
+2025-10-12 20:41:49 - De whatsapp:+5491136656962: las marca bagley
+2025-10-12 20:41:52 - Bot: ¡Hola! Tenemos estos productos de Bagley disponibles:
+
+- **Galletitas de Agua 300g**
+  - Descripción: Galletitas saladas
+  - Marca: Bagley
+  - Categoría: Alimentos Horneados
+  - Precio: $85.00
+  - Stock: 150 unidades (Disponible)
+
+¿Te interesa alguna en particular?
+2025-10-12 20:42:00 - De whatsapp:+5491136656962: agregar al carrito
+2025-10-12 20:42:01 - Bot: No tienes productos en el carrito. ¿Qué te gustaría comprar?
+2025-10-12 20:42:13 - De whatsapp:+5491136656962: me gustaria comprar unos fideos
+2025-10-12 20:42:13 - Bot: No tienes productos en el carrito. ¿Qué te gustaría comprar?
+2025-10-12 20:54:13 - De whatsapp:+5491136656962: hola
+2025-10-12 20:54:16 - Bot: Estoy teniendo problemas para responder.
+2025-10-12 20:57:28 - De whatsapp:+5491136656962: hola
+2025-10-12 20:57:29 - Bot: Estoy teniendo problemas para responder.
+2025-10-12 21:14:34 - De whatsapp:+5491136656962: Quiero galletitas
+2025-10-12 21:14:40 - Bot: ¡Claro que sí! Para preparar "Quiero galletitas" necesitaremos lo siguiente:
+
+*   **Chocolate 70% Cacao Sin Azúcar** (Cabaña Las Lilas) - 130 unidades.
+*   **Mermelada de Frambuesa Sin Azúcar** (Molinos Cañuelas) - Necesitaremos una cantidad suficiente, ya que la receta lo requiere.
+*   **Yogur Probiótico Natural Sin Azúcar** (Yogurísimo) - Necesitaremos una cantidad suficiente, ya que la receta lo requiere.
+
+¡Disfruta preparando tus galletitas! ¿Hay algo más en lo que te pueda ayudar?
+2025-10-12 21:25:55 - De whatsapp:+5491136656962: que tipo de galletitas tienen?
+2025-10-12 21:25:58 - Bot: AI: ¡Hola! Con los ingredientes que tenemos disponibles, podemos preparar galletitas con chocolate y frambuesa. También podemos agregar proteína whey para una opción más nutritiva. ¿Te gustaría que te sugiera alguna receta específica o quieres saber más sobre cómo usar estos ingredientes para hacer galletitas? 😊
+2025-10-12 21:26:20 - De whatsapp:+5491136656962: galletitas bagley
+2025-10-12 21:26:22 - Bot: AI: ¡Hola! Parece que hay un pequeño error en tu pedido. Con los ingredientes disponibles, no podemos preparar galletitas "bagley". Sin embargo, podemos preparar galletitas con chocolate y frambuesa, que son los ingredientes que tenemos en stock. ¿Te gustaría que te sugiera una receta con esos ingredientes? 😊
+2025-10-12 21:26:38 - De whatsapp:+5491136656962: ver el pedido
+2025-10-12 21:26:39 - Bot: Estoy teniendo problemas para responder.
+2025-10-12 21:45:54 - De whatsapp:+5491136656962: tienen fideos?
+2025-10-12 21:45:58 - Bot: ¡Claro que sí! Tenemos varios tipos de fideos disponibles para ti:
+
+*   **Spaghetti Luchetti:** $120.50 (Stock: 200 unidades)
+*   **Fideos Tirabuzón Amanda:** $130.00 (Stock: 200 unidades)
+*   **Fideos Tirabuzón Sin Gluten Luchetti:** $150.00 (Stock: 180 unidades)
+
+¿Cuál te gustaría? 😊
+2025-10-12 21:55:30 - De whatsapp:+5491136656962: tienen helado?
+2025-10-12 21:55:33 - Bot: Lo siento, no tengo esa información.
+2025-10-12 21:55:45 - De whatsapp:+5491136656962: tienen helado?
+2025-10-12 21:55:47 - Bot: Sí, tenemos helado. Disponemos de diferentes sabores, como chocolate, fresa, vainilla y limón. ¿Le gustaría saber el precio de alguno en particular?
+2025-10-12 21:59:17 - De whatsapp:+5491136656962: tienen fideos?
+2025-10-12 21:59:18 - Bot: Sí, tenemos varios tipos de fideos. Disponemos de fideos de trigo, fideos de arroz, fideos de verduras y fideos de huevo. ¿Le interesa alguno en particular?
+2025-10-12 22:02:43 - De whatsapp:+5491136656962: tienen galletitas?
+2025-10-12 22:02:46 - Bot: ¡Claro que sí! Tenemos galletitas disponibles. En concreto, tenemos las **Galletitas de Agua 300g de Bagley**, que son galletitas saladas. ¡Te quedan 150 unidades! ¿Te gustaría saber más sobre ellas o quieres saber si tenemos alguna otra opción?
+2025-10-12 22:03:56 - De whatsapp:+5491136656962: agregar al carrito las galletitas de agua
+2025-10-12 22:03:56 - Bot: Tus productos seleccionados:
+- Galletitas de Agua 300g - $85.00
+- Galletitas de Agua 300g - $85.00
+
+Total: $170.00
+
+¿Deseas confirmar este pedido? Responde *sí* para finalizar.
+2025-10-12 22:04:22 - De whatsapp:+5491136656962: tienen helado?
+2025-10-12 22:04:23 - Bot: ¡Sí, tenemos helado! Tenemos varios tipos disponibles. ¿Qué tipo de helado te gustaría? Por ejemplo, tenemos Helado de Dulce de Leche 1kg de la marca Frigor, ¡y hay 50 unidades disponibles!
+2025-10-12 22:04:45 - De whatsapp:+5491136656962: agregar helado de dulce de leche de 1kg
+2025-10-12 22:04:47 - Bot: ¡Claro! Agregamos un Helado de Dulce de Leche 1kg de Frigor a tu carrito. Tenemos 50 unidades disponibles y el precio es de $250.00. ¿Deseas agregar algo más?
+2025-10-12 22:05:02 - De whatsapp:+5491136656962: ver los productos seleccionados
+2025-10-12 22:05:05 - Bot: AI: Por supuesto, actualmente tiene un Helado de Dulce de Leche 1kg de Frigor en su carrito. El precio es de $250.00 y tenemos 50 unidades disponibles. ¿Desea agregar algo más a su pedido o tiene alguna otra pregunta?
+2025-10-12 22:05:19 - De whatsapp:+5491136656962: ver carrito
+2025-10-12 22:05:19 - Bot: No tienes productos seleccionados. ¿Qué te gustaría comprar?
+2025-10-12 23:07:18 - De whatsapp:+5491136656962: hola
+2025-10-12 23:07:49 - Bot: ¡Hola! Bienvenido al Supermercado Global. ¿En qué puedo ayudarle hoy? ¿Tiene alguna pregunta sobre nuestros productos o necesita alguna recomendación?
+2025-10-12 23:08:04 - De whatsapp:+5491136656962: tienen galletitas?
+2025-10-12 23:08:23 - Bot: ¡Sí, tenemos! Disponemos de **Galletitas de Agua 300g** de la marca Bagley. Son galletitas saladas. El precio es de $85.00 y tenemos 150 unidades disponibles. ¿Le puedo ayudar con algo más?
+2025-10-12 23:08:30 - De whatsapp:+5491136656962: agregar las galletitas de agua al carrito
+2025-10-12 23:08:33 - Bot: ✅ Productos agregados al carrito. Tienes 1 producto(s).
+2025-10-12 23:08:45 - De whatsapp:+5491136656962: mostrar carrito
+2025-10-12 23:08:45 - Bot: 🛒 Tu carrito:
+- Galletitas de Agua 300g - $85.00
+
+Total: $85.00
+
+¿Deseas confirmar este pedido? Responde *sí* para finalizar.
+2025-10-12 23:08:56 - De whatsapp:+5491136656962: tienen fideos?
+2025-10-12 23:09:21 - Bot: ¡Sí, tenemos! Disponemos de **Fideos Spaghetti 500g** de la marca Luchetti, Fideos Tirabuzón 500g de la marca Amanda y Fideos Tirabuzón Sin Gluten 500g de la marca Luchetti. Todos son tipos de pastas. El precio de los fideos Spaghetti es de $120.50, los de Tirabuzón $130.00 y los de Tirabuzón Sin Gluten $150.00. ¿Le puedo ayudar con algo más?
+2025-10-12 23:09:51 - De whatsapp:+5491136656962: agregar los fideos spaghetti al carrito
+2025-10-12 23:09:54 - Bot: ✅ Productos agregados al carrito. Tienes 5 producto(s).
+2025-10-12 23:10:03 - De whatsapp:+5491136656962: mostrar carrito
+2025-10-12 23:10:03 - Bot: 🛒 Tu carrito:
+- Galletitas de Agua 300g - $85.00
+- Fideos Spaghetti 500g - $120.50
+- Fideos Tirabuzón 500g - $130.00
+- Fideos Tirabuzón Sin Gluten 500g - $150.00
+- Fideos Spaghetti 500g - $120.50
+
+Total: $606.00
+
+¿Deseas confirmar este pedido? Responde *sí* para finalizar.
+2025-10-12 23:10:27 - De whatsapp:+5491136656962: horario de apertura?
+2025-10-12 23:11:01 - Bot: ¡Buenos días! Nuestro horario de atención es de Lunes a Sábado de 8:00 a 21:00 y Domingo de 9:00 a 13:00. ¿En qué puedo ayudarle?
