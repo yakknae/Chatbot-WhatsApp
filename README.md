@@ -49,7 +49,7 @@ Configura el webhook con tu URL de Ngrok:
 "https://abc123.ngrok.io/webhook"
 - "Importante: Asegúrate de haber configurado tu archivo .env y tu base de datos antes de iniciar." 
 
-# Enviroments credentials
+## Enviroments credentials
 ```
 Database credentials
 > MYSQL_HOST=""
