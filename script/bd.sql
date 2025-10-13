@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Versión del servidor:         11.7.2-MariaDB - mariadb.org binary distribution
+-- Versión del servidor:         12.0.2-MariaDB - mariadb.org binary distribution
 -- SO del servidor:              Win64
--- HeidiSQL Versión:             12.10.0.7000
+-- HeidiSQL Versión:             12.11.0.7065
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -16,20 +16,22 @@
 
 
 -- Volcando estructura de base de datos para pp3_proyecto
-CREATE DATABASE IF NOT EXISTS `pp3_proyecto` /*!40100 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci */;
+CREATE DATABASE IF NOT EXISTS `pp3_proyecto` /*!40100 DEFAULT CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci */;
 USE `pp3_proyecto`;
 
 -- Volcando estructura para tabla pp3_proyecto.categorias
+DROP TABLE IF EXISTS `categorias`;
 CREATE TABLE IF NOT EXISTS `categorias` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) NOT NULL,
   `descripcion` text DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `nombre` (`nombre`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
--- Volcando datos para la tabla pp3_proyecto.categorias: ~50 rows (aproximadamente)
-INSERT IGNORE INTO `categorias` (`id`, `nombre`, `descripcion`) VALUES
+-- Volcando datos para la tabla pp3_proyecto.categorias: ~51 rows (aproximadamente)
+DELETE FROM `categorias`;
+INSERT INTO `categorias` (`id`, `nombre`, `descripcion`) VALUES
 	(1, 'Lácteos', NULL),
 	(2, 'Quesos', NULL),
 	(3, 'Yogures', NULL),
@@ -79,71 +81,16 @@ INSERT IGNORE INTO `categorias` (`id`, `nombre`, `descripcion`) VALUES
 	(47, 'Frutas y verduras', NULL),
 	(48, 'Panadería', NULL),
 	(49, 'Alimentos secos', NULL),
-	(50, 'Alimentos enlatados', NULL);
-
--- Volcando estructura para tabla pp3_proyecto.clientes
-CREATE TABLE IF NOT EXISTS `clientes` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(255) NOT NULL,
-  `apellido` varchar(255) DEFAULT NULL,
-  `direccion` varchar(255) DEFAULT NULL,
-  `telefono` varchar(50) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `fecha_registro` timestamp NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
-
--- Volcando datos para la tabla pp3_proyecto.clientes: ~0 rows (aproximadamente)
-
--- Volcando estructura para tabla pp3_proyecto.compras
-CREATE TABLE IF NOT EXISTS `compras` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `proveedor_id` int(11) NOT NULL,
-  `fecha_compra` timestamp NULL DEFAULT current_timestamp(),
-  `total_compra` decimal(10,2) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_compras_proveedores` (`proveedor_id`),
-  CONSTRAINT `fk_compras_proveedores` FOREIGN KEY (`proveedor_id`) REFERENCES `proveedores` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
-
--- Volcando datos para la tabla pp3_proyecto.compras: ~0 rows (aproximadamente)
-
--- Volcando estructura para tabla pp3_proyecto.detallescompra
-CREATE TABLE IF NOT EXISTS `detallescompra` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `compra_id` int(11) NOT NULL,
-  `producto_id` int(11) NOT NULL,
-  `cantidad` int(11) NOT NULL,
-  `precio_unitario_compra` decimal(10,2) NOT NULL,
-  `subtotal` decimal(10,2) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_detallescompra_compra` (`compra_id`),
-  KEY `fk_detallescompra_producto` (`producto_id`),
-  CONSTRAINT `fk_detallescompra_compra` FOREIGN KEY (`compra_id`) REFERENCES `compras` (`id`),
-  CONSTRAINT `fk_detallescompra_producto` FOREIGN KEY (`producto_id`) REFERENCES `productos` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
-
--- Volcando datos para la tabla pp3_proyecto.detallescompra: ~0 rows (aproximadamente)
-
--- Volcando estructura para tabla pp3_proyecto.detallesventa
-CREATE TABLE IF NOT EXISTS `detallesventa` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `venta_id` int(11) NOT NULL,
-  `producto_id` int(11) NOT NULL,
-  `cantidad` int(11) NOT NULL,
-  `precio_unitario_venta` decimal(10,2) NOT NULL,
-  `subtotal` decimal(10,2) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_detallesventa_venta` (`venta_id`),
-  KEY `fk_detallesventa_producto` (`producto_id`),
-  CONSTRAINT `fk_detallesventa_producto` FOREIGN KEY (`producto_id`) REFERENCES `productos` (`id`),
-  CONSTRAINT `fk_detallesventa_venta` FOREIGN KEY (`venta_id`) REFERENCES `ventas` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
-
--- Volcando datos para la tabla pp3_proyecto.detallesventa: ~0 rows (aproximadamente)
+	(50, 'Alimentos enlatados', NULL),
+	(51, 'Alimento balanceado para perros', NULL),
+	(52, 'Alimento balanceado para gatos', NULL),
+	(53, 'Anti parasitario interno/externo', NULL),
+	(54, 'Medicamentos', NULL),
+	(55, 'Primeros auxilios', NULL),
+	(56, 'Verdulería', NULL);
 
 -- Volcando estructura para procedimiento pp3_proyecto.insertar_categorias
+DROP PROCEDURE IF EXISTS `insertar_categorias`;
 DELIMITER //
 CREATE PROCEDURE `insertar_categorias`()
 BEGIN
@@ -160,6 +107,7 @@ END//
 DELIMITER ;
 
 -- Volcando estructura para procedimiento pp3_proyecto.insertar_marcas
+DROP PROCEDURE IF EXISTS `insertar_marcas`;
 DELIMITER //
 CREATE PROCEDURE `insertar_marcas`()
 BEGIN
@@ -173,6 +121,7 @@ END//
 DELIMITER ;
 
 -- Volcando estructura para procedimiento pp3_proyecto.insertar_productos
+DROP PROCEDURE IF EXISTS `insertar_productos`;
 DELIMITER //
 CREATE PROCEDURE `insertar_productos`()
 BEGIN
@@ -197,107 +146,100 @@ END//
 DELIMITER ;
 
 -- Volcando estructura para tabla pp3_proyecto.marcas
+DROP TABLE IF EXISTS `marcas`;
 CREATE TABLE IF NOT EXISTS `marcas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `nombre` (`nombre`)
-) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
--- Volcando datos para la tabla pp3_proyecto.marcas: ~12 rows (aproximadamente)
-INSERT IGNORE INTO `marcas` (`id`, `nombre`) VALUES
-	(31, 'Acer Argentina'),
-	(41, 'Aluar'),
+-- Volcando datos para la tabla pp3_proyecto.marcas: ~77 rows (aproximadamente)
+DELETE FROM `marcas`;
+INSERT INTO `marcas` (`id`, `nombre`) VALUES
+	(1, 'La Serenísima'),
 	(2, 'Arcor'),
-	(64, 'Atma'),
-	(18, 'Baggio'),
+	(3, 'Molinos Río de la Plata'),
 	(4, 'Bagley'),
+	(5, 'Terrabusi'),
+	(6, 'Sancor'),
+	(7, 'Danone Argentina'),
+	(8, 'Paladini'),
+	(9, 'Noblex'),
+	(10, 'Siam'),
+	(11, 'Philco Argentina'),
 	(12, 'Bambi'),
-	(29, 'Banghó'),
-	(84, 'Braun'),
-	(77, 'Cannon'),
-	(32, 'Carrefour Argentina'),
-	(99, 'CBSé'),
+	(13, 'Havanna'),
+	(14, 'Ledesma'),
+	(15, 'Tersuave'),
+	(16, 'Topper'),
+	(17, 'Grido'),
+	(18, 'Baggio'),
+	(19, 'Newsan'),
+	(20, 'Electrodomésticos Liliana'),
 	(21, 'Cetrogar'),
+	(22, 'Roca'),
+	(23, 'Musimundo'),
+	(24, 'Muebles Nodari'),
 	(25, 'Colchones Cannon'),
 	(26, 'Colchones Piero'),
-	(34, 'Coto'),
-	(86, 'CX'),
-	(7, 'Danone Argentina'),
-	(33, 'Disco'),
-	(43, 'Dos Anclas'),
-	(57, 'Drean'),
-	(36, 'Easy'),
-	(20, 'Electrodomésticos Liliana'),
-	(59, 'Eskabe'),
-	(55, 'Eurocase'),
-	(53, 'Exo'),
-	(61, 'Fortaleza Muebles'),
-	(38, 'Fric-Rot'),
-	(83, 'Gama'),
-	(42, 'Georgalos'),
-	(17, 'Grido'),
-	(13, 'Havanna'),
-	(50, 'Hellmann’s'),
-	(48, 'Ilolay'),
-	(35, 'Jumbo'),
-	(54, 'Ken Brown'),
-	(51, 'Knorr'),
-	(76, 'Koil'),
-	(49, 'La Campagnola'),
-	(1, 'La Serenísima'),
-	(45, 'La Virginia'),
-	(14, 'Ledesma'),
-	(52, 'Marolio'),
-	(60, 'Mite'),
-	(3, 'Molinos Río de la Plata'),
-	(46, 'Molto'),
-	(24, 'Muebles Nodari'),
-	(23, 'Musimundo'),
-	(44, 'Natura'),
-	(19, 'Newsan'),
-	(9, 'Noblex'),
-	(85, 'Oral-B'),
-	(58, 'Orbis'),
-	(8, 'Paladini'),
-	(56, 'Patrick'),
-	(47, 'Paty'),
-	(28, 'PCBox Argentina'),
-	(81, 'Peabody'),
-	(63, 'Peter Wells'),
-	(11, 'Philco Argentina'),
-	(80, 'Philips'),
-	(79, 'Piero'),
-	(30, 'Positivo BGH'),
-	(40, 'Rasti'),
-	(22, 'Roca'),
-	(62, 'Safari'),
-	(6, 'Sancor'),
-	(82, 'Sanyo'),
-	(10, 'Siam'),
-	(39, 'Sinteplast'),
-	(37, 'Sodimac'),
 	(27, 'Sommier Center'),
+	(28, 'PCBox Argentina'),
+	(29, 'Banghó'),
+	(30, 'Positivo BGH'),
+	(31, 'Acer Argentina'),
+	(32, 'Carrefour Argentina'),
+	(33, 'Disco'),
+	(34, 'Coto'),
+	(35, 'Jumbo'),
+	(36, 'Easy'),
+	(37, 'Sodimac'),
+	(38, 'Fric-Rot'),
+	(39, 'Sinteplast'),
+	(40, 'Rasti'),
+	(41, 'Aluar'),
+	(42, 'Georgalos'),
+	(43, 'Dos Anclas'),
+	(44, 'Natura'),
+	(45, 'La Virginia'),
+	(46, 'Molto'),
+	(47, 'Paty'),
+	(48, 'Ilolay'),
+	(49, 'La Campagnola'),
+	(50, 'Hellmann’s'),
+	(51, 'Knorr'),
+	(52, 'Marolio'),
+	(53, 'Exo'),
+	(54, 'Ken Brown'),
+	(55, 'Eurocase'),
+	(56, 'Patrick'),
+	(57, 'Drean'),
+	(58, 'Orbis'),
+	(59, 'Eskabe'),
+	(60, 'Mite'),
+	(61, 'Fortaleza Muebles'),
+	(62, 'Safari'),
+	(63, 'Peter Wells'),
+	(64, 'Atma'),
+	(76, 'Koil'),
+	(77, 'Cannon'),
 	(78, 'Suavestar'),
-	(5, 'Terrabusi'),
-	(15, 'Tersuave'),
-	(16, 'Topper');
-
--- Volcando estructura para tabla pp3_proyecto.productoproveedor
-CREATE TABLE IF NOT EXISTS `productoproveedor` (
-  `proveedor_id` int(11) NOT NULL,
-  `producto_id` int(11) NOT NULL,
-  `precio_compra` decimal(10,2) DEFAULT NULL,
-  `fecha_ultima_compra` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`proveedor_id`,`producto_id`),
-  KEY `fk_productoproveedor_producto` (`producto_id`),
-  CONSTRAINT `fk_productoproveedor_producto` FOREIGN KEY (`producto_id`) REFERENCES `productos` (`id`),
-  CONSTRAINT `fk_productoproveedor_proveedor` FOREIGN KEY (`proveedor_id`) REFERENCES `proveedores` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
-
--- Volcando datos para la tabla pp3_proyecto.productoproveedor: ~0 rows (aproximadamente)
+	(79, 'Piero'),
+	(80, 'Philips'),
+	(81, 'Peabody'),
+	(82, 'Sanyo'),
+	(83, 'Gama'),
+	(84, 'Braun'),
+	(85, 'Oral-B'),
+	(86, 'CX'),
+	(99, 'CBSé'),
+	(100, 'Manaos'),
+	(102, 'Einhell'),
+	(103, 'Bosch'),
+	(104, 'Plump');
 
 -- Volcando estructura para tabla pp3_proyecto.productos
+DROP TABLE IF EXISTS `productos`;
 CREATE TABLE IF NOT EXISTS `productos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) NOT NULL,
@@ -315,10 +257,11 @@ CREATE TABLE IF NOT EXISTS `productos` (
   KEY `fk_productos_categorias` (`categoria_id`),
   CONSTRAINT `fk_productos_categorias` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`),
   CONSTRAINT `fk_productos_marcas` FOREIGN KEY (`marca_id`) REFERENCES `marcas` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=407 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1507 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
--- Volcando datos para la tabla pp3_proyecto.productos: ~246 rows (aproximadamente)
-INSERT IGNORE INTO `productos` (`id`, `nombre`, `descripcion`, `precio_costo`, `precio_venta`, `stock`, `marca_id`, `categoria_id`, `codigo_barras`, `fecha_alta`) VALUES
+-- Volcando datos para la tabla pp3_proyecto.productos: ~393 rows (aproximadamente)
+DELETE FROM `productos`;
+INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio_costo`, `precio_venta`, `stock`, `marca_id`, `categoria_id`, `codigo_barras`, `fecha_alta`) VALUES
 	(2, 'Yerba Mate Marolio', 'Yerba mate elaborada tradicional', 80.00, 120.00, 200, 52, 23, '779123456002', '2025-05-25 21:13:28'),
 	(3, 'Salame Paladini', 'Salame tipo milán de Paladini', 150.00, 200.00, 50, 8, 14, '779123456003', '2025-05-25 21:13:28'),
 	(4, 'Dulce de Leche La Serenísima', 'Dulce de leche clásico', 100.00, 150.00, 80, 1, 4, '779123456004', '2025-05-25 21:13:28'),
@@ -372,7 +315,6 @@ INSERT IGNORE INTO `productos` (`id`, `nombre`, `descripcion`, `precio_costo`, `
 	(112, 'Leche Ilolay UAT 1L', 'Leche larga vida entera', 180.00, 270.00, 160, 48, 1, '779123450007', '2025-06-11 22:35:24'),
 	(113, 'Helado Havanna 1L', 'Helado crema cookies', 350.00, 520.00, 90, 13, 4, '779123450008', '2025-06-11 22:35:24'),
 	(114, 'Galletitas Chocolinas Bagley', 'Galletitas chocolate', 120.00, 160.00, 200, 3, 5, '779123450009', '2025-06-11 22:35:24'),
-	(115, 'Galletitas Rex Bagley', 'Galletitas crocantes', 110.00, 150.00, 180, 3, 5, '779123450010', '2025-06-11 22:35:24'),
 	(116, 'Arroz Gallo Perdigón 1kg', 'Arroz redondo', 200.00, 280.00, 130, 3, 20, '779123450011', '2025-06-11 22:35:24'),
 	(117, 'Fideos Matarazzo 500g', 'Spaghetti tradicionales', 150.00, 230.00, 140, 3, 19, '779123450012', '2025-06-11 22:35:24'),
 	(118, 'Aceite de Girasol Natura 1L', 'Aceite de girasol puro', 220.00, 320.00, 150, 42, 16, '779123450013', '2025-06-11 22:35:24'),
@@ -383,8 +325,8 @@ INSERT IGNORE INTO `productos` (`id`, `nombre`, `descripcion`, `precio_costo`, `
 	(123, 'Café La Virginia 250g', 'Café molido tradicional', 280.00, 400.00, 140, 45, 22, '779123450018', '2025-06-11 22:35:24'),
 	(124, 'Yerba Mate Amanda 500g', 'Yerba tradicional Amanda', 260.00, 370.00, 130, 5, 23, '779123450019', '2025-06-11 22:35:24'),
 	(125, 'Yerba Mate Playadito 1kg', 'Yerba con palo', 480.00, 700.00, 120, 5, 23, '779123450020', '2025-06-11 22:35:24'),
-	(126, 'Agua Manaos 2L', 'Agua mineral Manaos', 100.00, 150.00, 200, 30, 11, '779123450021', '2025-06-11 22:35:24'),
-	(127, 'Manaos Pomelo 2L', 'Gaseosa sabor pomelo', 200.00, 290.00, 180, 30, 11, '779123450022', '2025-06-11 22:35:24'),
+	(126, 'Agua Manaos 2L', 'Agua mineral Manaos', 100.00, 150.00, 200, 100, 11, '779123450021', '2025-06-11 22:35:24'),
+	(127, 'Manaos Pomelo 2L', 'Gaseosa sabor pomelo', 200.00, 290.00, 180, 100, 11, '779123450022', '2025-06-11 22:35:24'),
 	(128, 'Cunnington Tónica 1.5L', 'Gaseosa tónica Cunnington', 200.00, 300.00, 160, 31, 11, '779123450023', '2025-06-11 22:35:24'),
 	(129, 'Fernet Branca 750ml', 'Fernet clásico', 750.00, 1100.00, 80, 32, 11, '779123450024', '2025-06-11 22:35:24'),
 	(130, 'Coca-Cola 2.25L', 'Gaseosa Coca‑Cola', 400.00, 650.00, 150, 33, 11, '779123450025', '2025-06-11 22:35:24'),
@@ -410,7 +352,7 @@ INSERT IGNORE INTO `productos` (`id`, `nombre`, `descripcion`, `precio_costo`, `
 	(150, 'Jugo Tang Naranja 500g', 'Bebida en polvo sabor naranja', 150.00, 220.00, 160, 45, 12, '779123450045', '2025-06-11 22:35:24'),
 	(151, 'Yerba Mate Playadito Suave 500g', 'Yerba saborizada suave', 260.00, 370.00, 130, 5, 23, '779123450046', '2025-06-11 22:35:24'),
 	(152, 'Aceite Lira Girasol 1L', 'Aceite girasol marca Lira', 210.00, 310.00, 140, 8, 16, '779123450047', '2025-06-11 22:35:24'),
-	(153, 'Gaseosa Manaos Cola 2L', 'Refresco cola económico', 200.00, 290.00, 180, 30, 11, '779123450048', '2025-06-11 22:35:24'),
+	(153, 'Gaseosa Manaos Cola 2L', 'Refresco cola económico', 200.00, 290.00, 180, 100, 11, '779123450048', '2025-06-11 22:35:24'),
 	(154, 'Yerba Mate Nobleza Gaucha 1kg', 'Yerba tradicional', 470.00, 680.00, 120, 5, 23, '779123450049', '2025-06-11 22:35:24'),
 	(155, 'Yerba Mate Amanda Suave 500g', 'Yerba suave en bolsa', 260.00, 370.00, 110, 5, 23, '779123450050', '2025-06-11 22:35:24'),
 	(156, 'Crema de leche La Serenísima 200ml', 'Crema de leche entera pasteurizada ideal para cocina y postres.', 250.00, 350.00, 100, 1, 1, NULL, '2025-06-23 05:11:47'),
@@ -478,7 +420,6 @@ INSERT IGNORE INTO `productos` (`id`, `nombre`, `descripcion`, `precio_costo`, `
 	(268, 'Queso Port Salut La Serenísima 500g', 'Queso semiduro suave', 470.00, 620.00, 55, 1, 7, '779100000012', '2025-07-02 22:17:51'),
 	(269, 'Queso Muzzarella La Serenísima 500g', 'Queso para pizza', 480.00, 630.00, 70, 1, 7, '779100000013', '2025-07-02 22:17:51'),
 	(270, 'Queso Rallado La Serenísima 100g', 'Queso rallado natural', 150.00, 200.00, 85, 1, 7, '779100000014', '2025-07-02 22:17:51'),
-	(271, 'Manteca La Serenísima 200g', 'Manteca con sal', 200.00, 270.00, 100, 1, 7, '779100000015', '2025-07-02 22:17:51'),
 	(272, 'Manteca sin sal La Serenísima 200g', 'Manteca sin sal', 210.00, 280.00, 95, 1, 7, '779100000016', '2025-07-02 22:17:51'),
 	(273, 'Crema de Leche 200ml', 'Crema líquida para cocinar', 160.00, 220.00, 90, 1, 7, '779100000017', '2025-07-02 22:17:51'),
 	(274, 'Crema Doble La Serenísima 200ml', 'Crema con mayor tenor graso', 180.00, 240.00, 80, 1, 7, '779100000018', '2025-07-02 22:17:51'),
@@ -563,24 +504,176 @@ INSERT IGNORE INTO `productos` (`id`, `nombre`, `descripcion`, `precio_costo`, `
 	(403, 'Barra Cereal Frutos Rojos 25g', 'Barrita de cereal con frutos rojos', 75.00, 110.00, 100, 5, 1, '779200000047', '2025-07-02 23:10:55'),
 	(404, 'Bizcochitos Terrabusi 200g', 'Bizcochitos de grasa', 140.00, 190.00, 90, 5, 5, '779200000048', '2025-07-02 23:10:55'),
 	(405, 'Bizcochitos de Salvado 200g', 'Bizcochitos integrales', 145.00, 195.00, 85, 5, 5, '779200000049', '2025-07-02 23:10:55'),
-	(406, 'Bizcochitos Dulces 200g', 'Bizcochitos saborizados', 145.00, 195.00, 85, 5, 5, '779200000050', '2025-07-02 23:10:55');
+	(406, 'Bizcochitos Dulces 200g', 'Bizcochitos saborizados', 145.00, 195.00, 85, 5, 5, '779200000050', '2025-07-02 23:10:55'),
+	(1107, 'Morron Amarillo', 'Morron Amarillo fresca y de alta calidad', 83.14, 111.91, 151, 104, 56, '7791000000000', '2025-09-24 22:02:37'),
+	(1108, 'Rabanito', 'Rabanito fresca y de alta calidad', 183.10, 255.81, 78, 104, 56, '7791000000001', '2025-09-24 22:02:37'),
+	(1109, 'Cebolla', 'Cebolla fresca y de alta calidad', 131.87, 168.35, 92, 104, 56, '7791000000002', '2025-09-24 22:02:37'),
+	(1110, 'Col de Bruselas', 'Col de Bruselas fresca y de alta calidad', 67.66, 87.09, 83, 104, 56, '7791000000003', '2025-09-24 22:02:37'),
+	(1111, 'Cebolla de Verdeo', 'Cebolla de Verdeo fresca y de alta calidad', 179.42, 228.26, 47, 104, 56, '7791000000004', '2025-09-24 22:02:37'),
+	(1112, 'Champignon', 'Champignon fresca y de alta calidad', 193.12, 243.93, 161, 104, 56, '7791000000005', '2025-09-24 22:02:37'),
+	(1114, 'Endivia', 'Endivia fresca y de alta calidad', 79.85, 98.56, 164, 104, 56, '7791000000007', '2025-09-24 22:02:37'),
+	(1115, 'Repollo', 'Repollo fresca y de alta calidad', 168.04, 205.65, 128, 104, 56, '7791000000008', '2025-09-24 22:02:37'),
+	(1116, 'Tomate', 'Tomate fresca y de alta calidad', 108.00, 158.35, 99, 104, 56, '7791000000009', '2025-09-24 22:02:37'),
+	(1117, 'Hinojo', 'Hinojo fresca y de alta calidad', 144.92, 201.23, 79, 104, 56, '7791000000010', '2025-09-24 22:02:37'),
+	(1118, 'Zanahoria', 'Zanahoria fresca y de alta calidad', 179.16, 234.71, 185, 104, 56, '7791000000011', '2025-09-24 22:02:37'),
+	(1119, 'Calabaza', 'Calabaza fresca y de alta calidad', 118.15, 152.91, 97, 104, 56, '7791000000012', '2025-09-24 22:02:37'),
+	(1121, 'Escarola', 'Escarola fresca y de alta calidad', 107.82, 156.79, 187, 104, 56, '7791000000014', '2025-09-24 22:02:37'),
+	(1122, 'Kale', 'Kale fresca y de alta calidad', 118.03, 161.99, 194, 104, 56, '7791000000015', '2025-09-24 22:02:37'),
+	(1123, 'Ciboulette', 'Ciboulette fresca y de alta calidad', 172.62, 258.21, 63, 104, 56, '7791000000016', '2025-09-24 22:02:37'),
+	(1124, 'Mostaza Verde', 'Mostaza Verde fresca y de alta calidad', 97.89, 117.49, 39, 104, 56, '7791000000017', '2025-09-24 22:02:37'),
+	(1126, 'Puerro', 'Puerro fresca y de alta calidad', 177.20, 231.34, 109, 104, 56, '7791000000019', '2025-09-24 22:02:37'),
+	(1128, 'Morron Rojo', 'Morron Rojo fresca y de alta calidad', 199.59, 261.31, 101, 104, 56, '7791000000021', '2025-09-24 22:02:37'),
+	(1129, 'Rucula', 'Rucula fresca y de alta calidad', 100.60, 127.72, 98, 104, 56, '7791000000022', '2025-09-24 22:02:37'),
+	(1130, 'Quinoa Verde', 'Quinoa Verde fresca y de alta calidad', 171.37, 235.32, 163, 104, 56, '7791000000023', '2025-09-24 22:02:37'),
+	(1131, 'Mandioca', 'Mandioca fresca y de alta calidad', 102.63, 150.29, 138, 104, 56, '7791000000024', '2025-09-24 22:02:37'),
+	(1135, 'Okra', 'Okra fresca y de alta calidad', 151.29, 194.23, 176, 104, 56, '7791000000028', '2025-09-24 22:02:37'),
+	(1136, 'Habas', 'Habas fresca y de alta calidad', 68.46, 82.76, 74, 104, 56, '7791000000029', '2025-09-24 22:02:37'),
+	(1137, 'Brocoli', 'Brocoli fresca y de alta calidad', 102.97, 131.16, 143, 104, 56, '7791000000030', '2025-09-24 22:02:37'),
+	(1138, 'Choclo', 'Choclo fresca y de alta calidad', 195.75, 276.24, 136, 104, 56, '7791000000031', '2025-09-24 22:02:37'),
+	(1145, 'Soja Verde (Edamame)', 'Soja Verde (Edamame) fresca y de alta calidad', 112.42, 145.71, 103, 104, 56, '7791000000038', '2025-09-24 22:02:37'),
+	(1148, 'Pepino', 'Pepino fresca y de alta calidad', 154.77, 231.11, 192, 104, 56, '7791000000041', '2025-09-24 22:02:37'),
+	(1149, 'Nabo', 'Nabo fresca y de alta calidad', 92.81, 124.77, 190, 104, 56, '7791000000042', '2025-09-24 22:02:37'),
+	(1150, 'Batata', 'Batata fresca y de alta calidad', 57.76, 84.17, 148, 104, 56, '7791000000043', '2025-09-24 22:02:37'),
+	(1152, 'Alcaucil', 'Alcaucil fresca y de alta calidad', 168.20, 236.10, 120, 104, 56, '7791000000045', '2025-09-24 22:02:37'),
+	(1159, 'Arvejas', 'Arvejas fresca y de alta calidad', 140.03, 188.80, 66, 104, 56, '7791000000052', '2025-09-24 22:02:37'),
+	(1160, 'Coliflor', 'Coliflor fresca y de alta calidad', 103.96, 144.66, 118, 104, 56, '7791000000053', '2025-09-24 22:02:37'),
+	(1161, 'Remolacha', 'Remolacha fresca y de alta calidad', 77.60, 107.01, 46, 104, 56, '7791000000054', '2025-09-24 22:02:37'),
+	(1166, 'Poroto Verde', 'Poroto Verde fresca y de alta calidad', 196.57, 255.27, 54, 104, 56, '7791000000059', '2025-09-24 22:02:37'),
+	(1168, 'Berro', 'Berro fresca y de alta calidad', 150.05, 219.44, 175, 104, 56, '7791000000061', '2025-09-24 22:02:37'),
+	(1171, 'Zapallo', 'Zapallo fresca y de alta calidad', 195.74, 243.94, 31, 104, 56, '7791000000064', '2025-09-24 22:02:37'),
+	(1180, 'Berenjena', 'Berenjena fresca y de alta calidad', 54.35, 79.89, 67, 104, 56, '7791000000073', '2025-09-24 22:02:37'),
+	(1187, 'Espinaca', 'Espinaca fresca y de alta calidad', 51.88, 75.63, 190, 104, 56, '7791000000080', '2025-09-24 22:02:37'),
+	(1191, 'Palta', 'Palta fresca y de alta calidad', 57.46, 72.81, 182, 104, 56, '7791000000084', '2025-09-24 22:02:37'),
+	(1210, 'Lechuga', 'Lechuga fresca y de alta calidad', 195.50, 252.30, 37, 104, 56, '7791000000103', '2025-09-24 22:02:37'),
+	(1211, 'Apio', 'Apio fresca y de alta calidad', 179.02, 256.08, 195, 104, 56, '7791000000104', '2025-09-24 22:02:37'),
+	(1212, 'Ajo', 'Ajo fresca y de alta calidad', 154.03, 188.08, 124, 104, 56, '7791000000105', '2025-09-24 22:02:37'),
+	(1216, 'Papa', 'Papa fresca y de alta calidad', 82.37, 115.26, 175, 104, 56, '7791000000109', '2025-09-24 22:02:37'),
+	(1219, 'Jengibre', 'Jengibre fresca y de alta calidad', 106.48, 152.26, 189, 104, 56, '7791000000112', '2025-09-24 22:02:37'),
+	(1227, 'Hongos Portobello', 'Hongos Portobello fresca y de alta calidad', 139.83, 188.89, 42, 104, 56, '7791000000120', '2025-09-24 22:02:37'),
+	(1229, 'Lentejas Verdes', 'Lentejas Verdes fresca y de alta calidad', 62.33, 92.55, 89, 104, 56, '7791000000122', '2025-09-24 22:02:37'),
+	(1278, 'Morron Verde', 'Morron Verde fresca y de alta calidad', 110.46, 136.57, 158, 104, 56, '7791000000171', '2025-09-24 22:02:37'),
+	(1291, 'Acelga', 'Acelga fresca y de alta calidad', 189.13, 279.04, 53, 104, 56, '7791000000184', '2025-09-24 22:02:37'),
+	(1302, 'Garbanzo Fresco', 'Garbanzo Fresco fresca y de alta calidad', 118.02, 148.99, 65, 104, 56, '7791000000195', '2025-09-24 22:02:37'),
+	(1339, 'Yerba Mora', 'Yerba Mora fresca y de alta calidad', 166.68, 234.46, 169, 104, 56, '7791000000232', '2025-09-24 22:02:37'),
+	(1407, 'Taladro percutor Einhell TE-ID 750', 'Taladro percutor 750W con velocidad variable', 28000.00, 34999.00, 120, 102, 36, 'EINH00001', '2025-09-24 22:04:03'),
+	(1408, 'Amoladora angular Einhell TC-AG 125', 'Amoladora 125mm 850W con protección ajustable', 19000.00, 23999.00, 150, 102, 36, 'EINH00002', '2025-09-24 22:04:03'),
+	(1409, 'Sierra circular Einhell TC-CS 1400', 'Sierra circular 1400W disco 190mm', 33000.00, 41999.00, 80, 102, 36, 'EINH00003', '2025-09-24 22:04:03'),
+	(1410, 'Atornillador inalámbrico Einhell TC-CD 18/35', 'Taladro atornillador a batería 18V con 2 baterías', 35000.00, 44999.00, 110, 102, 36, 'EINH00004', '2025-09-24 22:04:03'),
+	(1411, 'Compresor de aire Einhell TC-AC 200/24', 'Compresor 24L 1500W presión 8 bar', 70000.00, 87999.00, 60, 102, 36, 'EINH00005', '2025-09-24 22:04:03'),
+	(1412, 'Lijadora orbital Einhell TC-OS 1520', 'Lijadora orbital 150W con bolsa colectora', 12000.00, 15999.00, 140, 102, 36, 'EINH00006', '2025-09-24 22:04:03'),
+	(1413, 'Sierra caladora Einhell TC-JS 80', 'Caladora 600W con guía de corte ajustable', 17000.00, 22999.00, 90, 102, 36, 'EINH00007', '2025-09-24 22:04:03'),
+	(1414, 'Soldadora inverter Einhell TC-EW 150', 'Equipo de soldar inverter 150A', 55000.00, 69999.00, 70, 102, 36, 'EINH00008', '2025-09-24 22:04:03'),
+	(1415, 'Pulidora Einhell CC-PO 1100', 'Pulidora para autos 1100W con disco de lana', 22000.00, 28999.00, 100, 102, 36, 'EINH00009', '2025-09-24 22:04:03'),
+	(1416, 'Multiherramienta Einhell TC-MG 220', 'Herramienta multifunción oscilante 220W', 18000.00, 23999.00, 150, 102, 36, 'EINH00010', '2025-09-24 22:04:03'),
+	(1417, 'Sierra sable Einhell TC-AP 650', 'Sierra sable 650W con hoja intercambiable', 26000.00, 33999.00, 85, 102, 36, 'EINH00011', '2025-09-24 22:04:03'),
+	(1418, 'Taladro de columna Einhell TC-BD 350', 'Taladro de banco 350W con 5 velocidades', 43000.00, 54999.00, 55, 102, 36, 'EINH00012', '2025-09-24 22:04:03'),
+	(1419, 'Cortadora de césped Einhell GC-EM 1030', 'Cortadora eléctrica 1000W 30cm', 38000.00, 47999.00, 65, 102, 36, 'EINH00013', '2025-09-24 22:04:03'),
+	(1420, 'Amoladora angular Einhell TE-AG 230', 'Amoladora 230mm 2350W', 45000.00, 58999.00, 75, 102, 36, 'EINH00014', '2025-09-24 22:04:03'),
+	(1421, 'Compresor Einhell TE-AC 270/50', 'Compresor 50L 1800W con regulador de presión', 95000.00, 119999.00, 45, 102, 36, 'EINH00015', '2025-09-24 22:04:03'),
+	(1422, 'Lijadora de banda Einhell TC-BS 8038', 'Lijadora de banda 800W con bolsa colectora', 21000.00, 27999.00, 130, 102, 36, 'EINH00016', '2025-09-24 22:04:03'),
+	(1423, 'Sierra ingletadora Einhell TC-SM 2131', 'Sierra ingletadora telescópica 1800W disco 210mm', 87000.00, 109999.00, 40, 102, 36, 'EINH00017', '2025-09-24 22:04:03'),
+	(1424, 'Martillo demoledor Einhell TC-DH 43', 'Martillo demoledor 1600W con cincel', 125000.00, 159999.00, 30, 102, 36, 'EINH00018', '2025-09-24 22:04:03'),
+	(1425, 'Cepillo eléctrico Einhell TC-PL 750', 'Cepillo eléctrico 750W ancho 82mm', 15000.00, 19999.00, 100, 102, 36, 'EINH00019', '2025-09-24 22:04:03'),
+	(1426, 'Pistola de calor Einhell TC-HA 2000', 'Pistola de aire caliente 2000W 2 niveles', 9000.00, 12999.00, 160, 102, 36, 'EINH00020', '2025-09-24 22:04:03'),
+	(1427, 'Cortadora de azulejos Einhell TC-TC 800', 'Máquina de cortar cerámicos 800W', 27000.00, 34999.00, 85, 102, 36, 'EINH00021', '2025-09-24 22:04:03'),
+	(1428, 'Atornillador de impacto Einhell TE-CI 18', 'Atornillador a batería impacto 18V', 42000.00, 53999.00, 95, 102, 36, 'EINH00022', '2025-09-24 22:04:03'),
+	(1429, 'Sierra de cinta Einhell TC-SB 200', 'Sierra de banda para madera 250W', 69000.00, 88999.00, 50, 102, 36, 'EINH00023', '2025-09-24 22:04:03'),
+	(1430, 'Cortadora de césped a batería Einhell GE-CM 18', 'Cortadora de césped 18V batería PowerX-Change', 96000.00, 121999.00, 35, 102, 36, 'EINH00024', '2025-09-24 22:04:03'),
+	(1431, 'Taladro atornillador Einhell TE-CD 18/48', 'Taladro percutor a batería 18V con maletín', 38000.00, 48999.00, 90, 102, 36, 'EINH00025', '2025-09-24 22:04:03'),
+	(1432, 'Compresor portátil Einhell TC-AC 190', 'Compresor portátil 1100W', 25000.00, 31999.00, 115, 102, 36, 'EINH00026', '2025-09-24 22:04:03'),
+	(1433, 'Cortadora de césped Einhell GE-CM 33', 'Cortadora eléctrica 1200W 33cm', 41000.00, 52999.00, 70, 102, 36, 'EINH00027', '2025-09-24 22:04:03'),
+	(1434, 'Soplador de hojas Einhell GC-EL 2500', 'Soplador/aspirador 2500W con bolsa', 19000.00, 24999.00, 100, 102, 36, 'EINH00028', '2025-09-24 22:04:03'),
+	(1435, 'Clavadora eléctrica Einhell TC-EN 20', 'Clavadora engrampadora 200W', 15000.00, 19999.00, 140, 102, 36, 'EINH00029', '2025-09-24 22:04:03'),
+	(1436, 'Pistola de pintar Einhell TC-SY 400', 'Sistema de pintura eléctrico 400W', 21000.00, 27999.00, 110, 102, 36, 'EINH00030', '2025-09-24 22:04:03'),
+	(1437, 'Lijadora delta Einhell TC-DS 19', 'Lijadora triangular 190W', 9000.00, 11999.00, 160, 102, 36, 'EINH00031', '2025-09-24 22:04:03'),
+	(1438, 'Cortadora de césped a gasolina Einhell GC-PM 46', 'Cortadora de césped motor 140cc', 175000.00, 219999.00, 25, 102, 36, 'EINH00032', '2025-09-24 22:04:03'),
+	(1439, 'Generador eléctrico Einhell TC-PG 2500', 'Generador 2500W gasolina', 220000.00, 278999.00, 20, 102, 36, 'EINH00033', '2025-09-24 22:04:03'),
+	(1440, 'Amoladora angular Einhell TC-AG 115', 'Amoladora 115mm 500W', 12000.00, 15999.00, 180, 102, 36, 'EINH00034', '2025-09-24 22:04:03'),
+	(1441, 'Cepillo eléctrico Einhell TE-PL 900', 'Cepillo 900W ancho 82mm', 21000.00, 27999.00, 90, 102, 36, 'EINH00035', '2025-09-24 22:04:03'),
+	(1442, 'Sierra de mesa Einhell TC-TS 2025', 'Sierra de mesa 2000W con disco 250mm', 115000.00, 147999.00, 35, 102, 36, 'EINH00036', '2025-09-24 22:04:03'),
+	(1443, 'Pulidora orbital Einhell TE-RS 40', 'Pulidora excéntrica 400W', 17000.00, 22999.00, 120, 102, 36, 'EINH00037', '2025-09-24 22:04:03'),
+	(1444, 'Multiherramienta inalámbrica Einhell TE-MG 12', 'Herramienta multifunción a batería 12V', 27000.00, 35999.00, 75, 102, 36, 'EINH00038', '2025-09-24 22:04:03'),
+	(1445, 'Martillo perforador Einhell TC-RH 800', 'Rotomartillo SDS Plus 800W', 36000.00, 45999.00, 80, 102, 36, 'EINH00039', '2025-09-24 22:04:03'),
+	(1446, 'Cortadora de césped Einhell GE-CM 43', 'Cortadora de césped eléctrica 1700W 43cm', 62000.00, 79999.00, 60, 102, 36, 'EINH00040', '2025-09-24 22:04:03'),
+	(1447, 'Atornillador de impacto Einhell TE-CI 12', 'Atornillador de impacto a batería 12V', 30000.00, 38999.00, 95, 102, 36, 'EINH00041', '2025-09-24 22:04:03'),
+	(1448, 'Lijadora excéntrica Einhell TE-RS 18', 'Lijadora orbital a batería 18V', 21000.00, 27999.00, 100, 102, 36, 'EINH00042', '2025-09-24 22:04:03'),
+	(1449, 'Sierra circular Einhell TE-CS 190', 'Sierra circular 1500W disco 190mm', 35000.00, 45999.00, 90, 102, 36, 'EINH00043', '2025-09-24 22:04:03'),
+	(1450, 'Pulidora angular Einhell TE-AG 125', 'Pulidora 125mm 1100W', 22000.00, 28999.00, 110, 102, 36, 'EINH00044', '2025-09-24 22:04:03'),
+	(1451, 'Taladro Einhell TC-ID 1000', 'Taladro percutor 1000W con velocidad variable', 31000.00, 40999.00, 85, 102, 36, 'EINH00045', '2025-09-24 22:04:03'),
+	(1452, 'Sierra sable Einhell TE-AP 18', 'Sierra sable inalámbrica 18V', 34000.00, 43999.00, 70, 102, 36, 'EINH00046', '2025-09-24 22:04:03'),
+	(1453, 'Compresor Einhell TE-AC 24', 'Compresor portátil 24L 1500W', 72000.00, 91999.00, 55, 102, 36, 'EINH00047', '2025-09-24 22:04:03'),
+	(1454, 'Generador inverter Einhell TC-IG 2000', 'Generador inverter 2000W', 180000.00, 229999.00, 30, 102, 36, 'EINH00048', '2025-09-24 22:04:03'),
+	(1455, 'Martillo demoledor Einhell TE-DH 12', 'Martillo demoledor compacto 1050W', 89000.00, 114999.00, 25, 102, 36, 'EINH00049', '2025-09-24 22:04:03'),
+	(1456, 'Taladro atornillador Einhell TC-CD 12', 'Taladro atornillador inalámbrico 12V', 19000.00, 24999.00, 130, 102, 36, 'EINH00050', '2025-09-24 22:04:03'),
+	(1457, 'Taladro percutor Bosch GSB 13 RE', 'Taladro percutor 600W con velocidad variable', 35000.00, 45999.00, 120, 103, 36, 'BOSCH0001', '2025-09-24 22:04:13'),
+	(1458, 'Amoladora angular Bosch GWS 7-115', 'Amoladora 720W disco 115mm', 28000.00, 36999.00, 150, 103, 36, 'BOSCH0002', '2025-09-24 22:04:13'),
+	(1459, 'Sierra circular Bosch GKS 190', 'Sierra circular 1400W disco 190mm', 52000.00, 66999.00, 100, 103, 36, 'BOSCH0003', '2025-09-24 22:04:13'),
+	(1460, 'Taladro atornillador Bosch GSR 180-LI', 'Taladro inalámbrico 18V con 2 baterías', 78000.00, 99999.00, 90, 103, 36, 'BOSCH0004', '2025-09-24 22:04:13'),
+	(1461, 'Martillo perforador Bosch GBH 2-26', 'Rotomartillo SDS Plus 800W', 85000.00, 109999.00, 80, 103, 36, 'BOSCH0005', '2025-09-24 22:04:13'),
+	(1462, 'Amoladora Bosch GWS 22-180', 'Amoladora 2200W disco 180mm', 62000.00, 79999.00, 70, 103, 36, 'BOSCH0006', '2025-09-24 22:04:13'),
+	(1463, 'Lijadora orbital Bosch GSS 23 AE', 'Lijadora orbital 190W con velocidad regulable', 26000.00, 33999.00, 140, 103, 36, 'BOSCH0007', '2025-09-24 22:04:13'),
+	(1464, 'Sierra caladora Bosch GST 8000 E', 'Caladora 710W con control de velocidad', 39000.00, 50999.00, 110, 103, 36, 'BOSCH0008', '2025-09-24 22:04:13'),
+	(1465, 'Medidor láser Bosch GLM 50', 'Medidor de distancias hasta 50m', 45000.00, 58999.00, 95, 103, 36, 'BOSCH0009', '2025-09-24 22:04:13'),
+	(1466, 'Nivel láser Bosch GLL 3-80', 'Nivel láser de 360° líneas verdes', 125000.00, 159999.00, 60, 103, 36, 'BOSCH0010', '2025-09-24 22:04:13'),
+	(1467, 'Pulidora Bosch GPO 14 CE', 'Pulidora angular 1400W con control de velocidad', 53000.00, 68999.00, 75, 103, 36, 'BOSCH0011', '2025-09-24 22:04:13'),
+	(1468, 'Taladro de columna Bosch PBD 40', 'Taladro de banco con pantalla digital', 135000.00, 172999.00, 40, 103, 36, 'BOSCH0012', '2025-09-24 22:04:13'),
+	(1469, 'Sierra sable Bosch GSA 1100 E', 'Sierra sable 1100W con luz LED', 60000.00, 77999.00, 85, 103, 36, 'BOSCH0013', '2025-09-24 22:04:13'),
+	(1470, 'Martillo demoledor Bosch GSH 11 E', 'Martillo demoledor 1500W 16J', 210000.00, 269999.00, 30, 103, 36, 'BOSCH0014', '2025-09-24 22:04:13'),
+	(1471, 'Lijadora excéntrica Bosch GEX 125-1', 'Lijadora orbital 250W 125mm', 33000.00, 42999.00, 100, 103, 36, 'BOSCH0015', '2025-09-24 22:04:13'),
+	(1472, 'Atornillador de impacto Bosch GDX 180-LI', 'Atornillador a batería 18V impacto', 72000.00, 93999.00, 85, 103, 36, 'BOSCH0016', '2025-09-24 22:04:13'),
+	(1473, 'Sierra ingletadora Bosch GCM 10 MX', 'Ingletadora 1800W disco 255mm', 145000.00, 189999.00, 35, 103, 36, 'BOSCH0017', '2025-09-24 22:04:13'),
+	(1474, 'Fresadora Bosch POF 1400 ACE', 'Router eléctrico 1400W con control de profundidad', 78000.00, 99999.00, 60, 103, 36, 'BOSCH0018', '2025-09-24 22:04:13'),
+	(1475, 'Pistola de calor Bosch GHG 23-66', 'Pistola de aire caliente 2300W con display', 26000.00, 33999.00, 120, 103, 36, 'BOSCH0019', '2025-09-24 22:04:13'),
+	(1476, 'Compresor Bosch EasyPump', 'Compresor portátil digital para autos y bicicletas', 21000.00, 28999.00, 150, 103, 36, 'BOSCH0020', '2025-09-24 22:04:13'),
+	(1477, 'Sierra de mesa Bosch GTS 254', 'Sierra de banco 1800W disco 254mm', 160000.00, 209999.00, 40, 103, 36, 'BOSCH0021', '2025-09-24 22:04:13'),
+	(1478, 'Multiherramienta Bosch PMF 220', 'Herramienta multifunción oscilante 220W', 24000.00, 31999.00, 140, 103, 36, 'BOSCH0022', '2025-09-24 22:04:13'),
+	(1479, 'Atornillador Bosch IXO 6', 'Atornillador recargable compacto 3.6V', 17000.00, 22999.00, 160, 103, 36, 'BOSCH0023', '2025-09-24 22:04:13'),
+	(1480, 'Cortadora de azulejos Bosch PTC 640', 'Cortadora manual para cerámicos hasta 640mm', 67000.00, 86999.00, 55, 103, 36, 'BOSCH0024', '2025-09-24 22:04:13'),
+	(1481, 'Detector Bosch D-tect 120', 'Detector de materiales hasta 12cm', 82000.00, 104999.00, 50, 103, 36, 'BOSCH0025', '2025-09-24 22:04:13'),
+	(1482, 'Soplador Bosch ALB 18 LI', 'Soplador inalámbrico 18V batería incluida', 35000.00, 45999.00, 90, 103, 36, 'BOSCH0026', '2025-09-24 22:04:13'),
+	(1483, 'Generador Bosch G 2000', 'Generador portátil gasolina 2000W', 220000.00, 284999.00, 20, 103, 36, 'BOSCH0027', '2025-09-24 22:04:13'),
+	(1484, 'Amoladora Bosch GWS 9-125', 'Amoladora 900W disco 125mm', 31000.00, 40999.00, 140, 103, 36, 'BOSCH0028', '2025-09-24 22:04:13'),
+	(1485, 'Lijadora Bosch GSS 140', 'Lijadora orbital 180W compacta', 25000.00, 32999.00, 120, 103, 36, 'BOSCH0029', '2025-09-24 22:04:13'),
+	(1486, 'Martillo perforador Bosch GBH 5-40', 'Rotomartillo SDS-Max 1100W', 175000.00, 229999.00, 25, 103, 36, 'BOSCH0030', '2025-09-24 22:04:13'),
+	(1487, 'Sierra circular Bosch PKS 55 A', 'Sierra circular 1200W con caja recolectora', 42000.00, 54999.00, 95, 103, 36, 'BOSCH0031', '2025-09-24 22:04:13'),
+	(1488, 'Taladro Bosch GSB 16 RE', 'Taladro percutor 750W compacto', 40000.00, 51999.00, 110, 103, 36, 'BOSCH0032', '2025-09-24 22:04:13'),
+	(1489, 'Nivel Bosch PLL 360', 'Nivel láser de 360° auto nivelante', 56000.00, 72999.00, 65, 103, 36, 'BOSCH0033', '2025-09-24 22:04:13'),
+	(1490, 'Pulidora Bosch GPO 950', 'Pulidora de 950W con mango ergonómico', 37000.00, 48999.00, 100, 103, 36, 'BOSCH0034', '2025-09-24 22:04:13'),
+	(1491, 'Martillo demoledor Bosch GSH 27 VC', 'Demoledor profesional 2000W 62J', 490000.00, 629999.00, 15, 103, 36, 'BOSCH0035', '2025-09-24 22:04:13'),
+	(1492, 'Sierra ingletadora Bosch GCM 12 GDL', 'Ingletadora telescópica 2000W disco 305mm', 240000.00, 309999.00, 25, 103, 36, 'BOSCH0036', '2025-09-24 22:04:13'),
+	(1493, 'Cepillo eléctrico Bosch GHO 26-82', 'Cepillo eléctrico 710W ancho 82mm', 38000.00, 49999.00, 90, 103, 36, 'BOSCH0037', '2025-09-24 22:04:13'),
+	(1494, 'Medidor láser Bosch GLM 100', 'Medidor de distancia láser hasta 100m', 95000.00, 121999.00, 40, 103, 36, 'BOSCH0038', '2025-09-24 22:04:13'),
+	(1495, 'Sierra caladora Bosch PST 900 PEL', 'Caladora 620W con luz LED', 42000.00, 54999.00, 85, 103, 36, 'BOSCH0039', '2025-09-24 22:04:13'),
+	(1496, 'Pistola de pintar Bosch PFS 2000', 'Sistema de pulverización 440W', 35000.00, 45999.00, 100, 103, 36, 'BOSCH0040', '2025-09-24 22:04:13'),
+	(1497, 'Lijadora delta Bosch PDA 180', 'Lijadora triangular 180W', 22000.00, 28999.00, 130, 103, 36, 'BOSCH0041', '2025-09-24 22:04:13'),
+	(1498, 'Sierra sable Bosch GSA 18V-LI', 'Sierra sable inalámbrica 18V', 72000.00, 93999.00, 70, 103, 36, 'BOSCH0042', '2025-09-24 22:04:13'),
+	(1499, 'Multiherramienta Bosch GOP 30-28', 'Multicortadora 300W oscilante', 50000.00, 64999.00, 80, 103, 36, 'BOSCH0043', '2025-09-24 22:04:13'),
+	(1500, 'Taladro Bosch GBM 6 RE', 'Taladro eléctrico 350W compacto', 21000.00, 27999.00, 150, 103, 36, 'BOSCH0044', '2025-09-24 22:04:13'),
+	(1501, 'Martillo perforador Bosch GBH 18V-26', 'Rotomartillo inalámbrico 18V', 115000.00, 149999.00, 40, 103, 36, 'BOSCH0045', '2025-09-24 22:04:13'),
+	(1502, 'Sierra de cinta Bosch GCB 18V', 'Sierra de banda inalámbrica 18V', 130000.00, 169999.00, 35, 103, 36, 'BOSCH0046', '2025-09-24 22:04:13'),
+	(1503, 'Amoladora Bosch GWS 24-230', 'Amoladora 2400W disco 230mm', 89000.00, 114999.00, 60, 103, 36, 'BOSCH0047', '2025-09-24 22:04:13'),
+	(1504, 'Pulidora Bosch GPO 12 CE', 'Pulidora profesional 1200W', 48000.00, 61999.00, 100, 103, 36, 'BOSCH0048', '2025-09-24 22:04:13'),
+	(1505, 'Generador Bosch G 3000', 'Generador a gasolina 3000W', 285000.00, 364999.00, 20, 103, 36, 'BOSCH0049', '2025-09-24 22:04:13'),
+	(1506, 'Taladro inalámbrico Bosch GSR 12V-15', 'Taladro atornillador compacto 12V', 48000.00, 61999.00, 110, 103, 36, 'BOSCH0050', '2025-09-24 22:04:13');
 
 -- Volcando estructura para tabla pp3_proyecto.productos_bak
+DROP TABLE IF EXISTS `productos_bak`;
 CREATE TABLE IF NOT EXISTS `productos_bak` (
   `id` int(11) NOT NULL DEFAULT 0,
-  `nombre` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
-  `descripcion` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `descripcion` text DEFAULT NULL,
   `precio_costo` decimal(10,2) NOT NULL,
   `precio_venta` decimal(10,2) NOT NULL,
   `stock` int(11) NOT NULL DEFAULT 0,
   `marca_id` int(11) DEFAULT NULL,
   `categoria_id` int(11) DEFAULT NULL,
-  `codigo_barras` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `codigo_barras` varchar(50) DEFAULT NULL,
   `fecha_alta` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT  CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
--- Volcando datos para la tabla pp3_proyecto.productos_bak: ~245 rows (aproximadamente)
-INSERT IGNORE INTO `productos_bak` (`id`, `nombre`, `descripcion`, `precio_costo`, `precio_venta`, `stock`, `marca_id`, `categoria_id`, `codigo_barras`, `fecha_alta`) VALUES
+-- Volcando datos para la tabla pp3_proyecto.productos_bak: ~393 rows (aproximadamente)
+DELETE FROM `productos_bak`;
+INSERT INTO `productos_bak` (`id`, `nombre`, `descripcion`, `precio_costo`, `precio_venta`, `stock`, `marca_id`, `categoria_id`, `codigo_barras`, `fecha_alta`) VALUES
 	(2, 'Yerba Mate Marolio', 'Yerba mate elaborada tradicional', 80.00, 120.00, 200, 52, 23, '779123456002', '2025-05-25 21:13:28'),
 	(3, 'Salame Paladini', 'Salame tipo milán de Paladini', 150.00, 200.00, 50, 8, 14, '779123456003', '2025-05-25 21:13:28'),
 	(4, 'Dulce de Leche La Serenísima', 'Dulce de leche clásico', 100.00, 150.00, 80, 1, 4, '779123456004', '2025-05-25 21:13:28'),
@@ -634,7 +727,6 @@ INSERT IGNORE INTO `productos_bak` (`id`, `nombre`, `descripcion`, `precio_costo
 	(112, 'Leche Ilolay UAT 1L', 'Leche larga vida entera', 180.00, 270.00, 160, 48, 1, '779123450007', '2025-06-11 22:35:24'),
 	(113, 'Helado Havanna 1L', 'Helado crema cookies', 350.00, 520.00, 90, 13, 4, '779123450008', '2025-06-11 22:35:24'),
 	(114, 'Galletitas Chocolinas Bagley', 'Galletitas chocolate', 120.00, 160.00, 200, 3, 5, '779123450009', '2025-06-11 22:35:24'),
-	(115, 'Galletitas Rex Bagley', 'Galletitas crocantes', 110.00, 150.00, 180, 3, 5, '779123450010', '2025-06-11 22:35:24'),
 	(116, 'Arroz Gallo Perdigón 1kg', 'Arroz redondo', 200.00, 280.00, 130, 3, 20, '779123450011', '2025-06-11 22:35:24'),
 	(117, 'Fideos Matarazzo 500g', 'Spaghetti tradicionales', 150.00, 230.00, 140, 3, 19, '779123450012', '2025-06-11 22:35:24'),
 	(118, 'Aceite de Girasol Natura 1L', 'Aceite de girasol puro', 220.00, 320.00, 150, 42, 16, '779123450013', '2025-06-11 22:35:24'),
@@ -645,8 +737,8 @@ INSERT IGNORE INTO `productos_bak` (`id`, `nombre`, `descripcion`, `precio_costo
 	(123, 'Café La Virginia 250g', 'Café molido tradicional', 280.00, 400.00, 140, 45, 22, '779123450018', '2025-06-11 22:35:24'),
 	(124, 'Yerba Mate Amanda 500g', 'Yerba tradicional Amanda', 260.00, 370.00, 130, 5, 23, '779123450019', '2025-06-11 22:35:24'),
 	(125, 'Yerba Mate Playadito 1kg', 'Yerba con palo', 480.00, 700.00, 120, 5, 23, '779123450020', '2025-06-11 22:35:24'),
-	(126, 'Agua Manaos 2L', 'Agua mineral Manaos', 100.00, 150.00, 200, 30, 11, '779123450021', '2025-06-11 22:35:24'),
-	(127, 'Manaos Pomelo 2L', 'Gaseosa sabor pomelo', 200.00, 290.00, 180, 30, 11, '779123450022', '2025-06-11 22:35:24'),
+	(126, 'Agua Manaos 2L', 'Agua mineral Manaos', 100.00, 150.00, 200, 100, 11, '779123450021', '2025-06-11 22:35:24'),
+	(127, 'Manaos Pomelo 2L', 'Gaseosa sabor pomelo', 200.00, 290.00, 180, 100, 11, '779123450022', '2025-06-11 22:35:24'),
 	(128, 'Cunnington Tónica 1.5L', 'Gaseosa tónica Cunnington', 200.00, 300.00, 160, 31, 11, '779123450023', '2025-06-11 22:35:24'),
 	(129, 'Fernet Branca 750ml', 'Fernet clásico', 750.00, 1100.00, 80, 32, 11, '779123450024', '2025-06-11 22:35:24'),
 	(130, 'Coca-Cola 2.25L', 'Gaseosa Coca‑Cola', 400.00, 650.00, 150, 33, 11, '779123450025', '2025-06-11 22:35:24'),
@@ -672,7 +764,7 @@ INSERT IGNORE INTO `productos_bak` (`id`, `nombre`, `descripcion`, `precio_costo
 	(150, 'Jugo Tang Naranja 500g', 'Bebida en polvo sabor naranja', 150.00, 220.00, 160, 45, 12, '779123450045', '2025-06-11 22:35:24'),
 	(151, 'Yerba Mate Playadito Suave 500g', 'Yerba saborizada suave', 260.00, 370.00, 130, 5, 23, '779123450046', '2025-06-11 22:35:24'),
 	(152, 'Aceite Lira Girasol 1L', 'Aceite girasol marca Lira', 210.00, 310.00, 140, 8, 16, '779123450047', '2025-06-11 22:35:24'),
-	(153, 'Gaseosa Manaos Cola 2L', 'Refresco cola económico', 200.00, 290.00, 180, 30, 11, '779123450048', '2025-06-11 22:35:24'),
+	(153, 'Gaseosa Manaos Cola 2L', 'Refresco cola económico', 200.00, 290.00, 180, 100, 11, '779123450048', '2025-06-11 22:35:24'),
 	(154, 'Yerba Mate Nobleza Gaucha 1kg', 'Yerba tradicional', 470.00, 680.00, 120, 5, 23, '779123450049', '2025-06-11 22:35:24'),
 	(155, 'Yerba Mate Amanda Suave 500g', 'Yerba suave en bolsa', 260.00, 370.00, 110, 5, 23, '779123450050', '2025-06-11 22:35:24'),
 	(156, 'Crema de leche La Serenísima 200ml', 'Crema de leche entera pasteurizada ideal para cocina y postres.', 250.00, 350.00, 100, 1, 1, NULL, '2025-06-23 05:11:47'),
@@ -740,7 +832,6 @@ INSERT IGNORE INTO `productos_bak` (`id`, `nombre`, `descripcion`, `precio_costo
 	(268, 'Queso Port Salut La Serenísima 500g', 'Queso semiduro suave', 470.00, 620.00, 55, 1, 7, '779100000012', '2025-07-02 22:17:51'),
 	(269, 'Queso Muzzarella La Serenísima 500g', 'Queso para pizza', 480.00, 630.00, 70, 1, 7, '779100000013', '2025-07-02 22:17:51'),
 	(270, 'Queso Rallado La Serenísima 100g', 'Queso rallado natural', 150.00, 200.00, 85, 1, 7, '779100000014', '2025-07-02 22:17:51'),
-	(271, 'Manteca La Serenísima 200g', 'Manteca con sal', 200.00, 270.00, 100, 1, 7, '779100000015', '2025-07-02 22:17:51'),
 	(272, 'Manteca sin sal La Serenísima 200g', 'Manteca sin sal', 210.00, 280.00, 95, 1, 7, '779100000016', '2025-07-02 22:17:51'),
 	(273, 'Crema de Leche 200ml', 'Crema líquida para cocinar', 160.00, 220.00, 90, 1, 7, '779100000017', '2025-07-02 22:17:51'),
 	(274, 'Crema Doble La Serenísima 200ml', 'Crema con mayor tenor graso', 180.00, 240.00, 80, 1, 7, '779100000018', '2025-07-02 22:17:51'),
@@ -825,34 +916,157 @@ INSERT IGNORE INTO `productos_bak` (`id`, `nombre`, `descripcion`, `precio_costo
 	(403, 'Barra Cereal Frutos Rojos 25g', 'Barrita de cereal con frutos rojos', 75.00, 110.00, 100, 5, 1, '779200000047', '2025-07-02 23:10:55'),
 	(404, 'Bizcochitos Terrabusi 200g', 'Bizcochitos de grasa', 140.00, 190.00, 90, 5, 5, '779200000048', '2025-07-02 23:10:55'),
 	(405, 'Bizcochitos de Salvado 200g', 'Bizcochitos integrales', 145.00, 195.00, 85, 5, 5, '779200000049', '2025-07-02 23:10:55'),
-	(406, 'Bizcochitos Dulces 200g', 'Bizcochitos saborizados', 145.00, 195.00, 85, 5, 5, '779200000050', '2025-07-02 23:10:55');
-
--- Volcando estructura para tabla pp3_proyecto.proveedores
-CREATE TABLE IF NOT EXISTS `proveedores` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(255) NOT NULL,
-  `contacto` varchar(255) DEFAULT NULL,
-  `telefono` varchar(50) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `direccion` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
-
--- Volcando datos para la tabla pp3_proyecto.proveedores: ~0 rows (aproximadamente)
-
--- Volcando estructura para tabla pp3_proyecto.ventas
-CREATE TABLE IF NOT EXISTS `ventas` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `cliente_id` int(11) DEFAULT NULL,
-  `fecha_venta` timestamp NULL DEFAULT current_timestamp(),
-  `total_venta` decimal(10,2) NOT NULL,
-  `metodo_pago` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_ventas_clientes` (`cliente_id`),
-  CONSTRAINT `fk_ventas_clientes` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
-
--- Volcando datos para la tabla pp3_proyecto.ventas: ~0 rows (aproximadamente)
+	(406, 'Bizcochitos Dulces 200g', 'Bizcochitos saborizados', 145.00, 195.00, 85, 5, 5, '779200000050', '2025-07-02 23:10:55'),
+	(1107, 'Morron Amarillo', 'Morron Amarillo fresca y de alta calidad', 83.14, 111.91, 151, 104, 56, '7791000000000', '2025-09-24 22:02:37'),
+	(1108, 'Rabanito', 'Rabanito fresca y de alta calidad', 183.10, 255.81, 78, 104, 56, '7791000000001', '2025-09-24 22:02:37'),
+	(1109, 'Cebolla', 'Cebolla fresca y de alta calidad', 131.87, 168.35, 92, 104, 56, '7791000000002', '2025-09-24 22:02:37'),
+	(1110, 'Col de Bruselas', 'Col de Bruselas fresca y de alta calidad', 67.66, 87.09, 83, 104, 56, '7791000000003', '2025-09-24 22:02:37'),
+	(1111, 'Cebolla de Verdeo', 'Cebolla de Verdeo fresca y de alta calidad', 179.42, 228.26, 47, 104, 56, '7791000000004', '2025-09-24 22:02:37'),
+	(1112, 'Champignon', 'Champignon fresca y de alta calidad', 193.12, 243.93, 161, 104, 56, '7791000000005', '2025-09-24 22:02:37'),
+	(1114, 'Endivia', 'Endivia fresca y de alta calidad', 79.85, 98.56, 164, 104, 56, '7791000000007', '2025-09-24 22:02:37'),
+	(1115, 'Repollo', 'Repollo fresca y de alta calidad', 168.04, 205.65, 128, 104, 56, '7791000000008', '2025-09-24 22:02:37'),
+	(1116, 'Tomate', 'Tomate fresca y de alta calidad', 108.00, 158.35, 99, 104, 56, '7791000000009', '2025-09-24 22:02:37'),
+	(1117, 'Hinojo', 'Hinojo fresca y de alta calidad', 144.92, 201.23, 79, 104, 56, '7791000000010', '2025-09-24 22:02:37'),
+	(1118, 'Zanahoria', 'Zanahoria fresca y de alta calidad', 179.16, 234.71, 185, 104, 56, '7791000000011', '2025-09-24 22:02:37'),
+	(1119, 'Calabaza', 'Calabaza fresca y de alta calidad', 118.15, 152.91, 97, 104, 56, '7791000000012', '2025-09-24 22:02:37'),
+	(1121, 'Escarola', 'Escarola fresca y de alta calidad', 107.82, 156.79, 187, 104, 56, '7791000000014', '2025-09-24 22:02:37'),
+	(1122, 'Kale', 'Kale fresca y de alta calidad', 118.03, 161.99, 194, 104, 56, '7791000000015', '2025-09-24 22:02:37'),
+	(1123, 'Ciboulette', 'Ciboulette fresca y de alta calidad', 172.62, 258.21, 63, 104, 56, '7791000000016', '2025-09-24 22:02:37'),
+	(1124, 'Mostaza Verde', 'Mostaza Verde fresca y de alta calidad', 97.89, 117.49, 39, 104, 56, '7791000000017', '2025-09-24 22:02:37'),
+	(1126, 'Puerro', 'Puerro fresca y de alta calidad', 177.20, 231.34, 109, 104, 56, '7791000000019', '2025-09-24 22:02:37'),
+	(1128, 'Morron Rojo', 'Morron Rojo fresca y de alta calidad', 199.59, 261.31, 101, 104, 56, '7791000000021', '2025-09-24 22:02:37'),
+	(1129, 'Rucula', 'Rucula fresca y de alta calidad', 100.60, 127.72, 98, 104, 56, '7791000000022', '2025-09-24 22:02:37'),
+	(1130, 'Quinoa Verde', 'Quinoa Verde fresca y de alta calidad', 171.37, 235.32, 163, 104, 56, '7791000000023', '2025-09-24 22:02:37'),
+	(1131, 'Mandioca', 'Mandioca fresca y de alta calidad', 102.63, 150.29, 138, 104, 56, '7791000000024', '2025-09-24 22:02:37'),
+	(1135, 'Okra', 'Okra fresca y de alta calidad', 151.29, 194.23, 176, 104, 56, '7791000000028', '2025-09-24 22:02:37'),
+	(1136, 'Habas', 'Habas fresca y de alta calidad', 68.46, 82.76, 74, 104, 56, '7791000000029', '2025-09-24 22:02:37'),
+	(1137, 'Brocoli', 'Brocoli fresca y de alta calidad', 102.97, 131.16, 143, 104, 56, '7791000000030', '2025-09-24 22:02:37'),
+	(1138, 'Choclo', 'Choclo fresca y de alta calidad', 195.75, 276.24, 136, 104, 56, '7791000000031', '2025-09-24 22:02:37'),
+	(1145, 'Soja Verde (Edamame)', 'Soja Verde (Edamame) fresca y de alta calidad', 112.42, 145.71, 103, 104, 56, '7791000000038', '2025-09-24 22:02:37'),
+	(1148, 'Pepino', 'Pepino fresca y de alta calidad', 154.77, 231.11, 192, 104, 56, '7791000000041', '2025-09-24 22:02:37'),
+	(1149, 'Nabo', 'Nabo fresca y de alta calidad', 92.81, 124.77, 190, 104, 56, '7791000000042', '2025-09-24 22:02:37'),
+	(1150, 'Batata', 'Batata fresca y de alta calidad', 57.76, 84.17, 148, 104, 56, '7791000000043', '2025-09-24 22:02:37'),
+	(1152, 'Alcaucil', 'Alcaucil fresca y de alta calidad', 168.20, 236.10, 120, 104, 56, '7791000000045', '2025-09-24 22:02:37'),
+	(1159, 'Arvejas', 'Arvejas fresca y de alta calidad', 140.03, 188.80, 66, 104, 56, '7791000000052', '2025-09-24 22:02:37'),
+	(1160, 'Coliflor', 'Coliflor fresca y de alta calidad', 103.96, 144.66, 118, 104, 56, '7791000000053', '2025-09-24 22:02:37'),
+	(1161, 'Remolacha', 'Remolacha fresca y de alta calidad', 77.60, 107.01, 46, 104, 56, '7791000000054', '2025-09-24 22:02:37'),
+	(1166, 'Poroto Verde', 'Poroto Verde fresca y de alta calidad', 196.57, 255.27, 54, 104, 56, '7791000000059', '2025-09-24 22:02:37'),
+	(1168, 'Berro', 'Berro fresca y de alta calidad', 150.05, 219.44, 175, 104, 56, '7791000000061', '2025-09-24 22:02:37'),
+	(1171, 'Zapallo', 'Zapallo fresca y de alta calidad', 195.74, 243.94, 31, 104, 56, '7791000000064', '2025-09-24 22:02:37'),
+	(1180, 'Berenjena', 'Berenjena fresca y de alta calidad', 54.35, 79.89, 67, 104, 56, '7791000000073', '2025-09-24 22:02:37'),
+	(1187, 'Espinaca', 'Espinaca fresca y de alta calidad', 51.88, 75.63, 190, 104, 56, '7791000000080', '2025-09-24 22:02:37'),
+	(1191, 'Palta', 'Palta fresca y de alta calidad', 57.46, 72.81, 182, 104, 56, '7791000000084', '2025-09-24 22:02:37'),
+	(1210, 'Lechuga', 'Lechuga fresca y de alta calidad', 195.50, 252.30, 37, 104, 56, '7791000000103', '2025-09-24 22:02:37'),
+	(1211, 'Apio', 'Apio fresca y de alta calidad', 179.02, 256.08, 195, 104, 56, '7791000000104', '2025-09-24 22:02:37'),
+	(1212, 'Ajo', 'Ajo fresca y de alta calidad', 154.03, 188.08, 124, 104, 56, '7791000000105', '2025-09-24 22:02:37'),
+	(1216, 'Papa', 'Papa fresca y de alta calidad', 82.37, 115.26, 175, 104, 56, '7791000000109', '2025-09-24 22:02:37'),
+	(1219, 'Jengibre', 'Jengibre fresca y de alta calidad', 106.48, 152.26, 189, 104, 56, '7791000000112', '2025-09-24 22:02:37'),
+	(1227, 'Hongos Portobello', 'Hongos Portobello fresca y de alta calidad', 139.83, 188.89, 42, 104, 56, '7791000000120', '2025-09-24 22:02:37'),
+	(1229, 'Lentejas Verdes', 'Lentejas Verdes fresca y de alta calidad', 62.33, 92.55, 89, 104, 56, '7791000000122', '2025-09-24 22:02:37'),
+	(1278, 'Morron Verde', 'Morron Verde fresca y de alta calidad', 110.46, 136.57, 158, 104, 56, '7791000000171', '2025-09-24 22:02:37'),
+	(1291, 'Acelga', 'Acelga fresca y de alta calidad', 189.13, 279.04, 53, 104, 56, '7791000000184', '2025-09-24 22:02:37'),
+	(1302, 'Garbanzo Fresco', 'Garbanzo Fresco fresca y de alta calidad', 118.02, 148.99, 65, 104, 56, '7791000000195', '2025-09-24 22:02:37'),
+	(1339, 'Yerba Mora', 'Yerba Mora fresca y de alta calidad', 166.68, 234.46, 169, 104, 56, '7791000000232', '2025-09-24 22:02:37'),
+	(1407, 'Taladro percutor Einhell TE-ID 750', 'Taladro percutor 750W con velocidad variable', 28000.00, 34999.00, 120, 102, 36, 'EINH00001', '2025-09-24 22:04:03'),
+	(1408, 'Amoladora angular Einhell TC-AG 125', 'Amoladora 125mm 850W con protección ajustable', 19000.00, 23999.00, 150, 102, 36, 'EINH00002', '2025-09-24 22:04:03'),
+	(1409, 'Sierra circular Einhell TC-CS 1400', 'Sierra circular 1400W disco 190mm', 33000.00, 41999.00, 80, 102, 36, 'EINH00003', '2025-09-24 22:04:03'),
+	(1410, 'Atornillador inalámbrico Einhell TC-CD 18/35', 'Taladro atornillador a batería 18V con 2 baterías', 35000.00, 44999.00, 110, 102, 36, 'EINH00004', '2025-09-24 22:04:03'),
+	(1411, 'Compresor de aire Einhell TC-AC 200/24', 'Compresor 24L 1500W presión 8 bar', 70000.00, 87999.00, 60, 102, 36, 'EINH00005', '2025-09-24 22:04:03'),
+	(1412, 'Lijadora orbital Einhell TC-OS 1520', 'Lijadora orbital 150W con bolsa colectora', 12000.00, 15999.00, 140, 102, 36, 'EINH00006', '2025-09-24 22:04:03'),
+	(1413, 'Sierra caladora Einhell TC-JS 80', 'Caladora 600W con guía de corte ajustable', 17000.00, 22999.00, 90, 102, 36, 'EINH00007', '2025-09-24 22:04:03'),
+	(1414, 'Soldadora inverter Einhell TC-EW 150', 'Equipo de soldar inverter 150A', 55000.00, 69999.00, 70, 102, 36, 'EINH00008', '2025-09-24 22:04:03'),
+	(1415, 'Pulidora Einhell CC-PO 1100', 'Pulidora para autos 1100W con disco de lana', 22000.00, 28999.00, 100, 102, 36, 'EINH00009', '2025-09-24 22:04:03'),
+	(1416, 'Multiherramienta Einhell TC-MG 220', 'Herramienta multifunción oscilante 220W', 18000.00, 23999.00, 150, 102, 36, 'EINH00010', '2025-09-24 22:04:03'),
+	(1417, 'Sierra sable Einhell TC-AP 650', 'Sierra sable 650W con hoja intercambiable', 26000.00, 33999.00, 85, 102, 36, 'EINH00011', '2025-09-24 22:04:03'),
+	(1418, 'Taladro de columna Einhell TC-BD 350', 'Taladro de banco 350W con 5 velocidades', 43000.00, 54999.00, 55, 102, 36, 'EINH00012', '2025-09-24 22:04:03'),
+	(1419, 'Cortadora de césped Einhell GC-EM 1030', 'Cortadora eléctrica 1000W 30cm', 38000.00, 47999.00, 65, 102, 36, 'EINH00013', '2025-09-24 22:04:03'),
+	(1420, 'Amoladora angular Einhell TE-AG 230', 'Amoladora 230mm 2350W', 45000.00, 58999.00, 75, 102, 36, 'EINH00014', '2025-09-24 22:04:03'),
+	(1421, 'Compresor Einhell TE-AC 270/50', 'Compresor 50L 1800W con regulador de presión', 95000.00, 119999.00, 45, 102, 36, 'EINH00015', '2025-09-24 22:04:03'),
+	(1422, 'Lijadora de banda Einhell TC-BS 8038', 'Lijadora de banda 800W con bolsa colectora', 21000.00, 27999.00, 130, 102, 36, 'EINH00016', '2025-09-24 22:04:03'),
+	(1423, 'Sierra ingletadora Einhell TC-SM 2131', 'Sierra ingletadora telescópica 1800W disco 210mm', 87000.00, 109999.00, 40, 102, 36, 'EINH00017', '2025-09-24 22:04:03'),
+	(1424, 'Martillo demoledor Einhell TC-DH 43', 'Martillo demoledor 1600W con cincel', 125000.00, 159999.00, 30, 102, 36, 'EINH00018', '2025-09-24 22:04:03'),
+	(1425, 'Cepillo eléctrico Einhell TC-PL 750', 'Cepillo eléctrico 750W ancho 82mm', 15000.00, 19999.00, 100, 102, 36, 'EINH00019', '2025-09-24 22:04:03'),
+	(1426, 'Pistola de calor Einhell TC-HA 2000', 'Pistola de aire caliente 2000W 2 niveles', 9000.00, 12999.00, 160, 102, 36, 'EINH00020', '2025-09-24 22:04:03'),
+	(1427, 'Cortadora de azulejos Einhell TC-TC 800', 'Máquina de cortar cerámicos 800W', 27000.00, 34999.00, 85, 102, 36, 'EINH00021', '2025-09-24 22:04:03'),
+	(1428, 'Atornillador de impacto Einhell TE-CI 18', 'Atornillador a batería impacto 18V', 42000.00, 53999.00, 95, 102, 36, 'EINH00022', '2025-09-24 22:04:03'),
+	(1429, 'Sierra de cinta Einhell TC-SB 200', 'Sierra de banda para madera 250W', 69000.00, 88999.00, 50, 102, 36, 'EINH00023', '2025-09-24 22:04:03'),
+	(1430, 'Cortadora de césped a batería Einhell GE-CM 18', 'Cortadora de césped 18V batería PowerX-Change', 96000.00, 121999.00, 35, 102, 36, 'EINH00024', '2025-09-24 22:04:03'),
+	(1431, 'Taladro atornillador Einhell TE-CD 18/48', 'Taladro percutor a batería 18V con maletín', 38000.00, 48999.00, 90, 102, 36, 'EINH00025', '2025-09-24 22:04:03'),
+	(1432, 'Compresor portátil Einhell TC-AC 190', 'Compresor portátil 1100W', 25000.00, 31999.00, 115, 102, 36, 'EINH00026', '2025-09-24 22:04:03'),
+	(1433, 'Cortadora de césped Einhell GE-CM 33', 'Cortadora eléctrica 1200W 33cm', 41000.00, 52999.00, 70, 102, 36, 'EINH00027', '2025-09-24 22:04:03'),
+	(1434, 'Soplador de hojas Einhell GC-EL 2500', 'Soplador/aspirador 2500W con bolsa', 19000.00, 24999.00, 100, 102, 36, 'EINH00028', '2025-09-24 22:04:03'),
+	(1435, 'Clavadora eléctrica Einhell TC-EN 20', 'Clavadora engrampadora 200W', 15000.00, 19999.00, 140, 102, 36, 'EINH00029', '2025-09-24 22:04:03'),
+	(1436, 'Pistola de pintar Einhell TC-SY 400', 'Sistema de pintura eléctrico 400W', 21000.00, 27999.00, 110, 102, 36, 'EINH00030', '2025-09-24 22:04:03'),
+	(1437, 'Lijadora delta Einhell TC-DS 19', 'Lijadora triangular 190W', 9000.00, 11999.00, 160, 102, 36, 'EINH00031', '2025-09-24 22:04:03'),
+	(1438, 'Cortadora de césped a gasolina Einhell GC-PM 46', 'Cortadora de césped motor 140cc', 175000.00, 219999.00, 25, 102, 36, 'EINH00032', '2025-09-24 22:04:03'),
+	(1439, 'Generador eléctrico Einhell TC-PG 2500', 'Generador 2500W gasolina', 220000.00, 278999.00, 20, 102, 36, 'EINH00033', '2025-09-24 22:04:03'),
+	(1440, 'Amoladora angular Einhell TC-AG 115', 'Amoladora 115mm 500W', 12000.00, 15999.00, 180, 102, 36, 'EINH00034', '2025-09-24 22:04:03'),
+	(1441, 'Cepillo eléctrico Einhell TE-PL 900', 'Cepillo 900W ancho 82mm', 21000.00, 27999.00, 90, 102, 36, 'EINH00035', '2025-09-24 22:04:03'),
+	(1442, 'Sierra de mesa Einhell TC-TS 2025', 'Sierra de mesa 2000W con disco 250mm', 115000.00, 147999.00, 35, 102, 36, 'EINH00036', '2025-09-24 22:04:03'),
+	(1443, 'Pulidora orbital Einhell TE-RS 40', 'Pulidora excéntrica 400W', 17000.00, 22999.00, 120, 102, 36, 'EINH00037', '2025-09-24 22:04:03'),
+	(1444, 'Multiherramienta inalámbrica Einhell TE-MG 12', 'Herramienta multifunción a batería 12V', 27000.00, 35999.00, 75, 102, 36, 'EINH00038', '2025-09-24 22:04:03'),
+	(1445, 'Martillo perforador Einhell TC-RH 800', 'Rotomartillo SDS Plus 800W', 36000.00, 45999.00, 80, 102, 36, 'EINH00039', '2025-09-24 22:04:03'),
+	(1446, 'Cortadora de césped Einhell GE-CM 43', 'Cortadora de césped eléctrica 1700W 43cm', 62000.00, 79999.00, 60, 102, 36, 'EINH00040', '2025-09-24 22:04:03'),
+	(1447, 'Atornillador de impacto Einhell TE-CI 12', 'Atornillador de impacto a batería 12V', 30000.00, 38999.00, 95, 102, 36, 'EINH00041', '2025-09-24 22:04:03'),
+	(1448, 'Lijadora excéntrica Einhell TE-RS 18', 'Lijadora orbital a batería 18V', 21000.00, 27999.00, 100, 102, 36, 'EINH00042', '2025-09-24 22:04:03'),
+	(1449, 'Sierra circular Einhell TE-CS 190', 'Sierra circular 1500W disco 190mm', 35000.00, 45999.00, 90, 102, 36, 'EINH00043', '2025-09-24 22:04:03'),
+	(1450, 'Pulidora angular Einhell TE-AG 125', 'Pulidora 125mm 1100W', 22000.00, 28999.00, 110, 102, 36, 'EINH00044', '2025-09-24 22:04:03'),
+	(1451, 'Taladro Einhell TC-ID 1000', 'Taladro percutor 1000W con velocidad variable', 31000.00, 40999.00, 85, 102, 36, 'EINH00045', '2025-09-24 22:04:03'),
+	(1452, 'Sierra sable Einhell TE-AP 18', 'Sierra sable inalámbrica 18V', 34000.00, 43999.00, 70, 102, 36, 'EINH00046', '2025-09-24 22:04:03'),
+	(1453, 'Compresor Einhell TE-AC 24', 'Compresor portátil 24L 1500W', 72000.00, 91999.00, 55, 102, 36, 'EINH00047', '2025-09-24 22:04:03'),
+	(1454, 'Generador inverter Einhell TC-IG 2000', 'Generador inverter 2000W', 180000.00, 229999.00, 30, 102, 36, 'EINH00048', '2025-09-24 22:04:03'),
+	(1455, 'Martillo demoledor Einhell TE-DH 12', 'Martillo demoledor compacto 1050W', 89000.00, 114999.00, 25, 102, 36, 'EINH00049', '2025-09-24 22:04:03'),
+	(1456, 'Taladro atornillador Einhell TC-CD 12', 'Taladro atornillador inalámbrico 12V', 19000.00, 24999.00, 130, 102, 36, 'EINH00050', '2025-09-24 22:04:03'),
+	(1457, 'Taladro percutor Bosch GSB 13 RE', 'Taladro percutor 600W con velocidad variable', 35000.00, 45999.00, 120, 103, 36, 'BOSCH0001', '2025-09-24 22:04:13'),
+	(1458, 'Amoladora angular Bosch GWS 7-115', 'Amoladora 720W disco 115mm', 28000.00, 36999.00, 150, 103, 36, 'BOSCH0002', '2025-09-24 22:04:13'),
+	(1459, 'Sierra circular Bosch GKS 190', 'Sierra circular 1400W disco 190mm', 52000.00, 66999.00, 100, 103, 36, 'BOSCH0003', '2025-09-24 22:04:13'),
+	(1460, 'Taladro atornillador Bosch GSR 180-LI', 'Taladro inalámbrico 18V con 2 baterías', 78000.00, 99999.00, 90, 103, 36, 'BOSCH0004', '2025-09-24 22:04:13'),
+	(1461, 'Martillo perforador Bosch GBH 2-26', 'Rotomartillo SDS Plus 800W', 85000.00, 109999.00, 80, 103, 36, 'BOSCH0005', '2025-09-24 22:04:13'),
+	(1462, 'Amoladora Bosch GWS 22-180', 'Amoladora 2200W disco 180mm', 62000.00, 79999.00, 70, 103, 36, 'BOSCH0006', '2025-09-24 22:04:13'),
+	(1463, 'Lijadora orbital Bosch GSS 23 AE', 'Lijadora orbital 190W con velocidad regulable', 26000.00, 33999.00, 140, 103, 36, 'BOSCH0007', '2025-09-24 22:04:13'),
+	(1464, 'Sierra caladora Bosch GST 8000 E', 'Caladora 710W con control de velocidad', 39000.00, 50999.00, 110, 103, 36, 'BOSCH0008', '2025-09-24 22:04:13'),
+	(1465, 'Medidor láser Bosch GLM 50', 'Medidor de distancias hasta 50m', 45000.00, 58999.00, 95, 103, 36, 'BOSCH0009', '2025-09-24 22:04:13'),
+	(1466, 'Nivel láser Bosch GLL 3-80', 'Nivel láser de 360° líneas verdes', 125000.00, 159999.00, 60, 103, 36, 'BOSCH0010', '2025-09-24 22:04:13'),
+	(1467, 'Pulidora Bosch GPO 14 CE', 'Pulidora angular 1400W con control de velocidad', 53000.00, 68999.00, 75, 103, 36, 'BOSCH0011', '2025-09-24 22:04:13'),
+	(1468, 'Taladro de columna Bosch PBD 40', 'Taladro de banco con pantalla digital', 135000.00, 172999.00, 40, 103, 36, 'BOSCH0012', '2025-09-24 22:04:13'),
+	(1469, 'Sierra sable Bosch GSA 1100 E', 'Sierra sable 1100W con luz LED', 60000.00, 77999.00, 85, 103, 36, 'BOSCH0013', '2025-09-24 22:04:13'),
+	(1470, 'Martillo demoledor Bosch GSH 11 E', 'Martillo demoledor 1500W 16J', 210000.00, 269999.00, 30, 103, 36, 'BOSCH0014', '2025-09-24 22:04:13'),
+	(1471, 'Lijadora excéntrica Bosch GEX 125-1', 'Lijadora orbital 250W 125mm', 33000.00, 42999.00, 100, 103, 36, 'BOSCH0015', '2025-09-24 22:04:13'),
+	(1472, 'Atornillador de impacto Bosch GDX 180-LI', 'Atornillador a batería 18V impacto', 72000.00, 93999.00, 85, 103, 36, 'BOSCH0016', '2025-09-24 22:04:13'),
+	(1473, 'Sierra ingletadora Bosch GCM 10 MX', 'Ingletadora 1800W disco 255mm', 145000.00, 189999.00, 35, 103, 36, 'BOSCH0017', '2025-09-24 22:04:13'),
+	(1474, 'Fresadora Bosch POF 1400 ACE', 'Router eléctrico 1400W con control de profundidad', 78000.00, 99999.00, 60, 103, 36, 'BOSCH0018', '2025-09-24 22:04:13'),
+	(1475, 'Pistola de calor Bosch GHG 23-66', 'Pistola de aire caliente 2300W con display', 26000.00, 33999.00, 120, 103, 36, 'BOSCH0019', '2025-09-24 22:04:13'),
+	(1476, 'Compresor Bosch EasyPump', 'Compresor portátil digital para autos y bicicletas', 21000.00, 28999.00, 150, 103, 36, 'BOSCH0020', '2025-09-24 22:04:13'),
+	(1477, 'Sierra de mesa Bosch GTS 254', 'Sierra de banco 1800W disco 254mm', 160000.00, 209999.00, 40, 103, 36, 'BOSCH0021', '2025-09-24 22:04:13'),
+	(1478, 'Multiherramienta Bosch PMF 220', 'Herramienta multifunción oscilante 220W', 24000.00, 31999.00, 140, 103, 36, 'BOSCH0022', '2025-09-24 22:04:13'),
+	(1479, 'Atornillador Bosch IXO 6', 'Atornillador recargable compacto 3.6V', 17000.00, 22999.00, 160, 103, 36, 'BOSCH0023', '2025-09-24 22:04:13'),
+	(1480, 'Cortadora de azulejos Bosch PTC 640', 'Cortadora manual para cerámicos hasta 640mm', 67000.00, 86999.00, 55, 103, 36, 'BOSCH0024', '2025-09-24 22:04:13'),
+	(1481, 'Detector Bosch D-tect 120', 'Detector de materiales hasta 12cm', 82000.00, 104999.00, 50, 103, 36, 'BOSCH0025', '2025-09-24 22:04:13'),
+	(1482, 'Soplador Bosch ALB 18 LI', 'Soplador inalámbrico 18V batería incluida', 35000.00, 45999.00, 90, 103, 36, 'BOSCH0026', '2025-09-24 22:04:13'),
+	(1483, 'Generador Bosch G 2000', 'Generador portátil gasolina 2000W', 220000.00, 284999.00, 20, 103, 36, 'BOSCH0027', '2025-09-24 22:04:13'),
+	(1484, 'Amoladora Bosch GWS 9-125', 'Amoladora 900W disco 125mm', 31000.00, 40999.00, 140, 103, 36, 'BOSCH0028', '2025-09-24 22:04:13'),
+	(1485, 'Lijadora Bosch GSS 140', 'Lijadora orbital 180W compacta', 25000.00, 32999.00, 120, 103, 36, 'BOSCH0029', '2025-09-24 22:04:13'),
+	(1486, 'Martillo perforador Bosch GBH 5-40', 'Rotomartillo SDS-Max 1100W', 175000.00, 229999.00, 25, 103, 36, 'BOSCH0030', '2025-09-24 22:04:13'),
+	(1487, 'Sierra circular Bosch PKS 55 A', 'Sierra circular 1200W con caja recolectora', 42000.00, 54999.00, 95, 103, 36, 'BOSCH0031', '2025-09-24 22:04:13'),
+	(1488, 'Taladro Bosch GSB 16 RE', 'Taladro percutor 750W compacto', 40000.00, 51999.00, 110, 103, 36, 'BOSCH0032', '2025-09-24 22:04:13'),
+	(1489, 'Nivel Bosch PLL 360', 'Nivel láser de 360° auto nivelante', 56000.00, 72999.00, 65, 103, 36, 'BOSCH0033', '2025-09-24 22:04:13'),
+	(1490, 'Pulidora Bosch GPO 950', 'Pulidora de 950W con mango ergonómico', 37000.00, 48999.00, 100, 103, 36, 'BOSCH0034', '2025-09-24 22:04:13'),
+	(1491, 'Martillo demoledor Bosch GSH 27 VC', 'Demoledor profesional 2000W 62J', 490000.00, 629999.00, 15, 103, 36, 'BOSCH0035', '2025-09-24 22:04:13'),
+	(1492, 'Sierra ingletadora Bosch GCM 12 GDL', 'Ingletadora telescópica 2000W disco 305mm', 240000.00, 309999.00, 25, 103, 36, 'BOSCH0036', '2025-09-24 22:04:13'),
+	(1493, 'Cepillo eléctrico Bosch GHO 26-82', 'Cepillo eléctrico 710W ancho 82mm', 38000.00, 49999.00, 90, 103, 36, 'BOSCH0037', '2025-09-24 22:04:13'),
+	(1494, 'Medidor láser Bosch GLM 100', 'Medidor de distancia láser hasta 100m', 95000.00, 121999.00, 40, 103, 36, 'BOSCH0038', '2025-09-24 22:04:13'),
+	(1495, 'Sierra caladora Bosch PST 900 PEL', 'Caladora 620W con luz LED', 42000.00, 54999.00, 85, 103, 36, 'BOSCH0039', '2025-09-24 22:04:13'),
+	(1496, 'Pistola de pintar Bosch PFS 2000', 'Sistema de pulverización 440W', 35000.00, 45999.00, 100, 103, 36, 'BOSCH0040', '2025-09-24 22:04:13'),
+	(1497, 'Lijadora delta Bosch PDA 180', 'Lijadora triangular 180W', 22000.00, 28999.00, 130, 103, 36, 'BOSCH0041', '2025-09-24 22:04:13'),
+	(1498, 'Sierra sable Bosch GSA 18V-LI', 'Sierra sable inalámbrica 18V', 72000.00, 93999.00, 70, 103, 36, 'BOSCH0042', '2025-09-24 22:04:13'),
+	(1499, 'Multiherramienta Bosch GOP 30-28', 'Multicortadora 300W oscilante', 50000.00, 64999.00, 80, 103, 36, 'BOSCH0043', '2025-09-24 22:04:13'),
+	(1500, 'Taladro Bosch GBM 6 RE', 'Taladro eléctrico 350W compacto', 21000.00, 27999.00, 150, 103, 36, 'BOSCH0044', '2025-09-24 22:04:13'),
+	(1501, 'Martillo perforador Bosch GBH 18V-26', 'Rotomartillo inalámbrico 18V', 115000.00, 149999.00, 40, 103, 36, 'BOSCH0045', '2025-09-24 22:04:13'),
+	(1502, 'Sierra de cinta Bosch GCB 18V', 'Sierra de banda inalámbrica 18V', 130000.00, 169999.00, 35, 103, 36, 'BOSCH0046', '2025-09-24 22:04:13'),
+	(1503, 'Amoladora Bosch GWS 24-230', 'Amoladora 2400W disco 230mm', 89000.00, 114999.00, 60, 103, 36, 'BOSCH0047', '2025-09-24 22:04:13'),
+	(1504, 'Pulidora Bosch GPO 12 CE', 'Pulidora profesional 1200W', 48000.00, 61999.00, 100, 103, 36, 'BOSCH0048', '2025-09-24 22:04:13'),
+	(1505, 'Generador Bosch G 3000', 'Generador a gasolina 3000W', 285000.00, 364999.00, 20, 103, 36, 'BOSCH0049', '2025-09-24 22:04:13'),
+	(1506, 'Taladro inalámbrico Bosch GSR 12V-15', 'Taladro atornillador compacto 12V', 48000.00, 61999.00, 110, 103, 36, 'BOSCH0050', '2025-09-24 22:04:13');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
