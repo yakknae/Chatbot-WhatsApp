@@ -1,102 +1,32 @@
 import os
 import re
-import json
 from fastapi import HTTPException
 from langchain_ollama import OllamaLLM
 from langchain_core.runnables.history import RunnableWithMessageHistory
-from langchain_core.messages import HumanMessage, AIMessage
 from langchain_core.chat_history import InMemoryChatMessageHistory
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from app.database import connect_to_db
-from datetime import datetime
-from .twilio_client import client, twilio_whatsapp_number
 from collections import defaultdict
+from datetime import datetime
+
+
 
 # ================================
 # Verificar Token
 # ================================
 access_token_env = os.getenv("ACCESS_TOKEN")
 def verify_token(token: str):
-    if token != access_token_env:
+    if token != access_token_env:        
         raise HTTPException(status_code=401, detail="Token inválido")
     return True
 
 carritos = defaultdict(list)
 
-
-# ================================
-# Cargar configuración
-# ================================
-
-# Cargar el archivo config.json
-def load_config():
-    try:
-        with open("config.json", "r", encoding="utf-8") as file:
-            print("Archivo config.json cargado correctamente.")
-            return json.load(file)
-    except FileNotFoundError:
-        print("Error: El archivo config.json no fue encontrado.")
-        return None
-    except json.JSONDecodeError:
-        print("Error: El archivo config.json no es válido.")
-        return None
-
-# Cargar la configuración al inicio del programa
-config = load_config()
-if not config:
-    exit("No se pudo cargar la configuración. Terminando el programa.")
-
-
-# ================================
-# Enviar mensaje al gerente una vez hecho el pedido
-# ================================
-
-# Enviar mensaje manualmente
-from datetime import datetime
-
-def send_order_summary_to_manager(order_data: dict, manager_number: str):
-    try:
-        lines = ["🛒 *¡Nuevo pedido recibido!*", ""]
-        lines.append(f"*Cliente:* {order_data.get('cliente', 'WhatsApp')}")
-        lines.append(f"*Teléfono:* {order_data.get('telefono', 'Desconocido')}")
-        lines.append(f"*Fecha:* {order_data.get('fecha', datetime.now().strftime('%Y-%m-%d %H:%M'))}")
-        lines.append("")
-        lines.append("*Productos:*")
-        
-        total = 0
-        for p in order_data.get("productos", []):
-            nombre = p.get("nombre", "Producto")
-            cantidad = p.get("cantidad", 1)
-            precio = p.get("precio", 0)
-            subtotal = cantidad * precio
-            total += subtotal
-            lines.append(f"  • {cantidad}x {nombre} - ${subtotal}")
-        
-        lines.append("")
-        lines.append(f"*TOTAL: ${total}*")
-        
-        message_body = "\n".join(lines)
-        
-        message = client.messages.create(
-            from_=twilio_whatsapp_number,
-            body=message_body,
-            to=f"whatsapp:{manager_number}"
-        )
-        print(f"✅ Pedido enviado al gerente. SID: {message.sid}")
-        return True
-    except Exception as e:
-        print(f"❌ Error al enviar pedido: {e}")
-        return False
-
-
-
 # ================================
 # Modelo de IA
 # ================================
 
-# Configuración inicial del modelo Ollama
 model = OllamaLLM(model="gemma3:latest")
-
 # Prompt con historial
 prompt = ChatPromptTemplate.from_messages([
     ("system", "Eres un asistente útil."),
@@ -110,6 +40,10 @@ chain = prompt | model
 # Historial en memoria
 store = {}
 
+# ================================
+# Manejo de historial por sesión
+# ================================
+
 def get_session_history(session_id: str):
     if session_id not in store:
         store[session_id] = InMemoryChatMessageHistory()
@@ -120,37 +54,88 @@ with_message_history = RunnableWithMessageHistory(
     get_session_history,
     input_messages_key="input",
     history_messages_key="history"
+    
 )
 
-def cargar_historial_para_ia(session_id: str) -> str:
-    ruta = os.path.join("conversaciones", f"{session_id}.txt")
-    print(ruta)
-    if not os.path.exists(ruta):
-        return "No hay historial disponible."
+# ================================
+# Enviar resumen de pedido al gerente
+# ================================
 
+def send_order_summary_to_manager(order_data: dict, manager_number: str):
     try:
-        with open(ruta, "r", encoding="utf-8") as f:
-            lineas = f.readlines()
-
-        conversacion = []
-        for linea in lineas:
-            if " - De " in linea:
-                try:
-                    contenido = linea.split(" - De ")[1].split(": ", 1)[1].strip()
-                    conversacion.append(f"Usuario: {contenido}")
-                except:
-                    continue
-            elif " - Bot: " in linea:
-                try:
-                    contenido = linea.split(" - Bot: ", 1)[1].strip()
-                    conversacion.append(f"Bot: {contenido}")
-                except:
-                    continue
+        # Ruta del archivo de pedidos
+        ruta_pedidos = os.path.join("conversaciones", "pedidos_pendientes.txt")
         
-        return "\n".join(conversacion)
-    
+        # Formato del mensaje
+        lines = [f"\n{'='*60}"]
+        lines.append(f"📅 Fecha: {order_data.get('fecha', 'Sin fecha')}")
+        lines.append(f"📱 Cliente: {order_data.get('telefono', 'Desconocido')}")
+        lines.append(f"🛒 Productos:")
+        
+        total = 0
+        for p in order_data.get("productos", []):
+            nombre = p.get("nombre", "Producto")
+            cantidad = p.get("cantidad", 1)
+            precio = p.get("precio", 0)
+            subtotal = cantidad * precio
+            total += subtotal
+            lines.append(f"   • {cantidad}x {nombre} → ${subtotal}")
+        
+        lines.append(f"💰 TOTAL: ${total}")
+        lines.append(f"📞 Notificar al gerente: {manager_number}")
+        lines.append(f"{'='*60}\n")
+        
+        mensaje_completo = "\n".join(lines)
+        
+        # Guardar en archivo
+        with open(ruta_pedidos, "a", encoding="utf-8") as f:
+            f.write(mensaje_completo)
+        
+        print("✅ Pedido guardado en 'conversaciones/pedidos_pendientes.txt'")
+        return True
     except Exception as e:
-        return "Error al leer el historial."
+        print(f"❌ Error al guardar pedido: {e}")
+        return False
+
+
+
+# ================================
+# Detectar intención
+# ================================
+
+def detectar_intencion(user_input: str) -> str:
+    """
+    Devuelve una de: 'agregar', 'ver_carrito', 'confirmar', 'vaciar', 'ninguna'
+    """
+    prompt_intencion = f"""
+Analiza el siguiente mensaje del usuario y responde ÚNICAMENTE con una de estas palabras:
+- agregar
+- ver_carrito
+- confirmar
+- vaciar
+- ninguna
+
+Reglas:
+- Solo responde "agregar" si el usuario quiere AÑADIR un producto al carrito de compras.
+- Solo responde "ver_carrito" si pide ver, mostrar o consultar su carrito o pedido actual.
+- Solo responde "confirmar" si dice que quiere confirmar, finalizar, enviar, comprar o aceptar el pedido.
+- Solo responde "vaciar" si dice que quiere vaciar, limpiar, borrar o empezar de nuevo el carrito.
+- Frases como "me gusta el café", "quiero hacer una torta con dulce de leche", o "tienen leche?" NO son "agregar".
+- Si no hay intención clara de interactuar con el carrito, responde "ninguna".
+
+Mensaje: "{user_input}"
+Respuesta:
+"""
+    try:
+        respuesta = model.invoke(prompt_intencion).strip().lower()
+        if respuesta in ["agregar", "ver_carrito", "confirmar", "vaciar"]:
+            return respuesta
+        else:
+            return "ninguna"
+    except Exception as e:
+        print(f"❌ Error al detectar intención: {e}")
+        return "ninguna"
+    
 
 # ================================
 # Buscar productos
@@ -209,7 +194,6 @@ def get_product_info(product_name: str):
     # Usar la consulta externa
     cursor.execute(QUERY_START, (f"{first_word}%",f"{first_word}%",f"{first_word}%"))
     start_results = cursor.fetchall()
-
     if start_results:
         cursor.close()
         connection.close()
@@ -218,7 +202,6 @@ def get_product_info(product_name: str):
     # Si no hay coincidencias al inicio, buscar que contenga el término
     cursor.execute(QUERY_CONTAINS, (f"%{product_name_lower}%", f"{product_name_lower}%"))
     contain_results = cursor.fetchall()
-
     cursor.close()
     connection.close()
 
@@ -234,7 +217,7 @@ def get_product_info(product_name: str):
 def detect_product_with_ai(user_input):
     with open("prompts//prompt_input.txt", "r", encoding="utf-8") as file:
         prompt = file.read()
-        print("Se cargó correctamente el archivo.txt")
+        print("Se cargó correctamente el prompt_input.txt")
     
     prompt += f"""
 
@@ -244,25 +227,26 @@ Producto mencionado:
     try:
         # Invocar al modelo
         raw_response = model.invoke(prompt).strip()
-
         # Limpiar la respuesta
         # Eliminar etiquetas <think>...<think>
         cleaned = re.sub(r"<think>.*?</think>", "", raw_response, flags=re.DOTALL | re.IGNORECASE)
-        
         # Extraer la parte después de "Productos mencionados:"
         if "Productos mencionados:" in cleaned:
             products_text = cleaned.split("Productos mencionados:")[1].strip()
         else:
             products_text = cleaned  # por si el modelo responde directamente
 
+        # Dividir por comas, saltos de línea o "y"
+
         # Divide por coma, " y ", o saltos de línea
         product_list = re.split(r',|\s+y\s+|\n', products_text, flags=re.IGNORECASE)
-        
         # Limpiar cada producto
         product_list = [
             p.strip().rstrip(".").strip()
+            
             for p in product_list
             if p.strip() and p.lower() not in ["ninguno", "ninguna", "no"]
+            
         ]
 
         # Validar que no esté vacío
@@ -277,7 +261,7 @@ Producto mencionado:
         return None
 
 # ================================
-# Obtener respuesta del bot
+# respuesta del bot
 # ================================
 
 def get_response(user_input: str, session_id: str) -> str:

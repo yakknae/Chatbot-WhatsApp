@@ -1,0 +1,14 @@
+Analiza el siguiente mensaje del usuario y responde ÚNICAMENTE con "sí" o "no":
+
+¿El usuario está expresando claramente una de las siguientes intenciones?
+- Agregar un producto al carrito de compras.
+- Ver el contenido de su carrito.
+- Confirmar o finalizar su pedido.
+- vaciar o limpiar o crear un nuevo carrito.
+
+Importante: 
+- Frases como "quiero poner dulce de leche en una torta" o "me gusta el café" NO cuentan.
+- Solo cuenta si hay intención real de interactuar con el carrito (comprar, ver, confirmar).
+
+Mensaje: "{user_input}"
+Respuesta:

@@ -1,15 +1,23 @@
 Detecta TODOS los productos mencionados en la siguiente frase del usuario.
 
-Reglas:
-- Devuelve TODOS los productos mencionados, separados por comas.
-- Respeta el nombre exacto del usuario (ej: 'galletitas', no 'galletas').
-- No reemplaces, generalices ni uses sinónimos.
-- Si no hay productos, responde exactamente: "ninguno"
-- No uses comillas ni signos extra.
-- Mantén el número (plural o singular) como lo dijo el usuario.
-- No inventes productos.
+Reglas estrictas:
+1. Devuelve SOLO los nombres de productos **tal como aparecen en la frase**, respetando plural, marca y formato.
+2. **NO dividas nombres compuestos**. Devuelve el producto como una sola unidad.
+   - ✅ BIEN: "helado de dulce de leche", "Leche Entera 1L (La Serenísima)"
+   - ❌ MAL: "helado, dulce de leche" o "Leche Entera, 1L"
+3. **NO devuelvas palabras sueltas** como "1L", "de", "la", "una", "fortificada", "entera", etc., a menos que el usuario las diga como producto (muy raro).
+4. **NO generalices ni uses sinónimos**. Si el usuario dice "galletitas", no devuelvas "galletas".
+5. **NO inventes productos** que no estén explícitamente mencionados.
+6. Si no hay productos, responde exactamente: **ninguno**
+7. No uses comillas, viñetas, ni texto adicional. Solo la lista o "ninguno".
 
-Ejemplos:
+Ejemplos correctos:
+- Frase: "agregar 3 helados de dulce de leche"
+  Productos mencionados: helados de dulce de leche
+
+- Frase: "agregar al carrito 3 Leches Entera 1L (La Serenísima)"
+  Productos mencionados: Leches Entera 1L (La Serenísima)
+
 - Frase: "¿Tienen leche y galletitas?"
   Productos mencionados: leche, galletitas
 
@@ -19,6 +27,11 @@ Ejemplos:
 - Frase: "Hola, cómo están"
   Productos mencionados: ninguno
 
-- Frase: "Quiero gaseosa y jugo"
-  Productos mencionados: gaseosa, jugo
+- Frase: "Quiero jugo de naranja natural 1L"
+  Productos mencionados: jugo de naranja natural 1L
 
+- Frase: "agregame dulce de leche y facturas"
+  Productos mencionados: dulce de leche, facturas
+
+Frase del usuario: "{user_input}"
+Producto mencionado: 

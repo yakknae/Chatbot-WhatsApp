@@ -1,0 +1,48 @@
+2025-10-20 12:15:36 - De 5491170086608: Hola
+2025-10-20 12:15:40 - Bot: Estoy teniendo problemas para responder.
+2025-10-20 12:16:00 - De 5491170086608: Si
+2025-10-20 12:16:04 - Bot: Estoy teniendo problemas para responder.
+2025-10-20 12:21:54 - De 5491170086608: Hola
+2025-10-20 12:22:07 - Bot: ¡Hola! Bienvenido al Supermercado San Judas Tadeo. ¿En qué puedo ayudarte hoy?
+2025-10-20 12:22:52 - De 5491170086608: Leche
+2025-10-20 12:22:55 - Bot: ¡Hola! Con gusto te ayudo con la leche. Tenemos varios tipos disponibles:
+
+*   **Leche Biológica Entera 1L**
+    - Descripción: Leche de vaca de producción ecológica
+    - Marca: La Serenísima
+    - Precio: $160.00
+    - Stock: 110 unidades (Disponible)
+
+*   **Leche de Almendras Fortificada con Calcio**
+    - Descripción: Bebida vegetal con calcio y vitaminas
+    - Marca: La Serenísima
+    - Precio: $130.00
+    - Stock: 100 unidades (Disponible)
+
+*   **Leche Entera 1L**
+    - Descripción: Leche de vaca entera
+    - Marca: La Serenísima
+    - Precio: $150.00
+    - Stock: 100 unidades (Disponible)
+
+¿Te gustaría saber más sobre alguno de estos tipos de leche o quizás buscar otra cosa?
+2025-10-20 12:23:54 - De 5491170086608: Manteca
+2025-10-20 12:23:56 - Bot: ¡Hola! Con gusto te ayudo con la manteca. Tenemos lo siguiente disponible:
+
+*   **Manteca 200g**
+    - Descripción: Manteca sin sal
+    - Marca: Milkaut
+    - Precio: $120.00
+    - Stock: 140 unidades (Disponible)
+
+¿Te gustaría saber más sobre esta manteca o quizás buscar otra cosa?
+2025-10-20 12:23:56 - De 5491170086608: Se rompio ya
+2025-10-20 12:23:58 - Bot: ¡Hola! Con gusto te ayudo. Actualmente tenemos disponible:
+
+*   **Manteca 200g**
+    - Descripción: Manteca sin sal
+    - Marca: Milkaut
+    - Precio: $120.00
+    - Stock: 140 unidades (Disponible)
+
+¿Te gustaría saber más sobre esta manteca o quizás buscar otra cosa?

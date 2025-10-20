@@ -1,30 +1,85 @@
-# Entorno virtual
+# ===========================
+# Entornos virtuales (Python)
+# ===========================
 venv/
 .venv/
 env/
+ENV/
 
+# ===========================
 # Archivos de Python
+# ===========================
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
+*.egg-info/
+*.egg
+.Python
 
+# ===========================
 # Variables de entorno (sensibles)
+# ===========================
 .env
 *.env
 .env.local
 .env.bak
+.env.*.local
 
-# Logs
+# ===========================
+# Logs y salida
+# ===========================
 *.log
 logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
 
-# Cache y entornos
-__pycache__/
-*.pyc
-venv/
-env/
+# ===========================
+# Node.js / npm / yarn
+# ===========================
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+.yarn/
+.pnpm-debug.log
+.pnpm/
+package-lock.json  # Opcional: algunos lo incluyen, otros no
+yarn.lock           # Opcional: si usas Yarn, generalmente SÍ se sube (pero si es solo local, ignóralo)
 
-# Sistema
+# ===========================
+# Build / dist / frontend
+# ===========================
+dist/
+out/
+build/
+.next/
+.nuxt/
+.cache/
+coverage/
+.nyc_output/
+
+# ===========================
+# IDEs y editores
+# ===========================
+.vscode/
+.idea/
+*.swp
+*.swo
 .DS_Store
 Thumbs.db
+*.sublime-project
+*.sublime-workspace
+
+# ===========================
+# Sistema y misc
+# ===========================
+.DS_Store
+Thumbs.db
+
+# ===========================
+# WWebJS Cache
+# ===========================
+.wwebjs_cache/
