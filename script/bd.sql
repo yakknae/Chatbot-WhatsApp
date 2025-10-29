@@ -20,7 +20,6 @@ CREATE DATABASE IF NOT EXISTS `pp3_proyecto` /*!40100 DEFAULT CHARACTER SET utf8
 USE `pp3_proyecto`;
 
 -- Volcando estructura para tabla pp3_proyecto.categorias
-DROP TABLE IF EXISTS `categorias`;
 CREATE TABLE IF NOT EXISTS `categorias` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) NOT NULL,
@@ -29,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `categorias` (
   UNIQUE KEY `nombre` (`nombre`)
 ) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
--- Volcando datos para la tabla pp3_proyecto.categorias: ~51 rows (aproximadamente)
+-- Volcando datos para la tabla pp3_proyecto.categorias: ~50 rows (aproximadamente)
 DELETE FROM `categorias`;
 INSERT INTO `categorias` (`id`, `nombre`, `descripcion`) VALUES
 	(1, 'Lácteos', NULL),
@@ -90,7 +89,6 @@ INSERT INTO `categorias` (`id`, `nombre`, `descripcion`) VALUES
 	(56, 'Verdulería', NULL);
 
 -- Volcando estructura para procedimiento pp3_proyecto.insertar_categorias
-DROP PROCEDURE IF EXISTS `insertar_categorias`;
 DELIMITER //
 CREATE PROCEDURE `insertar_categorias`()
 BEGIN
@@ -107,7 +105,6 @@ END//
 DELIMITER ;
 
 -- Volcando estructura para procedimiento pp3_proyecto.insertar_marcas
-DROP PROCEDURE IF EXISTS `insertar_marcas`;
 DELIMITER //
 CREATE PROCEDURE `insertar_marcas`()
 BEGIN
@@ -121,7 +118,6 @@ END//
 DELIMITER ;
 
 -- Volcando estructura para procedimiento pp3_proyecto.insertar_productos
-DROP PROCEDURE IF EXISTS `insertar_productos`;
 DELIMITER //
 CREATE PROCEDURE `insertar_productos`()
 BEGIN
@@ -146,15 +142,14 @@ END//
 DELIMITER ;
 
 -- Volcando estructura para tabla pp3_proyecto.marcas
-DROP TABLE IF EXISTS `marcas`;
 CREATE TABLE IF NOT EXISTS `marcas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `nombre` (`nombre`)
-) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=119 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
--- Volcando datos para la tabla pp3_proyecto.marcas: ~77 rows (aproximadamente)
+-- Volcando datos para la tabla pp3_proyecto.marcas: ~85 rows (aproximadamente)
 DELETE FROM `marcas`;
 INSERT INTO `marcas` (`id`, `nombre`) VALUES
 	(1, 'La Serenísima'),
@@ -236,10 +231,15 @@ INSERT INTO `marcas` (`id`, `nombre`) VALUES
 	(100, 'Manaos'),
 	(102, 'Einhell'),
 	(103, 'Bosch'),
-	(104, 'Plump');
+	(104, 'Plump'),
+	(105, 'Yogurisimo'),
+	(106, 'Playadito'),
+	(115, 'Cruz de Malta'),
+	(116, 'Amanda'),
+	(117, 'Nobleza Gaucha'),
+	(118, 'Matarazzo');
 
 -- Volcando estructura para tabla pp3_proyecto.productos
-DROP TABLE IF EXISTS `productos`;
 CREATE TABLE IF NOT EXISTS `productos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) NOT NULL,
@@ -265,7 +265,7 @@ INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio_costo`, `precio_
 	(2, 'Yerba Mate Marolio', 'Yerba mate elaborada tradicional', 80.00, 120.00, 200, 52, 23, '779123456002', '2025-05-25 21:13:28'),
 	(3, 'Salame Paladini', 'Salame tipo milán de Paladini', 150.00, 200.00, 50, 8, 14, '779123456003', '2025-05-25 21:13:28'),
 	(4, 'Dulce de Leche La Serenísima', 'Dulce de leche clásico', 100.00, 150.00, 80, 1, 4, '779123456004', '2025-05-25 21:13:28'),
-	(5, 'Aceite de Girasol Natura', 'Aceite de girasol 1L', 90.00, 130.00, 120, 42, 16, '779123456005', '2025-05-25 21:13:28'),
+	(5, 'Aceite de Girasol Natura', 'Aceite de girasol 1L', 90.00, 130.00, 120, 44, 16, '779123456005', '2025-05-25 21:13:28'),
 	(6, 'Notebook Banghó Max', 'Notebook Banghó con procesador Intel i5', 50000.00, 65000.00, 30, 29, 26, '779123456006', '2025-05-25 21:13:28'),
 	(7, 'PC de Escritorio EXO', 'Computadora de escritorio EXO básica', 40000.00, 55000.00, 25, 53, 26, '779123456007', '2025-05-25 21:13:28'),
 	(8, 'All in One Ken Brown', 'Computadora All in One Ken Brown 21"', 45000.00, 60000.00, 20, 54, 26, '779123456008', '2025-05-25 21:13:28'),
@@ -297,34 +297,34 @@ INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio_costo`, `precio_
 	(34, 'Depiladora Philips Satinelle', 'Depiladora eléctrica compacta', 4500.00, 6000.00, 18, 80, 42, '779123456034', '2025-05-25 21:13:28'),
 	(35, 'Cepillo Eléctrico Oral-B', 'Cepillo dental eléctrico recargable', 3000.00, 4500.00, 22, 85, 42, '779123456035', '2025-05-25 21:13:28'),
 	(46, 'Galletitas Chocolinas Bagley', 'Galletitas de chocolate clásicas de Bagley', 120.00, 160.00, 50, 4, 5, '779500002001', '2025-05-25 21:28:55'),
-	(47, 'Galletitas Opera Bagley', 'Galletitas rellenas sabor vainilla', 135.00, 180.00, 60, 3, 5, '779500002002', '2025-05-25 21:28:55'),
-	(48, 'Galletitas Rex Bagley', 'Galletitas crocantes ideales para el desayuno', 110.00, 150.00, 80, 3, 5, '779500002003', '2025-05-25 21:28:55'),
-	(49, 'Galletitas Diversión Bagley', 'Con formas divertidas y sabor a vainilla', 140.00, 185.00, 40, 3, 5, '779500002004', '2025-05-25 21:28:55'),
-	(50, 'Galletitas Manón Bagley', 'Clásicas galletitas dulces sabor vainilla', 125.00, 170.00, 70, 3, 5, '779500002005', '2025-05-25 21:28:55'),
-	(51, 'Galletitas Mini Diversión Bagley', 'Mini galletitas dulces para llevar', 100.00, 135.00, 90, 3, 5, '779500002006', '2025-05-25 21:28:55'),
-	(52, 'Galletitas Tentación Bagley', 'Rellenas con crema de chocolate', 145.00, 190.00, 35, 3, 5, '779500002007', '2025-05-25 21:28:55'),
-	(53, 'Galletitas Mellizas Bagley', 'Rellenas con dulce de leche', 130.00, 175.00, 45, 3, 5, '779500002008', '2025-05-25 21:28:55'),
-	(54, 'Galletitas Variedad Familiar Bagley', 'Mix de galletitas dulces y saladas', 180.00, 240.00, 30, 3, 5, '779500002009', '2025-05-25 21:28:55'),
-	(55, 'Galletitas Arroz Bagley', 'Galletitas livianas a base de arroz', 115.00, 155.00, 65, 3, 5, '779500002010', '2025-05-25 21:28:55'),
+	(47, 'Galletitas Opera Bagley', 'Galletitas rellenas sabor vainilla', 135.00, 180.00, 60, 4, 5, '779500002002', '2025-05-25 21:28:55'),
+	(48, 'Galletitas Rex Bagley', 'Galletitas crocantes ideales para el desayuno', 110.00, 150.00, 80, 4, 5, '779500002003', '2025-05-25 21:28:55'),
+	(49, 'Galletitas Diversión Bagley', 'Con formas divertidas y sabor a vainilla', 140.00, 185.00, 40, 4, 5, '779500002004', '2025-05-25 21:28:55'),
+	(50, 'Galletitas Manón Bagley', 'Clásicas galletitas dulces sabor vainilla', 125.00, 170.00, 70, 4, 5, '779500002005', '2025-05-25 21:28:55'),
+	(51, 'Galletitas Mini Diversión Bagley', 'Mini galletitas dulces para llevar', 100.00, 135.00, 90, 4, 5, '779500002006', '2025-05-25 21:28:55'),
+	(52, 'Galletitas Tentación Bagley', 'Rellenas con crema de chocolate', 145.00, 190.00, 35, 4, 5, '779500002007', '2025-05-25 21:28:55'),
+	(53, 'Galletitas Mellizas Bagley', 'Rellenas con dulce de leche', 130.00, 175.00, 45, 4, 5, '779500002008', '2025-05-25 21:28:55'),
+	(54, 'Galletitas Variedad Familiar Bagley', 'Mix de galletitas dulces y saladas', 180.00, 240.00, 30, 4, 5, '779500002009', '2025-05-25 21:28:55'),
+	(55, 'Galletitas Arroz Bagley', 'Galletitas livianas a base de arroz', 115.00, 155.00, 65, 4, 5, '779500002010', '2025-05-25 21:28:55'),
 	(106, 'Yerba Mate Taragüi 1kg', 'Yerba mate tradicional Taragüi', 500.00, 800.00, 150, 99, 23, '779123450001', '2025-06-11 22:35:24'),
 	(107, 'Yerba Mate Taragüi Suave 1kg', 'Yerba mate suave Taragüi', 500.00, 800.00, 120, 99, 23, '779123450002', '2025-06-11 22:35:24'),
-	(108, 'Bon o Bon x10', 'Bombones Bon o Bon Arcor', 200.00, 320.00, 200, 3, 7, '779123450003', '2025-06-11 22:35:24'),
+	(108, 'Bon o Bon x10', 'Bombones Bon o Bon Arcor', 200.00, 320.00, 200, 2, 7, '779123450003', '2025-06-11 22:35:24'),
 	(109, 'Dulce de Leche Marolio 400g', 'Dulce de leche cremoso Marolio', 250.00, 380.00, 180, 8, 4, '779123450004', '2025-06-11 22:35:24'),
 	(110, 'Manteca La Serenísima 200g', 'Manteca tradicional', 150.00, 230.00, 140, 1, 1, '779123450005', '2025-06-11 22:35:24'),
 	(111, 'Queso Sancor sardo 300g', 'Queso sardo firme', 300.00, 450.00, 100, 6, 2, '779123450006', '2025-06-11 22:35:24'),
 	(112, 'Leche Ilolay UAT 1L', 'Leche larga vida entera', 180.00, 270.00, 160, 48, 1, '779123450007', '2025-06-11 22:35:24'),
 	(113, 'Helado Havanna 1L', 'Helado crema cookies', 350.00, 520.00, 90, 13, 4, '779123450008', '2025-06-11 22:35:24'),
-	(114, 'Galletitas Chocolinas Bagley', 'Galletitas chocolate', 120.00, 160.00, 200, 3, 5, '779123450009', '2025-06-11 22:35:24'),
+	(114, 'Galletitas Chocolinas Bagley', 'Galletitas chocolate', 120.00, 160.00, 200, 4, 5, '779123450009', '2025-06-11 22:35:24'),
 	(116, 'Arroz Gallo Perdigón 1kg', 'Arroz redondo', 200.00, 280.00, 130, 3, 20, '779123450011', '2025-06-11 22:35:24'),
-	(117, 'Fideos Matarazzo 500g', 'Spaghetti tradicionales', 150.00, 230.00, 140, 3, 19, '779123450012', '2025-06-11 22:35:24'),
-	(118, 'Aceite de Girasol Natura 1L', 'Aceite de girasol puro', 220.00, 320.00, 150, 42, 16, '779123450013', '2025-06-11 22:35:24'),
+	(117, 'Fideos Matarazzo 500g', 'Spaghetti tradicionales', 150.00, 230.00, 140, 118, 19, '779123450012', '2025-06-11 22:35:24'),
+	(118, 'Aceite de Girasol Natura 1L', 'Aceite de girasol puro', 220.00, 320.00, 150, 44, 16, '779123450013', '2025-06-11 22:35:24'),
 	(119, 'Mayonesa Hellmann\'s 475g', 'Mayonesa clásica', 250.00, 360.00, 140, 50, 17, '779123450014', '2025-06-11 22:35:24'),
 	(120, 'Ketchup Knorr 500g', 'Salsa ketchup', 200.00, 290.00, 130, 51, 18, '779123450015', '2025-06-11 22:35:24'),
 	(121, 'Atún La Campagnola 170g', 'Atún en agua', 180.00, 260.00, 110, 49, 9, '779123450016', '2025-06-11 22:35:24'),
 	(122, 'Leche en polvo La Serenísima 400g', 'Leche en polvo instantánea', 300.00, 420.00, 120, 1, 1, '779123450017', '2025-06-11 22:35:24'),
 	(123, 'Café La Virginia 250g', 'Café molido tradicional', 280.00, 400.00, 140, 45, 22, '779123450018', '2025-06-11 22:35:24'),
-	(124, 'Yerba Mate Amanda 500g', 'Yerba tradicional Amanda', 260.00, 370.00, 130, 5, 23, '779123450019', '2025-06-11 22:35:24'),
-	(125, 'Yerba Mate Playadito 1kg', 'Yerba con palo', 480.00, 700.00, 120, 5, 23, '779123450020', '2025-06-11 22:35:24'),
+	(124, 'Yerba Mate Amanda 500g', 'Yerba tradicional Amanda', 260.00, 370.00, 130, 116, 23, '779123450019', '2025-06-11 22:35:24'),
+	(125, 'Yerba Mate Playadito 1kg', 'Yerba con palo', 480.00, 700.00, 120, 106, 23, '779123450020', '2025-06-11 22:35:24'),
 	(126, 'Agua Manaos 2L', 'Agua mineral Manaos', 100.00, 150.00, 200, 100, 11, '779123450021', '2025-06-11 22:35:24'),
 	(127, 'Manaos Pomelo 2L', 'Gaseosa sabor pomelo', 200.00, 290.00, 180, 100, 11, '779123450022', '2025-06-11 22:35:24'),
 	(128, 'Cunnington Tónica 1.5L', 'Gaseosa tónica Cunnington', 200.00, 300.00, 160, 31, 11, '779123450023', '2025-06-11 22:35:24'),
@@ -332,29 +332,29 @@ INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio_costo`, `precio_
 	(130, 'Coca-Cola 2.25L', 'Gaseosa Coca‑Cola', 400.00, 650.00, 150, 33, 11, '779123450025', '2025-06-11 22:35:24'),
 	(131, 'Gaseosa Sprite 2.25L', 'Gaseosa Sprite', 380.00, 620.00, 140, 33, 11, '779123450026', '2025-06-11 22:35:24'),
 	(132, 'Pizza Fugazzeta Don Satur 500g', 'Pizza congelada clásica', 600.00, 850.00, 100, 34, 15, '779123450027', '2025-06-11 22:35:24'),
-	(133, 'Natilla Arcor Chocolate 170g', 'Postre lácteo', 220.00, 330.00, 160, 3, 4, '779123450028', '2025-06-11 22:35:24'),
-	(134, 'Yogurísimo Saborizado 125g', 'Yogur bebible', 100.00, 150.00, 200, 5, 3, '779123450029', '2025-06-11 22:35:24'),
+	(133, 'Natilla Arcor Chocolate 170g', 'Postre lácteo', 220.00, 330.00, 160, 2, 4, '779123450028', '2025-06-11 22:35:24'),
+	(134, 'Yogurísimo Saborizado 125g', 'Yogur bebible', 100.00, 150.00, 200, 105, 3, '779123450029', '2025-06-11 22:35:24'),
 	(135, 'Jugo Cepita Naranja 1L', 'Jugo de naranja exprimido', 180.00, 260.00, 140, 64, 10, '779123450030', '2025-06-11 22:35:24'),
 	(136, 'Arvejas Marolio 400g', 'Arvejas marca Marolio', 160.00, 240.00, 120, 52, 9, '779123450031', '2025-06-11 22:35:24'),
 	(137, 'Harina Pureza 0000 1kg', 'Harina para pastel', 120.00, 180.00, 200, 8, 42, '779123450032', '2025-06-11 22:35:24'),
 	(138, 'Azúcar Ledesma 1kg', 'Azúcar blanca', 140.00, 200.00, 180, 14, 42, '779123450033', '2025-06-11 22:35:24'),
-	(139, 'Yerba Mate Cruz de Malta 1kg', 'Yerba tradicional', 480.00, 700.00, 130, 5, 23, '779123450034', '2025-06-11 22:35:24'),
+	(139, 'Yerba Mate Cruz de Malta 1kg', 'Yerba tradicional', 480.00, 700.00, 130, 115, 23, '779123450034', '2025-06-11 22:35:24'),
 	(140, 'Leche Chocolatada Ilolay 1L', 'Leche sabor chocolate', 200.00, 300.00, 150, 48, 1, '779123450035', '2025-06-11 22:35:24'),
 	(141, 'Queso Cremón La Serenísima 300g', 'Queso cremoso para picada', 320.00, 460.00, 110, 1, 2, '779123450036', '2025-06-11 22:35:24'),
 	(142, 'Jugo Levité Pomelo 1.5L', 'Bebida saborizada', 180.00, 270.00, 140, 30, 10, '779123450037', '2025-06-11 22:35:24'),
-	(143, 'Yerba Mate CBSé Pomelo 500g', 'Yerba saborizada', 260.00, 380.00, 120, 5, 23, '779123450038', '2025-06-11 22:35:24'),
-	(144, 'Yerba Mate CBSé Energy 500g', 'Yerba con energía', 260.00, 380.00, 110, 5, 23, '779123450039', '2025-06-11 22:35:24'),
+	(143, 'Yerba Mate CBSé Pomelo 500g', 'Yerba saborizada', 260.00, 380.00, 120, 99, 23, '779123450038', '2025-06-11 22:35:24'),
+	(144, 'Yerba Mate CBSé Energy 500g', 'Yerba con energía', 260.00, 380.00, 110, 99, 23, '779123450039', '2025-06-11 22:35:24'),
 	(145, 'Harina Morixe 000 1kg', 'Harina común', 120.00, 180.00, 170, 8, 42, '779123450040', '2025-06-11 22:35:24'),
 	(146, 'Papel Higiénico Elite 6 unid', 'Pack papel higiénico', 400.00, 600.00, 200, 45, 46, '779123450041', '2025-06-11 22:35:24'),
 	(147, 'Detergente Ala Matic 1.5L', 'Detergente líquido concentrado', 600.00, 900.00, 120, 45, 46, '779123450042', '2025-06-11 22:35:24'),
 	(148, 'Shampoo Sedal 360ml', 'Shampoo nutrición', 350.00, 520.00, 140, 45, 45, '779123450043', '2025-06-11 22:35:24'),
 	(149, 'Crema Dental Colgate Total 90g', 'Pasta dental antiplaca', 300.00, 450.00, 150, 9, 45, '779123450044', '2025-06-11 22:35:24'),
 	(150, 'Jugo Tang Naranja 500g', 'Bebida en polvo sabor naranja', 150.00, 220.00, 160, 45, 12, '779123450045', '2025-06-11 22:35:24'),
-	(151, 'Yerba Mate Playadito Suave 500g', 'Yerba saborizada suave', 260.00, 370.00, 130, 5, 23, '779123450046', '2025-06-11 22:35:24'),
+	(151, 'Yerba Mate Playadito Suave 500g', 'Yerba saborizada suave', 260.00, 370.00, 130, 106, 23, '779123450046', '2025-06-11 22:35:24'),
 	(152, 'Aceite Lira Girasol 1L', 'Aceite girasol marca Lira', 210.00, 310.00, 140, 8, 16, '779123450047', '2025-06-11 22:35:24'),
 	(153, 'Gaseosa Manaos Cola 2L', 'Refresco cola económico', 200.00, 290.00, 180, 100, 11, '779123450048', '2025-06-11 22:35:24'),
-	(154, 'Yerba Mate Nobleza Gaucha 1kg', 'Yerba tradicional', 470.00, 680.00, 120, 5, 23, '779123450049', '2025-06-11 22:35:24'),
-	(155, 'Yerba Mate Amanda Suave 500g', 'Yerba suave en bolsa', 260.00, 370.00, 110, 5, 23, '779123450050', '2025-06-11 22:35:24'),
+	(154, 'Yerba Mate Nobleza Gaucha 1kg', 'Yerba tradicional', 470.00, 680.00, 120, 117, 23, '779123450049', '2025-06-11 22:35:24'),
+	(155, 'Yerba Mate Amanda Suave 500g', 'Yerba suave en bolsa', 260.00, 370.00, 110, 116, 23, '779123450050', '2025-06-11 22:35:24'),
 	(156, 'Crema de leche La Serenísima 200ml', 'Crema de leche entera pasteurizada ideal para cocina y postres.', 250.00, 350.00, 100, 1, 1, NULL, '2025-06-23 05:11:47'),
 	(157, 'Puré de Tomate Molto 520g', 'Puré de tomate tradicional', 85.00, 120.00, 100, 46, 15, '779800001001', '2025-07-02 22:02:54'),
 	(158, 'Lentejas Molto 400g', 'Lentejas cocidas listas para consumir', 90.00, 130.00, 80, 46, 2, '779800001002', '2025-07-02 22:02:54'),
@@ -415,7 +415,7 @@ INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio_costo`, `precio_
 	(263, 'Yogur Bebible Vainilla 1L', 'Yogur bebible sabor vainilla', 160.00, 210.00, 115, 1, 7, '779100000007', '2025-07-02 22:17:51'),
 	(264, 'Yogur Bebible Durazno 1L', 'Yogur bebible sabor durazno', 160.00, 210.00, 115, 1, 7, '779100000008', '2025-07-02 22:17:51'),
 	(265, 'Yogur Bebible Multifruta 1L', 'Yogur con sabores combinados', 165.00, 215.00, 100, 1, 7, '779100000009', '2025-07-02 22:17:51'),
-	(266, 'Yogur Natural 1kg', 'Yogur natural sin sabor', 170.00, 225.00, 90, 1, 7, '779100000010', '2025-07-02 22:17:51'),
+	(266, 'Yogur Natural 1kg', 'Yogur natural sin sabor', 170.00, 225.00, 90, 44, 7, '779100000010', '2025-07-02 22:17:51'),
 	(267, 'Queso Cremoso La Serenísima 500g', 'Queso fresco tradicional', 450.00, 600.00, 60, 1, 7, '779100000011', '2025-07-02 22:17:51'),
 	(268, 'Queso Port Salut La Serenísima 500g', 'Queso semiduro suave', 470.00, 620.00, 55, 1, 7, '779100000012', '2025-07-02 22:17:51'),
 	(269, 'Queso Muzzarella La Serenísima 500g', 'Queso para pizza', 480.00, 630.00, 70, 1, 7, '779100000013', '2025-07-02 22:17:51'),
@@ -442,7 +442,7 @@ INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio_costo`, `precio_
 	(291, 'Leche UAT Sin Lactosa 1L', 'Leche deslactosada larga vida', 145.00, 190.00, 75, 1, 7, '779100000035', '2025-07-02 22:17:51'),
 	(292, 'Queso Finlandia 290g', 'Queso untable especial', 250.00, 310.00, 50, 1, 7, '779100000036', '2025-07-02 22:17:51'),
 	(293, 'Queso Barra La Serenísima 300g', 'Queso tipo barra semiduro', 280.00, 340.00, 45, 1, 7, '779100000037', '2025-07-02 22:17:51'),
-	(294, 'Yogur Griego Natural 150g', 'Yogur griego sin sabor', 125.00, 160.00, 85, 1, 7, '779100000038', '2025-07-02 22:17:51'),
+	(294, 'Yogur Griego Natural 150g', 'Yogur griego sin sabor', 125.00, 160.00, 85, 44, 7, '779100000038', '2025-07-02 22:17:51'),
 	(295, 'Yogur Griego Frutilla 150g', 'Yogur griego saborizado', 125.00, 160.00, 80, 1, 7, '779100000039', '2025-07-02 22:17:51'),
 	(296, 'Yogur Griego Arándanos 150g', 'Yogur griego con arándanos', 125.00, 160.00, 78, 1, 7, '779100000040', '2025-07-02 22:17:51'),
 	(297, 'Leche Orgánica 1L', 'Leche de producción orgánica', 160.00, 210.00, 60, 1, 7, '779100000041', '2025-07-02 22:17:51'),
@@ -657,7 +657,6 @@ INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio_costo`, `precio_
 	(1506, 'Taladro inalámbrico Bosch GSR 12V-15', 'Taladro atornillador compacto 12V', 48000.00, 61999.00, 110, 103, 36, 'BOSCH0050', '2025-09-24 22:04:13');
 
 -- Volcando estructura para tabla pp3_proyecto.productos_bak
-DROP TABLE IF EXISTS `productos_bak`;
 CREATE TABLE IF NOT EXISTS `productos_bak` (
   `id` int(11) NOT NULL DEFAULT 0,
   `nombre` varchar(255) NOT NULL,
