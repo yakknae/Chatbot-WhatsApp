@@ -136,6 +136,33 @@ Respuesta:
         print(f"❌ Error al detectar intención: {e}")
         return "ninguna"
     
+def is_cart_related(user_input: str) -> bool:
+    """
+    Usa el prompt de carrito.txt para verificar si el mensaje
+    expresa intención real de interactuar con el carrito.
+    Devuelve True si la respuesta es "sí", False si es "no".
+    """
+    try:
+        # Leer el prompt base
+        with open("carrito.txt", "r", encoding="utf-8") as f:
+            base_prompt = f.read().strip()
+        
+        # Formar el prompt completo
+        full_prompt = base_prompt.replace("{user_input}", user_input)
+        
+        # Invocar al modelo (asumimos que with_message_history está disponible)
+        result = with_message_history.invoke(
+            {"input": full_prompt},
+            config={"configurable": {"session_id": "temp_session_for_cart_check"}}
+        )
+        response = result.content.strip().lower() if hasattr(result, "content") else str(result).strip().lower()
+        
+        return "sí" in response or "si" in response  # maneja ambas formas
+    except Exception as e:
+        print(f"⚠️ Error al validar intención de carrito: {e}")
+        # En caso de error, ser conservador: asumir que NO es intención de carrito
+        return False
+    
 
 # ================================
 # Buscar productos
@@ -271,28 +298,33 @@ def get_response(user_input: str, session_id: str) -> str:
     detected_product = detect_product_with_ai(user_input)
     all_products = []
     if detected_product:
-        print(f"Producto detectado (caso 1 ): {detected_product}")
+        print(f"Producto detectado: {detected_product}")
         for product_name in detected_product:
             products = get_product_info(product_name)
-            if isinstance(products,list):
+            if isinstance(products, list):
                 all_products.extend(products)
         products = all_products
     else:
         print("Ningún producto detectado.")
         products = []
 
-    # === NUEVO: Si el usuario quiere agregar productos al carrito ===
+    # === Validar si hay intención real de interactuar con el carrito ===
+    cart_intent = is_cart_related(user_input)
+
+    # === AGREGAR al carrito ===
     palabras_agregar = ["agregar", "agregá", "añadir", "poner", "incluir", "sumar"]
-    if any(palabra in user_input_lower for palabra in palabras_agregar) and products:
-        # Guardar productos en el carrito de esta sesión
+    if (
+        cart_intent and
+        any(palabra in user_input_lower for palabra in palabras_agregar) and 
+        products
+    ):
         carritos[session_id].extend(products)
         return f"✅ Productos agregados al carrito. Tienes {len(carritos[session_id])} producto(s)."
-    
-    # === NUEVO: Si el usuario pide ver el carrito ===
+
+    # === VER carrito ===
     palabras_carrito = ["carrito", "pedido", "comprar", "ordenar", "quiero comprar", "hacer pedido", "ver carrito", "mostrar carrito"]
-    if any(palabra in user_input_lower for palabra in palabras_carrito):
+    if cart_intent and any(palabra in user_input_lower for palabra in palabras_carrito):
         if carritos[session_id]:
-            # Mostrar resumen del carrito
             resumen = "🛒 Tu carrito:\n"
             total = 0
             for p in carritos[session_id]:
@@ -305,14 +337,14 @@ def get_response(user_input: str, session_id: str) -> str:
         else:
             return "No tienes productos en el carrito. ¿Qué te gustaría comprar?"
 
-    # === NUEVO: Confirmar pedido ===
+    # === CONFIRMAR pedido ===
     palabras_confirmar = ["sí", "si", "confirmo", "acepto", "quiero", "comprar", "finalizar", "ordenar"]
     if (
-        any(palabra in user_input_lower for palabra in palabras_confirmar) 
-        and len(user_input_lower.split()) <= 5
-        and carritos[session_id]  # ← ahora usamos el carrito, no products
+        cart_intent and
+        any(palabra in user_input_lower for palabra in palabras_confirmar) and
+        len(user_input_lower.split()) <= 5 and
+        carritos[session_id]
     ):
-        # Construir datos del pedido
         order_data = {
             "cliente": "Cliente WhatsApp",
             "telefono": session_id.replace("whatsapp:", ""),
@@ -327,16 +359,17 @@ def get_response(user_input: str, session_id: str) -> str:
             "fecha": datetime.now().strftime("%Y-%m-%d %H:%M")
         }
 
-        # Enviar al gerente
         MANAGER_NUMBER = "+5491112345678"
         send_order_summary_to_manager(order_data, MANAGER_NUMBER)
-
-        # Limpiar carrito después de enviar
         carritos[session_id].clear()
 
         return "¡Pedido confirmado! 🎉 El gerente ha sido notificado y se comunicará contigo pronto."
 
-    # 1,5 . Si hay productos encontrados
+    # ───────────────────────────────────────────────
+    # A PARTIR DE ACÁ: NO ES INTERACCIÓN DE CARRITO
+    # ───────────────────────────────────────────────
+
+    # 2. Si HAY productos detectados → responder con contexto de productos
     if products:
         context = "Tenemos estos tipos de productos disponibles:\n"
         for product in products:
@@ -366,18 +399,14 @@ def get_response(user_input: str, session_id: str) -> str:
                 {"input": full_prompt},
                 config={"configurable": {"session_id": session_id}}
             )
-            #  Aseguramos que sea string, sin depender de .content
             bot_response = result.content if hasattr(result, "content") else str(result)
             return bot_response.strip()
         except Exception as e:
             print(f"❌ Error al generar respuesta (productos): {e}")
             return "No pude procesar esa consulta. Intenta más tarde."
 
-
-    
-    # 2. Si NO se encontró ningún producto → analizar si es una comida compuesta
-    else:
-        prompt_ingredientes = f"""
+    # 3. Si NO hay productos → intentar interpretar como comida compuesta
+    prompt_ingredientes = f"""
 Analiza si '{user_input}' es un plato o comida compuesta (como ensalada, torta, sándwich, etc.).
 Si lo es, responde SOLO con los nombres de los ingredientes principales separados por comas.
 Si no, responde exactamente: "ninguno"
@@ -399,76 +428,65 @@ Entrada: "{user_input}"
 Salida: 
 """
 
-        try:
-            raw_response = model.invoke(prompt_ingredientes).strip()
-            print(f"🔍 Respuesta cruda de IA (ingredientes): {raw_response}")
-
-            # Limpiar respuesta
-            if "ninguno" in raw_response.lower():
-                # No es un plato compuesto
-                pass  # Continúa al siguiente paso
-            else:
-                ingredientes = [item.strip() for item in raw_response.split(",") if item.strip()]
-                
-                if ingredientes:
-                    print(f"🍳 Ingredientes detectados: {ingredientes}")
-                    
-                    # Buscar cada ingrediente en la BD
-                    productos_encontrados = []
-                    for ingrediente in ingredientes:
-                        resultado = get_product_info(ingrediente)
-                        if isinstance(resultado, list):
-                            productos_encontrados.extend(resultado)
-
-                    if productos_encontrados:
-                        context = f"Para preparar '{user_input}', tenemos estos ingredientes disponibles:\n"
-                        for product in productos_encontrados:
-                            stock_status = "Disponible" if product.get("stock", 0) > 0 else "Agotado"
-                            name = product.get('producto', 'Producto sin nombre')
-                            brand = product.get('marca', 'Marca desconocida')
-                            price = product.get('precio_venta', 'Precio no disponible')
-
-                            context += (
-                                f"- **{name}** (Marca: {brand}) - Precio: ${price}, Stock: {product.get('stock', 0)} unidades ({stock_status})\n"
-                            )
-
-                        full_prompt = f"""
-                        {context}
-                        El usuario quiere preparar: "{user_input}"
-                        Respuesta clara y amigable:
-                        """
-                        try:
-                            result = with_message_history.invoke(
-                                {"input": full_prompt},
-                                config={"configurable": {"session_id": session_id}}
-                            )
-                            bot_response = result.content if hasattr(result, "content") else str(result)
-                            return bot_response.strip()
-                        except Exception as e:
-                            print(f"❌ Error generando respuesta para comida compuesta: {e}")
-                            return "Encontré algunos ingredientes, pero tuve problemas para responder."
-                    else:
-                        return f"No tenemos disponibles los ingredientes típicos para '{user_input}'."
-        
-        except Exception as e:
-            print(f"❌ Error al descomponer comida compuesta: {e}")
-
-    # 3. Respuesta predeterminada
     try:
-        # Leer el contexto base del sistema desde archivo
+        raw_response = model.invoke(prompt_ingredientes).strip()
+        print(f"🔍 Respuesta cruda de IA (ingredientes): {raw_response}")
+
+        if "ninguno" not in raw_response.lower():
+            ingredientes = [item.strip() for item in raw_response.split(",") if item.strip()]
+            if ingredientes:
+                print(f"🍳 Ingredientes detectados: {ingredientes}")
+                productos_encontrados = []
+                for ingrediente in ingredientes:
+                    resultado = get_product_info(ingrediente)
+                    if isinstance(resultado, list):
+                        productos_encontrados.extend(resultado)
+
+                if productos_encontrados:
+                    context = f"Para preparar '{user_input}', tenemos estos ingredientes disponibles:\n"
+                    for product in productos_encontrados:
+                        stock_status = "Disponible" if product.get("stock", 0) > 0 else "Agotado"
+                        name = product.get('producto', 'Producto sin nombre')
+                        brand = product.get('marca', 'Marca desconocida')
+                        price = product.get('precio_venta', 'Precio no disponible')
+                        context += (
+                            f"- **{name}** (Marca: {brand}) - Precio: ${price}, "
+                            f"Stock: {product.get('stock', 0)} unidades ({stock_status})\n"
+                        )
+
+                    full_prompt = f"""
+                    {context}
+                    El usuario quiere preparar: "{user_input}"
+                    Respuesta clara y amigable:
+                    """
+                    try:
+                        result = with_message_history.invoke(
+                            {"input": full_prompt},
+                            config={"configurable": {"session_id": session_id}}
+                        )
+                        bot_response = result.content if hasattr(result, "content") else str(result)
+                        return bot_response.strip()
+                    except Exception as e:
+                        print(f"❌ Error generando respuesta para comida compuesta: {e}")
+                        return "Encontré algunos ingredientes, pero tuve problemas para responder."
+                else:
+                    return f"No tenemos disponibles los ingredientes típicos para '{user_input}'."
+    except Exception as e:
+        print(f"❌ Error al descomponer comida compuesta: {e}")
+
+    # 4. Respuesta predeterminada con contexto del sistema
+    try:
         with open("prompts/prompt_output.txt", "r", encoding="utf-8") as fileOut:
             promptOutput = fileOut.read().strip()
-            
     except Exception as e:
         print(f"❌ No se pudo leer prompt_output.txt: {e}")
         promptOutput = "Eres un asistente útil. Responde de forma amable y clara."
-    print(promptOutput)
 
-    system_context = promptOutput
+    print("Prompt del sistema cargado:", promptOutput)
 
-    # Construye el input limpio → solo lo que dice el usuario
-    final_input = f"{system_context}\n\nPregunta del usuario: {user_input}"
+    final_input = f"{promptOutput}\n\nPregunta del usuario: {user_input}"
     print("variable final_input:", final_input)
+
     try:
         result = with_message_history.invoke(
             {"input": final_input},

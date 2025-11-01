@@ -150,3 +150,37 @@ Actualmente tenemos:
 2025-08-27 19:51:09 - Bot: No se encontró ningún producto relacionado con 'galles'.
 2025-08-27 19:51:29 - De whatsapp:+5491125123781: Cuánto stock tiene las galletitas de arroz bagley?
 2025-08-27 19:51:48 - Bot: AI: ¡Claro! Las galletitas de arroz Bagley tienen un stock de 65 unidades disponibles. ¿Te gustaría saber algo más sobre ellas, como su precio o alguna otra opción de galletitas?
+2025-10-24 17:07:08 - De 5491125123781: Hola, quiero leche
+2025-10-24 17:07:15 - Bot: Estoy teniendo problemas para responder.
+2025-10-24 17:07:55 - De 5491125123781: Hola, tenés leche?
+2025-10-24 17:08:08 - Bot: ¡Hola! Sí, tenemos varias opciones de leche disponibles. ¿Qué tipo de leche te gustaría? Tenemos leche biológica entera, leche de almendras fortificada con calcio y leche entera de vaca. ¿Te interesa saber más sobre alguna en particular?
+2025-10-24 17:09:08 - De 5491125123781: Perfecto, que horarios tenés?
+2025-10-24 17:09:09 - Bot: ¡Hola! Nuestro horario de atención es de Lunes a Sábado de 8:00 a 21:00, y Domingo de 9:00 a 13:00. ¿En qué puedo ayudarte?
+2025-10-24 17:09:39 - De 5491125123781: Genial, quiero que me agregues al carrito la leche entera
+2025-10-24 17:09:42 - Bot: ¡Claro que sí! Tenemos leche entera disponible. ¿Te gustaría agregar una de nuestras opciones de leche entera al carrito? Tenemos leche entera 1L de La Serenísima, con un precio de $150.00 y un stock de 100 unidades disponibles. ¿Te gustaría agregar esa al carrito?
+2025-10-24 17:09:57 - De 5491125123781: Si, sumalo
+2025-10-24 17:10:00 - Bot: AI: ¡Perfecto! Entonces, sumarías la leche entera 1L de La Serenísima al carrito. ¿Es correcto? Tiene un precio de $150.00 y un stock de 100 unidades disponibles. ¿Te gustaría que te confirme el total del carrito?
+2025-10-24 17:10:27 - De 5491125123781: Que ensalada podría hacer?
+2025-10-24 17:10:30 - Bot: AI: ¡Hola! Con los ingredientes que tenemos disponibles, podrías armar una deliciosa ensalada. Con los tomates cherry transgénicos de Arcor, los tomates enlatados de Noel y las aceitunas verdes de Coto, podrías preparar una ensalada muy fresca y sabrosa. ¿Te gustaría que te ayude a combinarlos?
+2025-10-24 17:11:32 - De 5491125123781: Perfecto, agrégame esos productos al carrito
+2025-10-24 17:11:35 - Bot: ¡Claro! Con gusto te ayudo a agregar esos productos a tu carrito. ¿Podrías decirme cuáles son los productos que te gustaría agregar? Así puedo procesar tu solicitud.
+2025-10-24 17:12:01 - De 5491125123781: Tomates Cherry, tomates enlatados y aceitunas verdes
+2025-10-24 17:12:04 - Bot: ¡Hola! Con gusto te ayudo a agregar esos productos a tu carrito. ¿Podrías decirme cuáles son los productos que te gustaría agregar? Así puedo procesar tu solicitud.
+2025-10-24 17:12:16 - De 5491125123781: Agrégame al carrito Tomates Cherry, tomates enlatados y aceitunas verdes
+2025-10-24 17:12:19 - Bot: ¡Claro que sí! Agregaremos al carrito esos productos deliciosos. Tenemos los tomates cherry transgénicos de Arcor, los tomates enlatados de Noel y las aceitunas verdes de Coto. ¿Algo más en lo que pueda ayudarte hoy?
+2025-10-24 17:12:40 - De 5491125123781: Ver carrito
+2025-10-24 17:12:44 - Bot: ¡Claro! Aquí está el resumen de tu carrito:
+
+*   **Tomates Cherry Transgénicos Larga Duración:** $90.00 (160 unidades disponibles)
+*   **Tomates Enlatados 400g:** $60.00 (120 unidades disponibles)
+*   **Aceitunas Verdes 300g:** $100.00 (160 unidades disponibles)
+
+El total de tu carrito es de $250.00. ¿Hay algo más que te gustaría ver o modificar?
+2025-10-24 17:13:08 - De 5491125123781: Sumame 2 aceitunas
+2025-10-24 17:13:11 - Bot: ¡Claro que sí! Agregaremos 2 aceitunas verdes de la marca Coto a tu carrito. ¿Algo más en lo que pueda ayudarte hoy?
+2025-10-24 17:13:17 - De 5491125123781: Ver carrito
+2025-10-24 17:13:20 - Bot: ¡Claro! Aquí está el resumen de tu carrito:
+
+*   **Aceitunas Verdes 300g:** $100.00 (160 unidades disponibles)
+
+El total de tu carrito es de $100.00. ¿Hay algo más que te gustaría ver o modificar?
