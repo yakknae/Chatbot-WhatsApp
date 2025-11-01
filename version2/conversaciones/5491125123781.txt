@@ -1,0 +1,175 @@
+2025-10-29 19:47:58 - De 5491125123781: Hola, cómo estás? Tenés leche y fideos?
+2025-10-29 19:47:58 - Bot: Estoy teniendo problemas para responder.
+2025-10-29 19:52:49 - De 5491125123781: Hola, cómo estás? Tenés leche y fideos?
+2025-10-29 19:53:00 - Bot: Tenemos estos productos disponibles:
+
+- Leche Biológica Entera 1L — $160.00
+- Leche de Almendras Fortificada con Calcio — $130.00
+- Leche Entera 1L — $150.00
+- Fideos Spaghetti 500g — $120.50
+- Fideos Tirabuzón 500g — $130.00
+- Fideos Tirabuzón Sin Gluten 500g — $150.00
+
+¿Querés agregar alguno de esos productos a tu pedido?
+2025-10-29 19:54:04 - De 5491125123781: Quiero agregar 2 leche biologica y 2 de cada uno de los fideos
+2025-10-29 19:54:06 - Bot: Tenemos estos productos disponibles:
+
+• Leche Biológica Entera 1L ... $160.00
+• Leche de Almendras Fortificada con Calcio ... $130.00
+• Leche Entera 1L ... $150.00
+
+Me indicas cual de estos productos querés agregar a tu pedido? 😊
+2025-10-29 19:54:26 - De 5491125123781: Leche biologica entera
+2025-10-29 19:54:27 - Bot: Agregué 1 Leche Biológica Entera 1L al pedido. (Total: $160.00)
+2025-10-29 19:54:32 - De 5491125123781: Quiero 2
+2025-10-29 19:54:34 - Bot: ¡Claro que sí! ¿Te refieres a dos de qué? ¿Dos productos en concreto, o quizás dos unidades de algo que ya tenías en mente? 😊
+2025-10-29 19:54:48 - De 5491125123781: 2 leches biologica entera
+2025-10-29 19:54:49 - Bot: Tenemos estos productos disponibles:
+
+• Leche Biológica Entera 1L ... $160.00
+• Leche de Almendras Fortificada con Calcio ... $130.00
+• Leche Entera 1L ... $150.00
+
+Me indicas cual de estos productos querés agregar a tu pedido? 😊
+2025-10-29 19:55:01 - De 5491125123781: Leche biologica entera
+2025-10-29 19:55:02 - Bot: Se actualizaron las unidades de Leche Biológica Entera 1L (ahora x2).               Total: $320.00
+2025-10-29 19:55:14 - De 5491125123781: Y también agrégame 2 fideos de cada uno
+2025-10-29 19:55:16 - Bot: Tenemos estos productos disponibles:
+
+• Fideos Spaghetti 500g ... $120.50
+• Fideos Tirabuzón 500g ... $130.00
+• Fideos Tirabuzón Sin Gluten 500g ... $150.00
+
+Me indicas cual de estos productos querés agregar a tu pedido? 😊
+2025-10-29 19:55:23 - De 5491125123781: 2 de cada uno
+2025-10-29 19:55:25 - Bot: ¡Entendido! ¿Y qué tipo de productos te gustaría que te muestre? ¿Frutas y verduras, lácteos, carne, o quizás algo más? ¡Dime qué te apetece y te lo busco! 😉
+2025-10-29 19:55:52 - De 5491125123781: Quiero 2 fideos de cada uno de spaghetti y tirabuzón
+2025-10-29 19:55:54 - Bot: Tenemos estos productos disponibles:
+
+• Fideos Spaghetti 500g ... $120.50
+
+Me indicas cual de estos productos querés agregar a tu pedido? 😊
+2025-10-29 19:56:11 - De 5491125123781: El diablo, manda fotos la IA
+2025-10-29 19:56:13 - Bot: ¡Uy, qué sorpresa! El supermercado no tiene productos de ese tipo, pero tenemos muchísimas frutas y verduras frescas y deliciosas. ¿Te apetece echar un vistazo a las opciones que tenemos disponibles? 😊
+2025-10-29 19:58:38 - De 5491125123781: Quiero 2 leches y 2 fideos
+2025-10-29 19:58:40 - Bot: Tenemos estos productos disponibles:
+
+• Leche Biológica Entera 1L ... $160.00
+• Leche de Almendras Fortificada con Calcio ... $130.00
+• Leche Entera 1L ... $150.00
+
+Me indicas cual de estos productos querés agregar a tu pedido? 😊
+2025-10-29 19:58:50 - De 5491125123781: Leche de almendras
+2025-10-29 19:58:51 - Bot: Agregué 1 Leche de Almendras Fortificada con Calcio al pedido. (Total: $450.00)
+2025-10-29 19:58:56 - De 5491125123781: Ver carrito
+2025-10-29 19:58:58 - Bot: Actualmente tu pedido tiene:
+
+Leche Biológica Entera 1L $160.00(2) : $320.00
+Leche de Almendras Fortificada con Calcio $130.00(1) : $130.00
+
+🧾 Total: $450.00
+¿Querés agregar algo más o cerrar el pedido?
+2025-10-29 19:59:13 - De 5491125123781: Agrégame 2 fideos tirabuzón
+2025-10-29 19:59:15 - Bot: Tenemos estos productos disponibles:
+
+• Fideos Spaghetti 500g ... $120.50
+• Fideos Tirabuzón 500g ... $130.00
+• Fideos Tirabuzón Sin Gluten 500g ... $150.00
+
+Me indicas cual de estos productos querés agregar a tu pedido? 😊
+2025-10-29 19:59:35 - De 5491125123781: 2 Tirabuzón 500g
+2025-10-29 19:59:36 - Bot: Agregué 2 Fideos Tirabuzón 500g al pedido. (Total: $710.00)
+2025-10-29 19:59:44 - De 5491125123781: Ver carrito
+2025-10-29 19:59:46 - Bot: Actualmente tu pedido tiene:
+
+Leche Biológica Entera 1L $160.00(2) : $320.00
+Leche de Almendras Fortificada con Calcio $130.00(1) : $130.00
+Fideos Tirabuzón 500g $130.00(2) : $260.00
+
+🧾 Total: $710.00
+¿Querés agregar algo más o cerrar el pedido?
+2025-10-29 20:00:13 - De 5491125123781: Agrégame 2 vinos malbec
+2025-10-29 20:00:14 - Bot: Tenemos estos productos disponibles:
+
+• Vino Blanco Chardonnay ... $380.00
+• Vino Tinto Malbec ... $320.00
+
+Me indicas cual de estos productos querés agregar a tu pedido? 😊
+2025-10-29 20:00:21 - De 5491125123781: Tinto malbec
+2025-10-29 20:00:22 - Bot: Agregué 1 Vino Tinto Malbec al pedido. (Total: $1030.00)
+2025-10-29 20:00:26 - De 5491125123781: Otro más
+2025-10-29 20:00:29 - Bot: ¡Dale, vamos allá! ¿Y qué te apetece ahora? ¿Quizás alguna carne, pescado, o algún producto de despensa? ¡Dime qué te interesa y te lo busco! 😊
+2025-10-29 20:00:35 - De 5491125123781: Carne
+2025-10-29 20:00:36 - Bot: Tenemos estos productos disponibles:
+
+• Bife de Chorizo 1kg ... $520.00
+• Carne Picada Especial 1kg ... $450.00
+• Pechugas de Pollo 1kg ... $250.00
+
+Me indicas cual de estos productos querés agregar a tu pedido? 😊
+2025-10-29 20:00:47 - De 5491125123781: Agrégame un bife de chorizo
+2025-10-29 20:00:48 - Bot: Agregué 1 Bife de Chorizo 1kg al pedido. (Total: $1550.00)
+2025-10-29 20:00:52 - De 5491125123781: Ver carrito
+2025-10-29 20:00:53 - Bot: Actualmente tu pedido tiene:
+
+Leche Biológica Entera 1L $160.00(2) : $320.00
+Leche de Almendras Fortificada con Calcio $130.00(1) : $130.00
+Fideos Tirabuzón 500g $130.00(2) : $260.00
+Vino Tinto Malbec $320.00(1) : $320.00
+Bife de Chorizo 1kg $520.00(1) : $520.00
+
+🧾 Total: $1550.00
+¿Querés agregar algo más o cerrar el pedido?
+2025-10-29 20:01:20 - De 5491125123781: Agrega un vinto tinto malbec más
+2025-10-29 20:01:22 - Bot: Actualmente no contamos con 'Agrega un vinto tinto malbec más' como producto, pero te puedo ofrecer los siguientes ingredientes para que la prepares vos mismo:
+
+• Vino Tinto Malbec (Marca: Trapiche) — $320.00
+
+¿Querés que te agregue alguno de estos ingredientes al pedido?
+2025-10-29 20:01:33 - De 5491125123781: Si
+2025-10-29 20:01:35 - Bot: ¡Perfecto! ¿Y qué te gustaría que te muestre ahora? ¿Quizás alguna fruta o verdura para tu cesta? 😊
+2025-10-29 20:01:40 - De 5491125123781: Ver carrito
+2025-10-29 20:01:42 - Bot: Actualmente tu pedido tiene:
+
+Leche Biológica Entera 1L $160.00(2) : $320.00
+Leche de Almendras Fortificada con Calcio $130.00(1) : $130.00
+Fideos Tirabuzón 500g $130.00(2) : $260.00
+Vino Tinto Malbec $320.00(1) : $320.00
+Bife de Chorizo 1kg $520.00(1) : $520.00
+
+🧾 Total: $1550.00
+¿Querés agregar algo más o cerrar el pedido?
+2025-10-29 20:02:07 - De 5491125123781: Agrégame otro vino tinto malbec
+2025-10-29 20:02:08 - Bot: Se actualizaron las unidades de Vino Tinto Malbec (ahora x2).               Total: $1870.00
+2025-10-29 20:02:13 - De 5491125123781: Ver carrito
+2025-10-29 20:02:15 - Bot: Actualmente tu pedido tiene:
+
+Leche Biológica Entera 1L $160.00(2) : $320.00
+Leche de Almendras Fortificada con Calcio $130.00(1) : $130.00
+Fideos Tirabuzón 500g $130.00(2) : $260.00
+Vino Tinto Malbec $320.00(2) : $640.00
+Bife de Chorizo 1kg $520.00(1) : $520.00
+
+🧾 Total: $1870.00
+¿Querés agregar algo más o cerrar el pedido?
+2025-10-29 20:02:41 - De 5491125123781: Finalizar pedido
+2025-10-29 20:02:42 - Bot: Perfecto 👍 Ya registré tu pedido. Por favor decime tu *nombre completo* y *dirección de entrega* para enviarlo al encargado.
+2025-10-29 20:03:03 - De 5491125123781: Mariano Fernández, Dirección falsa 123
+2025-10-29 20:03:04 - Bot: Gracias 🙌 Tu pedido fue confirmado correctamente y ya está en camino
+2025-10-29 20:22:08 - De 5491125123781: Agrégame 2 bife de chorizo
+2025-10-29 20:22:09 - Bot: Tenemos estos productos disponibles:
+
+• Bife de Chorizo 1kg ... $520.00
+• Bife de Chorizo Orgánico 1kg ... $580.00
+
+Me indicas cual de estos productos querés agregar a tu pedido? 😊
+2025-10-29 20:22:15 - De 5491125123781: El primero
+2025-10-29 20:22:17 - Bot: ¡Claro que sí! ¿En qué puedo ayudarte hoy? ¿Buscas algo en particular o te gustaría ver algunas de nuestras opciones? 😊
+2025-10-29 20:22:21 - De 5491125123781: Ver carrito
+2025-10-29 20:22:22 - Bot: Parece que todavía no tenés productos en tu pedido.
+2025-10-29 20:22:34 - De 5491125123781: Bife de chorizo orgánico 2
+2025-10-29 20:22:35 - Bot: Agregué 2 Bife de Chorizo Orgánico 1kg al pedido. (Total: $1160.00)
+2025-10-29 20:22:40 - De 5491125123781: Finaliza
+2025-10-29 20:22:41 - Bot: Perfecto 👍 Ya registré tu pedido. Por favor decime tu *nombre completo* y *dirección de entrega* para enviarlo al encargado.
+2025-10-29 20:22:45 - De 5491125123781: Mariano, pepe
+2025-10-29 20:22:46 - Bot: Gracias 🙌 Tu pedido fue confirmado correctamente y ya está en camino

@@ -1,0 +1,23 @@
+2025-10-29 19:47:52 - De 5493435052383: Hola
+2025-10-29 19:47:52 - Bot: Estoy teniendo problemas para responder.
+2025-10-29 19:48:56 - De 5493435052383: Tenés leche?
+2025-10-29 19:48:56 - Bot: Estoy teniendo problemas para responder.
+2025-10-29 19:53:00 - De 5493435052383: Hola
+2025-10-29 19:53:02 - Bot: ¡Hola! ¡Qué bueno que te acercaste! ¿En qué puedo ayudarte hoy? ¿Buscas algo en particular o simplemente dando una vuelta? 😊
+2025-10-29 19:53:16 - De 5493435052383: Busco leche
+2025-10-29 19:53:16 - Bot: Tenemos estos productos disponibles:
+
+• Leche Biológica Entera 1L ... $160.00
+• Leche de Almendras Fortificada con Calcio ... $130.00
+• Leche Entera 1L ... $150.00
+
+Me indicas cual de estos productos querés agregar a tu pedido? 😊
+2025-10-29 19:54:59 - De 5493435052383: Tenés chocolate en polvo,m
+2025-10-29 19:55:00 - Bot: Tenemos estos productos disponibles:
+
+• Chocolate 70% Cacao Sin Azúcar ... $120.00
+• Chocolate con Leche 100g ... $110.00
+
+Me indicas cual de estos productos querés agregar a tu pedido? 😊
+2025-10-29 19:55:31 - De 5493435052383: No gracias, quiero una pizza
+2025-10-29 19:55:33 - Bot: No tenemos disponibles los ingredientes típicos para 'No gracias, quiero una pizza'.

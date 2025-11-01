@@ -1,0 +1,54 @@
+2025-10-29 19:47:58 - De 5491162195267: Hola
+2025-10-29 19:47:58 - Bot: Estoy teniendo problemas para responder.
+2025-10-29 19:53:04 - De 5491162195267: Hola
+2025-10-29 19:53:06 - Bot: ¡Hola! ¡Qué bueno que te acercaste! ¿En qué puedo ayudarte hoy? ¿Buscas algo en particular o simplemente estás mirando?
+2025-10-29 19:53:13 - De 5491162195267: Cómo estás?
+2025-10-29 19:53:15 - Bot: ¡Todo bien, gracias por preguntar! El día está precioso, ¿verdad? ¿Y vos, cómo va tu día hasta ahora? ¿Hay algo que te apetezca buscar hoy?
+2025-10-29 19:55:35 - De 5491162195267: Quiero comprar algo, que me recomendas, una pizza
+2025-10-29 19:55:36 - Bot: No tenemos disponibles los ingredientes típicos para 'Quiero comprar algo, que me recomendas, una pizza'.
+2025-10-29 19:57:02 - De 5491162195267: Tenés aceite
+2025-10-29 19:57:02 - Bot: Tenemos estos productos disponibles:
+
+- Aceite de Coco Virgen Extra 500ml — $190.00
+- Aceite de Girasol 1.5L — $190.00
+- Aceite de Oliva 500ml — $250.00
+
+¿Querés agregar alguno de esos productos a tu pedido?
+2025-10-29 19:58:30 - De 5491162195267: El aceite de coco virgen me interesa
+2025-10-29 19:58:31 - Bot: Agregué 1 Aceite de Coco Virgen Extra 500ml al pedido. (Total: $190.00)
+2025-10-29 19:58:49 - De 5491162195267: Tenés leche y pan?
+2025-10-29 19:58:49 - Bot: Tenemos estos productos disponibles:
+
+- Leche Biológica Entera 1L — $160.00
+- Leche de Almendras Fortificada con Calcio — $130.00
+- Leche Entera 1L — $150.00
+- Pan Artesanal de Centeno y Espelta — $140.00
+- Pan de Campo Kosher — $120.00
+- Pan de Masa Madre Centeno 500g — $130.00
+- Pan Integral 500g — $110.00
+
+¿Querés agregar alguno de esos productos a tu pedido?
+2025-11-01 15:04:39 - De 5491162195267: Hola
+2025-11-01 15:04:52 - Bot: ¡Hola! ¡Qué bueno que te pones en contacto! ¿En qué puedo ayudarte hoy? ¿Tienes alguna pregunta sobre nuestros productos o necesitas hacer un pedido? 😊
+2025-11-01 15:05:05 - De 5491162195267: Tenés aceite?
+2025-11-01 15:05:06 - Bot: Tenemos estos productos disponibles:
+
+- Aceite de Coco Virgen Extra 500ml — $190.00
+- Aceite de Girasol 1.5L — $190.00
+- Aceite de Oliva 500ml — $250.00
+
+¿Querés agregar alguno de esos productos a tu pedido?
+2025-11-01 15:05:12 - De 5491162195267: Tenés leche?
+2025-11-01 15:05:13 - Bot: Tenemos estos productos disponibles:
+
+- Leche Biológica Entera 1L — $160.00
+- Leche de Almendras Fortificada con Calcio — $130.00
+- Leche Entera 1L — $150.00
+
+¿Querés agregar alguno de esos productos a tu pedido?
+2025-11-01 15:05:24 - De 5491162195267: Cómo estás?
+2025-11-01 15:05:26 - Bot: ¡Todo bien, gracias por preguntar! El día está siendo bastante ajetreado, pero aquí estoy para ayudarte con lo que necesites. ¿Y tú, cómo estás pasando el día? 😊
+2025-11-01 15:06:20 - De 5491162195267: Cuál es la capital de Francia?
+2025-11-01 15:06:22 - Bot: ¡La capital de Francia es París! Es una ciudad preciosa, ¿verdad? ¿Te interesa saber algo más sobre ella, como sus monumentos o museos? 😊
+2025-11-01 15:16:13 - De 5491162195267: Hola
+2025-11-01 15:16:24 - Bot: ¡Hola! ¡Qué bueno que te pones por aquí! ¿En qué puedo ayudarte hoy? ¿Buscas algo en particular o simplemente estás echando un vistazo? 😊

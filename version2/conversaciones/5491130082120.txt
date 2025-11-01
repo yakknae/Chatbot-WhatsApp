@@ -1,0 +1,227 @@
+2025-10-29 19:47:58 - De 5491130082120: Hola
+2025-10-29 19:47:58 - Bot: Estoy teniendo problemas para responder.
+2025-10-29 19:53:02 - De 5491130082120: Hola
+2025-10-29 19:53:04 - Bot: ¡Hola! ¡Qué bueno que llegaste! ¿En qué puedo ayudarte hoy? ¿Hay algo en particular que estés buscando o necesitas saber?
+2025-10-29 19:53:10 - De 5491130082120: Tenés leche?
+2025-10-29 19:53:11 - Bot: Tenemos estos productos disponibles:
+
+- Leche Biológica Entera 1L — $160.00
+- Leche de Almendras Fortificada con Calcio — $130.00
+- Leche Entera 1L — $150.00
+
+¿Querés agregar alguno de esos productos a tu pedido?
+2025-10-29 19:53:28 - De 5491130082120: Quiero leche entera 4 de esas
+2025-10-29 19:53:29 - Bot: Agregué 4 Leche Entera 1L al pedido. (Total: $600.00)
+2025-10-29 19:54:10 - De 5491130082120: Tenés Nesquik?
+2025-10-29 19:54:11 - Bot: No tenemos disponibles los ingredientes típicos para 'Tenés Nesquik?'.
+2025-10-29 19:54:28 - De 5491130082120: Chocolatada?
+2025-10-29 19:54:30 - Bot: Actualmente no contamos con 'Chocolatada?' como producto, pero te puedo ofrecer los siguientes ingredientes para que la prepares vos mismo:
+
+• Leche Biológica Entera 1L (Marca: La Serenísima) — $160.00
+• Leche de Almendras Fortificada con Calcio (Marca: La Serenísima) — $130.00
+• Leche Entera 1L (Marca: La Serenísima) — $150.00
+
+¿Querés que te agregue alguno de estos ingredientes al pedido?
+2025-10-29 19:55:07 - De 5491130082120: Ok y galletitas?
+2025-10-29 19:55:08 - Bot: Tenemos estos productos disponibles:
+
+• Galletitas de Agua 300g ... $85.00
+
+Me indicas cual de estos productos querés agregar a tu pedido? 😊
+2025-10-29 19:55:26 - De 5491130082120: Dulces?
+2025-10-29 19:55:27 - Bot: Tenemos estos productos disponibles:
+
+- Cacao en Polvo 200g — $90.00
+- Chocolate con Leche 100g — $110.00
+- Dulce de Leche 500g — $150.00
+
+¿Querés agregar alguno de esos productos a tu pedido?
+2025-10-29 19:56:13 - De 5491130082120: Galletitas Oreo tenés?
+2025-10-29 19:56:15 - Bot: No tenemos disponibles los ingredientes típicos para 'Galletitas Oreo tenés?'.
+2025-10-29 19:56:33 - De 5491130082120: Oreo?
+2025-10-29 19:56:34 - Bot: No tenemos disponibles los ingredientes típicos para 'Oreo?'.
+2025-10-29 19:56:47 - De 5491130082120: Oreo
+2025-10-29 19:56:49 - Bot: No tenemos disponibles los ingredientes típicos para 'Oreo'.
+2025-10-29 19:57:36 - De 5491130082120: Gaseosas?
+2025-10-29 19:57:36 - Bot: Tenemos estos productos disponibles:
+
+- Gaseosa Cola 2.25L — $140.00
+- Gaseosa Lima-Limón 2.25L — $140.00
+
+¿Querés agregar alguno de esos productos a tu pedido?
+2025-10-29 19:58:40 - De 5491130082120: Bebidas sin alcohol?
+2025-10-29 19:58:41 - Bot: Tenemos estos productos disponibles:
+
+- Bebida Energética Guaraná 250ml — $90.00
+- Cerveza Rubia Lata — $110.00
+- Gaseosa Cola 2.25L — $140.00
+- Gaseosa Lima-Limón 2.25L — $140.00
+- Vino Blanco Chardonnay — $380.00
+- Vino Tinto Malbec — $320.00
+
+¿Querés agregar alguno de esos productos a tu pedido?
+2025-10-29 20:00:54 - De 5491130082120: Bebidas sin alcohol?
+2025-10-29 20:00:55 - Bot: Tenemos estos productos disponibles:
+
+- Bebida Energética Guaraná 250ml — $90.00
+- Cerveza Rubia Lata — $110.00
+- Gaseosa Cola 2.25L — $140.00
+- Gaseosa Lima-Limón 2.25L — $140.00
+- Vino Blanco Chardonnay — $380.00
+- Vino Tinto Malbec — $320.00
+
+¿Querés agregar alguno de esos productos a tu pedido?
+2025-10-29 20:02:55 - De 5491130082120: Bebidas no alcoholicas?
+2025-10-29 20:02:56 - Bot: Tenemos estos productos disponibles:
+
+- Bebida Energética Guaraná 250ml — $90.00
+- Cerveza Rubia Lata — $110.00
+- Gaseosa Cola 2.25L — $140.00
+- Gaseosa Lima-Limón 2.25L — $140.00
+- Vino Blanco Chardonnay — $380.00
+- Vino Tinto Malbec — $320.00
+
+¿Querés agregar alguno de esos productos a tu pedido?
+2025-10-29 20:04:02 - De 5491130082120: Agregame 5 cervezas
+2025-10-29 20:04:04 - Bot: Tenemos estos productos disponibles:
+
+• Cerveza Artesanal Trigo Botella ... $100.00
+• Cerveza Rubia Lata ... $110.00
+
+Me indicas cual de estos productos querés agregar a tu pedido? 😊
+2025-10-29 20:04:10 - De 5491130082120: Trigo
+2025-10-29 20:04:12 - Bot: Agregué 1 Cerveza Artesanal Trigo Botella al pedido. (Total: $700.00)
+2025-10-29 20:05:09 - De 5491130082120: Ok pero 5 de esas
+2025-10-29 20:05:11 - Bot: ¡Claro! ¿Te refieres a las cinco opciones que mencionamos antes o a algo en específico? Avísame y te daré la información que necesites. 😊
+2025-10-29 20:05:19 - De 5491130082120: Si las de antes
+2025-10-29 20:05:21 - Bot: ¡Perfecto! ¿Te refieres a las cinco opciones que vimos antes? Para ayudarte mejor, ¿qué te gustaría saber de ellas? ¿Quieres saber los precios, alguna característica en particular o algo más? ¡Dime! 😊
+2025-10-29 20:05:31 - De 5491130082120: De trigo
+2025-10-29 20:05:32 - Bot: No tenemos disponibles los ingredientes típicos para 'De trigo'.
+2025-10-29 20:05:40 - De 5491130082120: Trigo
+2025-10-29 20:05:41 - Bot: Se actualizaron las unidades de Cerveza Artesanal Trigo Botella (ahora x2).               Total: $800.00
+2025-10-29 20:08:01 - De 5491130082120: Mostrame el carrito
+2025-10-29 20:08:03 - Bot: Actualmente tu pedido tiene:
+
+Leche Entera 1L $150.00(4) : $600.00
+Cerveza Artesanal Trigo Botella $100.00(2) : $200.00
+
+🧾 Total: $800.00
+¿Querés agregar algo más o cerrar el pedido?
+2025-10-29 20:08:27 - De 5491130082120: Quiero 4 de esas cervezas
+2025-10-29 20:08:29 - Bot: Tenemos estos productos disponibles:
+
+• Cerveza Artesanal Trigo Botella ... $100.00
+• Cerveza Rubia Lata ... $110.00
+
+Me indicas cual de estos productos querés agregar a tu pedido? 😊
+2025-10-29 20:09:23 - De 5491130082120: Sumame 2 de las de trigo
+2025-10-29 20:09:24 - Bot: Actualmente no contamos con 'Sumame 2 de las de trigo' como producto, pero te puedo ofrecer los siguientes ingredientes para que la prepares vos mismo:
+
+• Pan Artesanal de Centeno y Espelta (Marca: Cagnoli) — $140.00
+• Pan de Campo Kosher (Marca: Terrabusi) — $120.00
+• Pan de Masa Madre Centeno 500g (Marca: Cagnoli) — $130.00
+• Pan Integral 500g (Marca: Terrabusi) — $110.00
+
+¿Querés que te agregue alguno de estos ingredientes al pedido?
+2025-10-29 20:09:57 - De 5491130082120: Agregame 2 de las cervezas de trigo
+2025-10-29 20:09:58 - Bot: Tenemos estos productos disponibles:
+
+• Cerveza Artesanal Trigo Botella ... $100.00
+• Cerveza Rubia Lata ... $110.00
+
+Me indicas cual de estos productos querés agregar a tu pedido? 😊
+2025-10-29 20:10:17 - De 5491130082120: 2 de las de trigo hijo de puta
+2025-10-29 20:10:18 - Bot: Se actualizaron las unidades de Cerveza Artesanal Trigo Botella (ahora x4).               Total: $1000.00
+2025-10-29 20:11:23 - De 5491130082120: Finalizame el carrito
+2025-10-29 20:11:24 - Bot: Perfecto 👍 Ya registré tu pedido. Por favor decime tu *nombre completo* y *dirección de entrega* para enviarlo al encargado.
+2025-10-29 20:11:50 - De 5491130082120: Carlos Villagrán como Quico
+Olazábal 895
+2025-10-29 20:11:51 - Bot: Gracias 🙌 Tu pedido fue confirmado correctamente y ya está en camino
+2025-10-29 20:15:26 - De 5491130082120: Mostrame el pedido
+2025-10-29 20:15:27 - Bot: Actualmente tu pedido tiene:
+
+Leche Entera 1L $150.00(4) : $600.00
+Cerveza Artesanal Trigo Botella $100.00(4) : $400.00
+
+🧾 Total: $1000.00
+¿Querés agregar algo más o cerrar el pedido?
+2025-10-29 20:15:36 - De 5491130082120: Te lo confirmo
+2025-10-29 20:15:37 - Bot: ¡Claro que sí! ¿Quieres que te muestre tu pedido actual? ¡Dime y lo revisamos juntos! 😊
+2025-10-29 20:15:49 - De 5491130082120: Finalizalo
+2025-10-29 20:15:51 - Bot: Perfecto 👍 Ya registré tu pedido. Por favor decime tu *nombre completo* y *dirección de entrega* para enviarlo al encargado.
+2025-10-29 20:16:01 - De 5491130082120: Pepe
+Caca
+2025-10-29 20:16:03 - Bot: Gracias 🙌 Tu pedido fue confirmado correctamente y ya está en camino
+2025-10-29 20:17:15 - De 5491130082120: Finalizame el pedido
+2025-10-29 20:17:16 - Bot: Perfecto 👍 Ya registré tu pedido. Por favor decime tu *nombre completo* y *dirección de entrega* para enviarlo al encargado.
+2025-10-29 20:17:24 - De 5491130082120: Xxxx
+Mmmm
+2025-10-29 20:17:25 - Bot: Gracias 🙌 Tu pedido fue confirmado correctamente y ya está en camino
+2025-10-29 20:18:37 - De 5491130082120: Hola quiero una pizza
+2025-10-29 20:18:39 - Bot: No tenemos disponibles los ingredientes típicos para 'Hola quiero una pizza'.
+2025-10-29 20:18:53 - De 5491130082120: Pizza?
+2025-10-29 20:18:55 - Bot: Actualmente no contamos con 'Pizza?' como producto, pero te puedo ofrecer los siguientes ingredientes para que la prepares vos mismo:
+
+• Agua Saborizada Manzana 500ml (Marca: Rosamonte) — $65.00
+• Cama con Dosel Blanca (Marca: Salta) — $29000.00
+• Cama Matrimonial Rústica Madera Maciza (Marca: Salta) — $25000.00
+• Salchichas de Pollo Halal 1kg (Marca: Paladini) — $220.00
+• Salchichas Viena 1kg (Marca: Paladini) — $210.00
+• Salsa Barbacoa 250g (Marca: Marolio) — $90.00
+• Salsa de Tomate 500g (Marca: Hellmanns) — $70.00
+• Somier con Cajones Laterales (Marca: Salta) — $18000.00
+• Tomates Cherry Transgénicos Larga Duración (Marca: Arcor (Frutas)) — $90.00
+• Tomates Enlatados 400g (Marca: Noel) — $60.00
+• Queso Cremoso 500g (Marca: Ilolay) — $200.00
+• Queso de Cabra Gourmet Trufado (Marca: Campo Austral) — $250.00
+• Queso Vegano Cheddar 200g (Marca: Campo Austral) — $170.00
+• Aceitunas Verdes 300g (Marca: Coto) — $100.00
+
+¿Querés que te agregue alguno de estos ingredientes al pedido?
+2025-10-29 20:19:23 - De 5491130082120: Agrégame 5  tomates ensalada 400g
+2025-10-29 20:19:23 - Bot: Tenemos estos productos disponibles:
+
+• Tomates Cherry Transgénicos Larga Duración ... $90.00
+• Tomates Enlatados 400g ... $60.00
+
+Me indicas cual de estos productos querés agregar a tu pedido? 😊
+2025-10-29 20:19:50 - De 5491130082120: Agrégame tomas cherry
+2025-10-29 20:19:51 - Bot: Agregué 1 Tomates Cherry Transgénicos Larga Duración al pedido. (Total: $90.00)
+2025-10-29 20:20:02 - De 5491130082120: Agregame 10 latas de esas
+2025-10-29 20:20:04 - Bot: Tenemos estos productos disponibles:
+
+• Cerveza Rubia Lata ... $110.00
+• Tomates Enlatados 400g ... $60.00
+
+Me indicas cual de estos productos querés agregar a tu pedido? 😊
+2025-10-29 20:20:45 - De 5491130082120: Mostrame el carrito
+2025-10-29 20:20:46 - Bot: Actualmente tu pedido tiene:
+
+Tomates Cherry Transgénicos Larga Duración $90.00(1) : $90.00
+
+🧾 Total: $90.00
+¿Querés agregar algo más o cerrar el pedido?
+2025-10-29 20:20:56 - De 5491130082120: Terminalo
+2025-10-29 20:20:57 - Bot: Perfecto 👍 Ya registré tu pedido. Por favor decime tu *nombre completo* y *dirección de entrega* para enviarlo al encargado.
+2025-10-29 20:21:09 - De 5491130082120: Carlos
+Ccccc
+2025-10-29 20:21:10 - Bot: Gracias 🙌 Tu pedido fue confirmado correctamente y ya está en camino
+2025-10-29 20:22:11 - De 5491130082120: Agrégame leche descremada
+2025-10-29 20:22:12 - Bot: Tenemos estos productos disponibles:
+
+• Leche Biológica Entera 1L ... $160.00
+• Leche de Almendras Fortificada con Calcio ... $130.00
+• Leche Entera 1L ... $150.00
+
+Me indicas cual de estos productos querés agregar a tu pedido? 😊
+2025-10-29 20:23:33 - De 5491130082120: Agrégame leche de almendras
+2025-10-29 20:23:35 - Bot: Agregué 1 Leche de Almendras Fortificada con Calcio al pedido. (Total: $130.00)
+2025-10-29 20:23:54 - De 5491130082120: Quiero 4 de esas leches de almendras
+2025-10-29 20:23:55 - Bot: Se actualizaron las unidades de Leche de Almendras Fortificada con Calcio (ahora x5).               Total: $650.00
+2025-10-29 20:24:02 - De 5491130082120: Ok cerrarme el pedido
+2025-10-29 20:24:04 - Bot: ¡Claro que sí! Para cerrar tu pedido, ¿podrías confirmarme, por favor, qué artículos te gustaría incluir? Así me aseguro de que todo esté perfecto. 😊
+2025-10-29 20:24:11 - De 5491130082120: Nada mas
+2025-10-29 20:24:12 - Bot: Perfecto 👍 Ya registré tu pedido. Por favor decime tu *nombre completo* y *dirección de entrega* para enviarlo al encargado.
+2025-10-29 20:24:17 - De 5491130082120: Carlos
+Hhhh
+2025-10-29 20:24:18 - Bot: Gracias 🙌 Tu pedido fue confirmado correctamente y ya está en camino
