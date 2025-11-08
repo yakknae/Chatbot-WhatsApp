@@ -1,0 +1,12 @@
+2025-11-03 23:49:46 - De 5491157017262: Ah
+2025-11-03 23:50:00 - Bot: ¡Hola! ¿En qué puedo ayudarte hoy? ¿Tienes alguna pregunta sobre nuestros productos o quizás quieres que te ayude con un pedido?
+2025-11-03 23:52:43 - De 5491157017262: 1
+2025-11-03 23:52:45 - Bot: ¡Hola! ¿En qué puedo ayudarte hoy? ¿Tienes alguna pregunta sobre nuestros productos o quizás quieres que te ayude con un pedido?
+2025-11-03 23:52:54 - De 5491157017262: si una milanesa
+2025-11-03 23:52:56 - Bot: Actualmente no contamos con 'si una milanesa' como producto, pero te puedo ofrecer los siguientes ingredientes para que la prepares vos mismo:
+
+• Pan Rallado Molto 500g (Marca: Molto) — $120.00
+
+¿Querés que te agregue alguno de estos ingredientes al pedido?
+2025-11-03 23:53:03 - De 5491157017262: eso solo
+2025-11-03 23:53:06 - Bot: ¡Hola! ¿En qué puedo ayudarte hoy? ¿Tienes alguna pregunta sobre nuestros productos o quizás quieres que te ayude con un pedido?

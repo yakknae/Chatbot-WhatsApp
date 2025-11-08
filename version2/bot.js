@@ -14,7 +14,7 @@ const client = new Client({
   }),
   //sesion de whatsapp web invisible:
   puppeteer: {
-    headless: false,
+    headless: true,
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
     executablePath: "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
   },

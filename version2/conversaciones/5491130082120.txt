@@ -225,3 +225,25 @@ Me indicas cual de estos productos querés agregar a tu pedido? 😊
 2025-10-29 20:24:17 - De 5491130082120: Carlos
 Hhhh
 2025-10-29 20:24:18 - Bot: Gracias 🙌 Tu pedido fue confirmado correctamente y ya está en camino
+2025-11-05 18:32:53 - De 5491130082120: Hola
+2025-11-05 18:32:55 - Bot: ¡Hola! Qué bueno que te acercaste. ¿En qué puedo ayudarte hoy? ¿Buscas algo en particular o necesitas alguna información sobre nuestros productos? 😊
+2025-11-05 18:33:08 - De 5491130082120: Quiero coca cola
+2025-11-05 18:33:09 - Bot: Tenemos estos productos disponibles:
+
+• Coca-Cola 2.25L ... $650.00
+
+Me indicas cual de estos productos querés agregar a tu pedido? 😊
+2025-11-05 18:33:14 - De 5491130082120: Si dame 5
+2025-11-05 18:33:16 - Bot: ¡Claro que sí! Te puedo dar información sobre 5 productos que tenemos disponibles. ¿Te gustaría saber más sobre las frutas y verduras de temporada, nuestros productos de panadería, los lácteos, los productos de limpieza o los snacks? 😊
+2025-11-05 18:33:27 - De 5491130082120: Mostrame el carrito
+2025-11-05 18:33:29 - Bot: Parece que todavía no tenés productos en tu pedido.
+2025-11-05 18:33:39 - De 5491130082120: Quiero coca cola
+2025-11-05 18:33:41 - Bot: Tenemos estos productos disponibles:
+
+• Coca-Cola 2.25L ... $650.00
+
+Me indicas cual de estos productos querés agregar a tu pedido? 😊
+2025-11-05 18:33:57 - De 5491130082120: Agrégame 3
+2025-11-05 18:33:59 - Bot: ¡Por supuesto! Añadamos 3 más a tu lista. ¿Qué te parecería si hablamos de nuestros productos de carne y pescado, los conservas y salsas, y los productos de desayuno? 😊 ¿Hay alguno de esos que te interese especialmente?
+2025-11-05 18:34:11 - De 5491130082120: Mostrame el carrito
+2025-11-05 18:34:13 - Bot: Parece que todavía no tenés productos en tu pedido.

@@ -173,3 +173,67 @@ Me indicas cual de estos productos querés agregar a tu pedido? 😊
 2025-10-29 20:22:41 - Bot: Perfecto 👍 Ya registré tu pedido. Por favor decime tu *nombre completo* y *dirección de entrega* para enviarlo al encargado.
 2025-10-29 20:22:45 - De 5491125123781: Mariano, pepe
 2025-10-29 20:22:46 - Bot: Gracias 🙌 Tu pedido fue confirmado correctamente y ya está en camino
+2025-11-05 18:33:01 - De 5491125123781: Hola
+2025-11-05 18:33:02 - Bot: ¡Hola! ¿En qué puedo ayudarte hoy? ¿Buscas algo en particular o simplemente echando un vistazo?
+2025-11-05 18:33:32 - De 5491125123781: Hola, cómo estás?
+2025-11-05 18:33:34 - Bot: ¡Hola! Todo bien, gracias por preguntar. Espero que tú también estés teniendo un buen día. ¿Hay algo que te interese de nuestro supermercado o quizás necesitas ayuda para encontrar algo? 😊
+2025-11-05 18:33:44 - De 5491125123781: Tenés leche?
+2025-11-05 18:33:45 - Bot: Tenemos estos productos disponibles:
+
+- Leche Chocolatada Ilolay 1L — $300.00
+- Leche Chocolatada La Serenísima 1L — $190.00
+- Leche Descremada La Serenísima 1L — $175.00
+- Leche en Polvo Descremada 400g — $540.00
+- Leche en Polvo Entera 400g — $550.00
+- Leche en polvo La Serenísima 400g — $420.00
+- Leche Entera La Serenísima 1L — $180.00
+- Leche Ilolay UAT 1L — $270.00
+- Leche Infantil La Serenísima 1L — $220.00
+- Leche Orgánica 1L — $210.00
+- Leche Parcialmente Descremada La Serenísima 1L — $178.00
+- Leche UAT Sin Lactosa 1L — $190.00
+
+¿Querés agregar alguno de esos productos a tu pedido?
+2025-11-05 18:34:01 - De 5491125123781: Genial! Quiero 2 leche chocolatada ilolay
+2025-11-05 18:34:02 - Bot: Tenemos estos productos disponibles:
+
+• Leche Chocolatada Ilolay 1L ... $300.00
+• Leche Chocolatada La Serenísima 1L ... $190.00
+• Leche Descremada La Serenísima 1L ... $175.00
+• Leche en Polvo Descremada 400g ... $540.00
+• Leche en Polvo Entera 400g ... $550.00
+• Leche en polvo La Serenísima 400g ... $420.00
+• Leche Entera La Serenísima 1L ... $180.00
+• Leche Ilolay UAT 1L ... $270.00
+• Leche Infantil La Serenísima 1L ... $220.00
+• Leche Orgánica 1L ... $210.00
+• Leche Parcialmente Descremada La Serenísima 1L ... $178.00
+• Leche UAT Sin Lactosa 1L ... $190.00
+
+Me indicas cual de estos productos querés agregar a tu pedido? 😊
+2025-11-05 18:34:29 - De 5491125123781: Agrégame 2 leche chocolatada ilolay
+2025-11-05 18:34:30 - Bot: Tenemos estos productos disponibles:
+
+• Leche Chocolatada Ilolay 1L ... $300.00
+• Leche Chocolatada La Serenísima 1L ... $190.00
+• Leche Descremada La Serenísima 1L ... $175.00
+• Leche en Polvo Descremada 400g ... $540.00
+• Leche en Polvo Entera 400g ... $550.00
+• Leche en polvo La Serenísima 400g ... $420.00
+• Leche Entera La Serenísima 1L ... $180.00
+• Leche Ilolay UAT 1L ... $270.00
+• Leche Infantil La Serenísima 1L ... $220.00
+• Leche Orgánica 1L ... $210.00
+• Leche Parcialmente Descremada La Serenísima 1L ... $178.00
+• Leche UAT Sin Lactosa 1L ... $190.00
+
+Me indicas cual de estos productos querés agregar a tu pedido? 😊
+2025-11-05 18:34:40 - De 5491125123781: Agregar leche chocolatada
+2025-11-05 18:34:41 - Bot: Agregué 1 Leche Chocolatada Ilolay 1L al pedido. (Total: $300.00)
+2025-11-05 18:34:53 - De 5491125123781: Ver carrito
+2025-11-05 18:34:55 - Bot: Actualmente tu pedido tiene:
+
+Leche Chocolatada Ilolay 1L $300.00(1) : $300.00
+
+🧾 Total: $300.00
+¿Querés agregar algo más o cerrar el pedido?

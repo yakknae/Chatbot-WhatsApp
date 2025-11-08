@@ -21,3 +21,48 @@ Me indicas cual de estos productos querés agregar a tu pedido? 😊
 Me indicas cual de estos productos querés agregar a tu pedido? 😊
 2025-10-29 19:55:31 - De 5493435052383: No gracias, quiero una pizza
 2025-10-29 19:55:33 - Bot: No tenemos disponibles los ingredientes típicos para 'No gracias, quiero una pizza'.
+2025-11-05 18:33:02 - De 5493435052383: Hola
+2025-11-05 18:33:04 - Bot: ¡Hola! ¡Qué bueno que llegaste! ¿En qué puedo ayudarte hoy? ¿Tienes alguna pregunta sobre nuestros productos o quizás quieres hacer un pedido? 😊
+2025-11-05 18:33:16 - De 5493435052383: Estaba buscando leche
+2025-11-05 18:33:17 - Bot: Tenemos estos productos disponibles:
+
+- Leche Chocolatada Ilolay 1L — $300.00
+- Leche Chocolatada La Serenísima 1L — $190.00
+- Leche Descremada La Serenísima 1L — $175.00
+- Leche en Polvo Descremada 400g — $540.00
+- Leche en Polvo Entera 400g — $550.00
+- Leche en polvo La Serenísima 400g — $420.00
+- Leche Entera La Serenísima 1L — $180.00
+- Leche Ilolay UAT 1L — $270.00
+- Leche Infantil La Serenísima 1L — $220.00
+- Leche Orgánica 1L — $210.00
+- Leche Parcialmente Descremada La Serenísima 1L — $178.00
+- Leche UAT Sin Lactosa 1L — $190.00
+
+¿Querés agregar alguno de esos productos a tu pedido?
+2025-11-05 18:33:42 - De 5493435052383: Agregame una leche chocolatada ilolay
+2025-11-05 18:33:44 - Bot: Agregué 1 Leche Chocolatada Ilolay 1L al pedido. (Total: $300.00)
+2025-11-05 18:34:09 - De 5493435052383: Sacame del carrito esa leche
+2025-11-05 18:34:10 - Bot: Tenemos estos productos disponibles:
+
+- Leche Chocolatada Ilolay 1L — $300.00
+- Leche Chocolatada La Serenísima 1L — $190.00
+- Leche Descremada La Serenísima 1L — $175.00
+- Leche en Polvo Descremada 400g — $540.00
+- Leche en Polvo Entera 400g — $550.00
+- Leche en polvo La Serenísima 400g — $420.00
+- Leche Entera La Serenísima 1L — $180.00
+- Leche Ilolay UAT 1L — $270.00
+- Leche Infantil La Serenísima 1L — $220.00
+- Leche Orgánica 1L — $210.00
+- Leche Parcialmente Descremada La Serenísima 1L — $178.00
+- Leche UAT Sin Lactosa 1L — $190.00
+
+¿Querés agregar alguno de esos productos a tu pedido?
+2025-11-05 18:34:19 - De 5493435052383: Ver carrito
+2025-11-05 18:34:21 - Bot: Actualmente tu pedido tiene:
+
+Leche Chocolatada Ilolay 1L $300.00(1) : $300.00
+
+🧾 Total: $300.00
+¿Querés agregar algo más o cerrar el pedido?

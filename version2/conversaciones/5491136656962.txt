@@ -1,0 +1,172 @@
+2025-11-05 17:41:43 - De 5491136656962: hola
+2025-11-05 17:41:58 - Bot: ¡Hola! ¿En qué puedo ayudarte hoy? ¿Estás buscando algo en particular o simplemente mirando un poco? 😊
+2025-11-05 17:42:05 - De 5491136656962: tenes aceites
+2025-11-05 17:42:06 - Bot: Tenemos estos productos disponibles:
+
+• Aceite de Girasol Natura ... $130.00
+• Aceite de Girasol Natura 1L ... $320.00
+• Aceite Lira Girasol 1L ... $310.00
+
+Me indicas cual de estos productos querés agregar a tu pedido? 😊
+2025-11-05 17:42:16 - De 5491136656962: agregame un aceite de girasol
+2025-11-05 17:42:18 - Bot: Agregué 1 Aceite de Girasol Natura 1L al pedido. (Total: $320.00)
+2025-11-05 17:42:24 - De 5491136656962: ver carrito
+2025-11-05 17:42:27 - Bot: Actualmente tu pedido tiene:
+
+Aceite de Girasol Natura 1L $320.00(1) : $320.00
+
+🧾 Total: $320.00
+¿Querés agregar algo más o cerrar el pedido?
+2025-11-05 17:42:33 - De 5491136656962: tenes chocolate
+2025-11-05 17:42:35 - Bot: Tenemos estos productos disponibles:
+
+• Alfajor Terrabusi Triple Chocolate ... $160.00
+• Barra Cereal Chocolate 25g ... $110.00
+• Barra Terrabusi Chocolate y Maní ... $145.00
+• Galletitas Avena y Chocolate 250g ... $215.00
+• Natilla Arcor Chocolate 170g ... $330.00
+• Postre Clásico Vainilla-Chocolate 120g ... $130.00
+• Postre Familiar Chocolate 500g ... $250.00
+• Wafers Terrabusi Chocolate 120g ... $190.00
+
+Me indicas cual de estos productos querés agregar a tu pedido? 😊
+2025-11-05 17:42:51 - De 5491136656962: agregame 2 natillas arcor y 2 Terrabusi Triple
+2025-11-05 17:42:53 - Bot: Tenemos estos productos disponibles:
+
+• Alfajor Terrabusi Blanco ... $155.00
+• Alfajor Terrabusi Clásico ... $150.00
+• Alfajor Terrabusi Mini Pack x6 ... $400.00
+• Alfajor Terrabusi Triple Chocolate ... $160.00
+• Alfajor Tita Terrabusi Doble 55g ... $110.00
+• Barra Cereal Chocolate 25g ... $110.00
+• Barra Cereal Frutos Rojos 25g ... $110.00
+• Barra Terrabusi Chocolate y Maní ... $145.00
+• Barra Terrabusi Mix Frutas ... $150.00
+• Bizcochitos de Salvado 200g ... $195.00
+• Bizcochitos Dulces 200g ... $195.00
+• Bizcochitos Terrabusi 200g ... $190.00
+• Budín Terrabusi Frutas 220g ... $255.00
+• Budín Terrabusi Marmolado 220g ... $255.00
+• Budín Terrabusi Vainilla 220g ... $250.00
+• Chocolatina Mini Rhodesia x4 ... $220.00
+• Chocolatina Mini Tita x4 ... $220.00
+• Chocolatina Terrabusi Almendras ... $140.00
+• Chocolatina Terrabusi Cereal ... $140.00
+• Chocolatina Terrabusi Clásica ... $130.00
+• Chocolinas XL 300g ... $240.00
+• Chocotorta Pack ... $400.00
+• Cookies Terrabusi Chips 250g ... $260.00
+• Cookies Terrabusi Rellenas 250g ... $270.00
+• Galletitas Anillos Terrabusi 120g ... $170.00
+• Galletitas Avena y Chocolate 250g ... $215.00
+• Galletitas Avena y Miel 250g ... $210.00
+• Galletitas Chocolinas Terrabusi 150g ... $180.00
+• Galletitas Express Terrabusi 130g ... $160.00
+• Galletitas Frutigran Terrabusi 250g ... $220.00
+• Galletitas Lincoln Terrabusi 200g ... $175.00
+• Galletitas Mini Lincoln 100g ... $150.00
+• Galletitas Rhodesia Terrabusi 35g ... $90.00
+• Galletitas Sonrisas Terrabusi 150g ... $185.00
+• Galletitas Terrabusi Kids 120g ... $170.00
+• Galletitas Tita Terrabusi 35g ... $90.00
+• Galletitas Variedad Terrabusi 300g ... $200.00
+• Lincoln XL 300g ... $230.00
+• Mix Golosinas Terrabusi ... $320.00
+• Pack Escolar Terrabusi ... $380.00
+• Pack Merienda Terrabusi ... $400.00
+• Rhodesia XL 80g ... $170.00
+• Snack Galletitas Saladas 150g ... $180.00
+• Terrabusi Dulce de Leche 400g ... $270.00
+• Terrabusi Mix Familiar ... $290.00
+• Tita XL 80g ... $170.00
+• Turrón de Arroz Terrabusi ... $80.00
+• Turrón Terrabusi 20g ... $75.00
+• Wafers Terrabusi Chocolate 120g ... $190.00
+• Wafers Terrabusi Vainilla 120g ... $190.00
+
+Me indicas cual de estos productos querés agregar a tu pedido? 😊
+2025-11-05 17:43:00 - De 5491136656962: agregame 2 natillas arcor
+2025-11-05 17:43:03 - Bot: No tenemos disponibles los ingredientes típicos para 'agregame 2 natillas arcor'.
+2025-11-05 17:43:21 - De 5491136656962: agregame 2 Natilla Arcor Chocolate
+2025-11-05 17:43:23 - Bot: Agregué 2 Natilla Arcor Chocolate 170g al pedido. (Total: $980.00)
+2025-11-05 17:43:29 - De 5491136656962: ver carrito
+2025-11-05 17:43:31 - Bot: Actualmente tu pedido tiene:
+
+Aceite de Girasol Natura 1L $320.00(1) : $320.00
+Natilla Arcor Chocolate 170g $330.00(2) : $660.00
+
+🧾 Total: $980.00
+¿Querés agregar algo más o cerrar el pedido?
+2025-11-05 17:43:43 - De 5491136656962: elimina el aceite de girasol
+2025-11-05 17:43:44 - Bot: Tenemos estos productos disponibles:
+
+- Aceite de Girasol Natura — $130.00
+- Aceite de Girasol Natura 1L — $320.00
+- Aceite Lira Girasol 1L — $310.00
+
+¿Querés agregar alguno de esos productos a tu pedido?
+2025-11-05 17:44:16 - De 5491136656962: quitar Aceite de Girasol Natura
+2025-11-05 17:44:17 - Bot: Tenemos estos productos disponibles:
+
+- Aceite de Girasol Natura — $130.00
+- Aceite de Girasol Natura 1L — $320.00
+- Aceite Lira Girasol 1L — $310.00
+
+¿Querés agregar alguno de esos productos a tu pedido?
+2025-11-05 17:45:12 - De 5491136656962: Hola como estas
+2025-11-05 17:45:16 - Bot: ¡Hola! ¡Muy bien, gracias por preguntar! Espero que tú también estés teniendo un buen día. ¿Hay algo que te interese que veamos juntos o quizás solo estás pasando? 😊
+2025-11-05 17:45:22 - De 5491136656962: que leches tenes
+2025-11-05 17:45:23 - Bot: Tenemos estos productos disponibles:
+
+- Leche Chocolatada Ilolay 1L — $300.00
+- Leche Chocolatada La Serenísima 1L — $190.00
+- Leche Descremada La Serenísima 1L — $175.00
+- Leche en Polvo Descremada 400g — $540.00
+- Leche en Polvo Entera 400g — $550.00
+- Leche en polvo La Serenísima 400g — $420.00
+- Leche Entera La Serenísima 1L — $180.00
+- Leche Ilolay UAT 1L — $270.00
+- Leche Infantil La Serenísima 1L — $220.00
+- Leche Orgánica 1L — $210.00
+- Leche Parcialmente Descremada La Serenísima 1L — $178.00
+- Leche UAT Sin Lactosa 1L — $190.00
+
+¿Querés agregar alguno de esos productos a tu pedido?
+2025-11-05 17:45:45 - De 5491136656962: agregame 2 leche chocolatada ilolay
+2025-11-05 17:45:48 - Bot: Agregué 2 Leche Chocolatada Ilolay 1L al pedido. (Total: $1580.00)
+2025-11-05 17:45:53 - De 5491136656962: ver carrito
+2025-11-05 17:45:55 - Bot: Actualmente tu pedido tiene:
+
+Aceite de Girasol Natura 1L $320.00(1) : $320.00
+Natilla Arcor Chocolate 170g $330.00(2) : $660.00
+Leche Chocolatada Ilolay 1L $300.00(2) : $600.00
+
+🧾 Total: $1580.00
+¿Querés agregar algo más o cerrar el pedido?
+2025-11-05 17:46:00 - De 5491136656962: quiero hacer una ensalada
+2025-11-05 17:46:04 - Bot: ¡Qué buena idea! Las ensaladas son súper refrescantes. ¿Qué ingredientes te gustaría incluir para hacerla? ¿Quizás lechuga, tomate, pepino...? ¡Dime qué te apetece y te puedo ayudar a pensar en lo que podríamos tener! 😊
+2025-11-05 17:46:35 - De 5491136656962: agregame 2 tomates
+2025-11-05 17:46:37 - Bot: Tenemos estos productos disponibles:
+
+• Tomate ... $158.35
+• Tomates Perita Molto 400g ... $140.00
+
+Me indicas cual de estos productos querés agregar a tu pedido? 😊
+2025-11-05 17:46:50 - De 5491136656962: agregame 3 Tomates Perita Molto 400g
+2025-11-05 17:46:53 - Bot: Agregué 3 Tomates Perita Molto 400g al pedido. (Total: $2000.00)
+2025-11-05 17:46:56 - De 5491136656962: ver carrito
+2025-11-05 17:46:58 - Bot: Actualmente tu pedido tiene:
+
+Aceite de Girasol Natura 1L $320.00(1) : $320.00
+Natilla Arcor Chocolate 170g $330.00(2) : $660.00
+Leche Chocolatada Ilolay 1L $300.00(2) : $600.00
+Tomates Perita Molto 400g $140.00(3) : $420.00
+
+🧾 Total: $2000.00
+¿Querés agregar algo más o cerrar el pedido?
+2025-11-05 17:47:09 - De 5491136656962: finalizar pedido
+2025-11-05 17:47:12 - Bot: Perfecto 👍 Ya registré tu pedido. Por favor decime tu *nombre completo* y *dirección de entrega* para enviarlo al encargado.
+2025-11-05 17:47:25 - De 5491136656962: valentino, av papas23
+2025-11-05 17:47:27 - Bot: ¿Querés que te agregue valentino al pedido?
+2025-11-05 17:47:35 - De 5491136656962: si
+2025-11-05 17:47:37 - Bot: Gracias 🙌 Tu pedido fue confirmado correctamente y ya está en camino
