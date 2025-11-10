@@ -9,7 +9,7 @@ Asistente virtual inteligente que permite a los clientes consultar productos, ar
 - **Python 3.10+**
 - **Node.js 18+** (para `whatsapp-web.js`)
 - **MySQL 8.0+** (o MariaDB)
-- **Ollama** (con un modelo como `gemma3:latest`, `llama3`, etc.)
+- **Ollama** (con el modelo `gemma3:latest`)
 - **Google Chrome** (requerido por Puppeteer en `whatsapp-web.js`)
 
 ---
@@ -27,6 +27,25 @@ cd Chatbot-WhatsApp
 
 > executablePath: "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
 
+### 3. Instalacion del modelo gemma3:latest (Ollama)
+
+> ollama pull gemma3
+
+- Para verificar si ya tenes el modelo
+
+> ollama list
+
+### 4. Crear modelos personalizados (Prompts enbebidos)
+
+1. Abrir un cmd
+2. Moverse a la carpeta prompts_finales/
+3. Pegar los comandos en la consola
+
+- Modelo input:
+  > ollama create gemma3_input:latest -f Modelfile-input
+- Modelo output:
+  > ollama create gemma3_output:latest -f Modelfile-output
+
 ## Instructivo para hacer andar el Chatbot-Ollama
 
 Opcion 1:
@@ -35,8 +54,6 @@ Ejecutar el script .bat
 > start.bat
 
 - Este script realiza la descarga de dependencias (del requirements.txt), inicia el servidor FastAPI en el puerto 8000, ejecuta WhatsApp Web a través de una librería de Node en el puerto 3000 y levanta el servicio de Ollama para que la IA esté disponible.
-
-Opción 2:
 
 ## Instala las dependencias:
 
@@ -59,11 +76,9 @@ Database credentials
 > MYSQL_PASSWORD=""
 > MYSQL_DATABASE=""
 > MYSQL_PORT=""
-
+```
 
 ## Project Structure
-
-```
 
 ```
 version1/
@@ -74,8 +89,8 @@ version1/
 │ ├── crud.py
 │ ├── database.py
 │ ├── main.py
-│ ├── schemas.py
-│ └── twilio_client.py
+│ └── schemas.py
+│
 ├── prompts/
 │ ├── prompt_input.txt
 │ └── prompt_output.txt
@@ -86,6 +101,7 @@ version1/
 ├── .gitattributes
 ├── .gitignore
 ├── README.md
+├── bot.js
 ├── requirements.txt
 └── start.bat
 
