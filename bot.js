@@ -12,17 +12,17 @@ const client = new Client({
     dataPath: "C:\\SESION-WSP",
     clientId: "main",
   }),
-  // sesion de whatsapp web invisible:
-  // puppeteer: {
-  // 	headless: true,
-  // 	args: ['--no-sandbox', '--disable-setuid-sandbox', '--headless=new'],
-  // 	executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
-  // },
+  //sesion de whatsapp web invisible:
   puppeteer: {
-    headless: false,
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    headless: true,
+    args: ["--no-sandbox", "--disable-setuid-sandbox", "--headless=new"],
     executablePath: "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
   },
+  // puppeteer: {
+  // 	headless: false,
+  // 	args: ['--no-sandbox', '--disable-setuid-sandbox'],
+  // 	executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+  // },
 });
 
 // --- utilidades ---
@@ -60,31 +60,34 @@ client.on("ready", async () => {
   }
 
   try {
-    const numero = "5491136656962";
-    let chatId = null;
-
-    const numberId = await client.getNumberId(numero).catch(() => null);
-    chatId = numberId ? numberId._serialized : `${numero}@c.us`;
-    console.log("📤 Chat ID seleccionado:", chatId);
-
+    // MANDAR UN MENSAJE A OTRO TELEFONO (comentado para pruebas)
+    // const numero = '54911XXXXXXXX';
+    // let chatId = null;
+    // const numberId = await client.getNumberId(numero).catch(() => null);
+    // chatId = numberId ? numberId._serialized : `${numero}@c.us`;
+    // console.log('📤 Chat ID seleccionado:', chatId);
     // await client.sendMessage(chatId, 'hola amigo, este es un mensaje de prueba 😎');
     // console.log('📤 Mensaje enviado a', chatId);
   } catch (e) {
-    console.error("❌ Error al enviar mensaje:", e);
+    console.error("Error al enviar mensaje:", e);
   }
 });
 
 // --- enviar mensajes reales a FastAPI ---
 client.on("message", async (msg) => {
   try {
-    const fromNumber = msg.from.replace("@c.us", "");
+    // Obtener info del contacto (nombre y número)
+    const contact = await msg.getContact();
+    const fromNumber = contact.number; // número limpio, sin @c.us
+    const nombreCliente = contact.pushname || contact.name || `Cliente ${fromNumber}`;
     const body = msg.body;
 
-    console.log(`📩 Mensaje de ${fromNumber}: ${body}`);
+    console.log(`📩 Mensaje de ${nombreCliente} (${fromNumber}): ${body}`);
 
+    // Enviar al backend con nombre incluido
     const response = await axios.post(
       "http://localhost:8000/process-message",
-      { from: fromNumber, body },
+      { from: fromNumber, body, nombre: nombreCliente },
       { headers: { Authorization: `Bearer ${ACCESS_TOKEN}` } }
     );
 
@@ -94,10 +97,10 @@ client.on("message", async (msg) => {
       console.log(`✅ Respuesta enviada: ${reply}`);
     } else {
       console.log("⚠️ Respuesta inválida del endpoint:", response.data);
-      await client.sendMessage(msg.from, "Lo siento, no pude procesar tu mensaje.");
+      //await client.sendMessage(msg.from, " ");
     }
   } catch (err) {
-    console.error("❌ Error procesando mensaje:", err.message);
+    console.error("Error procesando mensaje:", err.message);
     await client.sendMessage(msg.from, "Lo siento, ocurrió un error al procesar tu mensaje.");
   }
 });
@@ -108,10 +111,33 @@ process.on("SIGINT", async () => {
   try {
     await client.destroy();
   } catch (e) {
-    console.warn("⚠️ Error al cerrar:", e.message);
+    console.warn("Error al cerrar:", e.message);
   }
   process.exit(0);
 });
 
 // --- iniciar cliente ---
 client.initialize();
+
+// ==================================================
+// Servidor Express para recibir pedidos desde Python
+// ==================================================
+const express = require("express");
+const app = express();
+app.use(express.json());
+
+// Endpoint para recibir el pedido final desde FastAPI
+app.post("/enviar-mensaje", async (req, res) => {
+  const { numero, mensaje } = req.body;
+  try {
+    const chatId = `${numero}@c.us`;
+    await client.sendMessage(chatId, mensaje);
+    console.log("📤 Pedido enviado correctamente al número del encargado.");
+    res.send({ status: "ok" });
+  } catch (error) {
+    console.error("Error al enviar mensaje:", error);
+    res.status(500).send({ error: "Fallo al enviar mensaje" });
+  }
+});
+
+app.listen(3000, () => console.log("🟢 Servidor Express escuchando en puerto 3000"));

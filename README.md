@@ -1,55 +1,74 @@
-#  Asistente virtual de supermercado
+# Asistente virtual de supermercado
 
 Asistente virtual inteligente que permite a los clientes consultar productos, armar pedidos y recibir asistencia vía WhatsApp, usando IA local (Ollama) y base de datos MySQL.
 
 ---
 
-##  Requisitos
+## Requisitos
 
 - **Python 3.10+**
+- **Node.js 18+** (para `whatsapp-web.js`)
 - **MySQL 8.0+** (o MariaDB)
-- **Ollama** (con modelo como `gemma3:latest`)
-- **Ngrok** (para exponer el servidor local)
-- **Cuenta de Twilio** (con WhatsApp Sandbox activado)
+- **Ollama** (con el modelo `gemma3:latest`)
+- **Google Chrome** (requerido por Puppeteer en `whatsapp-web.js`)
 
 ---
 
-##  Instalación
+## Instalación
 
 ### 1. Clonar el repositorio
+
 ```bash
 git clone https://github.com/tu-usuario/Chatbot-WhatsApp.git
 cd Chatbot-WhatsApp
 ```
 
+### 2. Cambiar ruta del Chrome por tu ubicación
+
+> executablePath: "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
+
+### 3. Instalacion del modelo gemma3:latest (Ollama)
+
+> ollama pull gemma3
+
+- Para verificar si ya tenes el modelo
+
+> ollama list
+
+### 4. Crear modelos personalizados (Prompts enbebidos)
+
+1. Abrir un cmd
+2. Moverse a la carpeta prompts_finales/
+3. Pegar los comandos en la consola
+
+- Modelo input:
+  > ollama create gemma3_input:latest -f Modelfile-input
+- Modelo output:
+  > ollama create gemma3_output:latest -f Modelfile-output
+
 ## Instructivo para hacer andar el Chatbot-Ollama
 
 Opcion 1:
 Ejecutar el script .bat
-> start.bat
-- Este script instala dependencias, inicia el servidor FastAPI en el puerto 8000, lanza Ngrok automáticamente y levanta el servicio de Ollama para que la IA esté disponible.
 
-Opción 2:
+> start.bat
+
+- Este script realiza la descarga de dependencias (del requirements.txt), inicia el servidor FastAPI en el puerto 8000, ejecuta WhatsApp Web a través de una librería de Node en el puerto 3000 y levanta el servicio de Ollama para que la IA esté disponible.
 
 ## Instala las dependencias:
+
 > pip install -r requirements.txt
 
 ## Levanta el servidor FastAPI:
+
 > uvicorn app.main:app --reload --port 8000
 
-## Levanta el servidor con Ngrok (en un cmd):
-> ngrok http 8000
-- "Copia la URL pública que Ngrok genera (ej: https://abc123.ngrok.io)."
+## Levanta el servidor Node:
 
-## Configura Twilio:
-Ve a Twilio Console > WhatsApp > Sandbox
-Escanea el QR para unirte al sandbox
-Envía el mensaje de activación que te indique Twilio (ej: join explain-neighbor)
-Configura el webhook con tu URL de Ngrok:
-"https://abc123.ngrok.io/webhook"
-- "Importante: Asegúrate de haber configurado tu archivo .env y tu base de datos antes de iniciar." 
+> node bot.js
 
 ## Enviroments credentials
+
 ```
 Database credentials
 > MYSQL_HOST=""
@@ -57,38 +76,33 @@ Database credentials
 > MYSQL_PASSWORD=""
 > MYSQL_DATABASE=""
 > MYSQL_PORT=""
-
-Twilio credentials
-> From=
-> Body=
-> TWILIO_ACCOUNT_SID=
-> TWILIO_AUTH_TOKEN=
-> TWILIO_WHATSAPP_NUMBER=whatsapp:+14155238886
-> ACCESS_TOKEN=
 ```
 
 ## Project Structure
+
 ```
-Chatbot-WhatsApp/
+version1/
 ├── app/
-│   ├── __init__.py
-│   ├── endpoints/
-│   │   └── endpoints.py       
-│   ├── crud.py                
-│   ├── database.py            
-│   ├── main.py                
-│   ├── schemas.py            
-│   └── twilio_client.py       
-├── prompts/
-│   ├── prompt_input.txt      
-│   └── prompt_output.txt    
-├── conversaciones/           
+│ ├── **init**.py
+│ ├── endpoints/
+│ │ └── endpoints.py
+│ ├── crud.py
+│ ├── database.py
+│ ├── main.py
+│ └── schemas.py
+│
+├── prompts_finales/
+│ ├── Modelfile-input
+│ └── Modelfile-output
+├── conversaciones/
 ├── script/
 ├── test/
-├── .env                     
+├── .env
 ├── .gitattributes
-├── .gitignore                         
+├── .gitignore
 ├── README.md
-├── requirements.txt          
-└── start.bat                               
+├── bot.js
+├── requirements.txt
+└── start.bat
+
 ```
